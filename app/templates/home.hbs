@@ -1,0 +1,428 @@
+<header class="masthead text-center text-white">
+
+  <br />
+  <br />
+  <br />
+
+  <section style="padding: 1rem 0;margin-top: 11%;">
+    <div class="container-fluid my-auto">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 mx-auto">
+          <h1 class="text">
+            <strong>Seu novo jeito de organizar viagens!</strong>
+          </h1>
+        </div>
+        <div class="col-lg-12 mx-auto">
+          <h4 class="text-faded mb-5">Peça sua viagem e só se preocupe com
+            fazer as malas!</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- style="display: none;" -->
+  
+  {{#if continue}}
+    <div id="content1" class="container-fluid my-auto">
+
+      <div class="row" style="padding-left:4%; padding-top: 1%;">
+
+        <div class="col-lg-1 col-md-12"style="text-align: left;"></div>
+
+        <div class="col-lg-4 col-md-12"style="text-align: left;">
+          <span class="icon-placeholder icon-medium"></span>
+          <p>Para onde você quer viajar? </p>
+
+          <input id="city1" placeholder="Ex: Berlim, Paris, Fortaleza, Dublin"
+            style="border: 1px solid #fff;height: 60px;width:
+            80%;border-radius: 5px; padding: 5%;color: gray;" class="controls"
+            type="text" />
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-12"style="text-align: left;">
+          <span class="icon-coin icon-medium"></span>
+          <p>Quanto pretende pagar?</p>
+
+        <input id="ex1" data-slider-id='ex1Slider1' width="80%;"
+            style="padding-top: 3%;" type="text" data-slider-min="0"
+            data-slider-max="20000" data-slider-step="1"
+            data-slider-value="14" />   
+
+          <div style="width: 80%; padding-top: 2%;">
+            <p style="text-align: left;width: 50%;float: left">R$0</p>
+            <p style="text-align: right;width: 50%;float: right;">R$20.000</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-12 text-center" style="text-align: left;">
+          <a class="btnTransparent btn border-white btn-xl sr-button" style=""
+            href="#" {{action "continue"}}> CONTINUAR</a>
+
+        </div>
+      </div>
+    </div>
+  {{/if}}
+
+  {{#unless continue}}
+
+    <div id="content2" style="display: none;" class="container-fluid my-auto">
+      <div class="row" style="padding-left:4%; padding-top: 1%;">
+
+        <div class="col-lg-3 col-md-12"style="text-align: left;">
+          <span class="icon-placeholder icon-medium"></span>
+
+          <a
+            href="#" {{action "continue"}}> <img class="seta"
+              style="" src="assets/img/home/Icones-coloridas/seta-slider.png" /> </a>
+          <p>Para onde você quer viajar? </p>
+
+          <input id="city2" placeholder="Ex: Berlim, Paris, Fortaleza, Dublin"
+            style="border: 1px solid #fff;height: 60px;width:
+            80%;border-radius: 5px; padding: 5%;color: gray;" class="controls"
+            type="text" />
+
+        </div>
+
+
+        <div class="col-lg-3 col-md-12"style="text-align: left;">
+          <span class="icon-coin icon-medium"></span>
+          <p>Quanto pretende pagar?</p>
+
+          <input id="ex2" data-slider-id='ex1Slider2' width="80%;"
+            style="padding-top: 3%;" type="text" data-slider-min="0"
+            data-slider-max="20000" data-slider-step="1"
+            data-slider-value="14" />
+          <div style="width: 80%; padding-top: 2%;">
+            <p style="text-align: left;width: 50%;float: left">R$0</p>
+            <p style="text-align: right;width: 50%;float: right;">R$20.000</p>
+          </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-12"style="text-align: left;">
+          <p style="margin-top: 10%;">O valor ao lado é: </p>
+
+          <ul>
+            <li>
+              <input type="radio" id="f-option" name="selector" checked>
+              <label for="f-option">Para todos</label>
+              <div class="check"></div>
+            </li>
+
+            <li>
+              <input type="radio" id="s-option" name="selector">
+              <label for="s-option">Por pessoa</label>
+
+              <div class="check"><div class="inside"></div></div>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="col-lg-3 col-md-12 text-center" style="margin-left: -5%;
+          text-align: left;">
+
+          <a class="btn border-white btn-xl btnGreen"style=""
+            href="#" onclick="Solicitacao.OpenPopupFormulario()"> CONTINUAR</a>
+        </div>
+      </div>
+    </div>
+
+  {{/unless}}
+
+</header>
+
+<section class="" style="background-color: #f3f3f3;padding-bottom:
+  5%;padding-top: 7%;" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mx-auto text-center">
+        <h2 class="section-heading" style="font-weight: 700; color:
+          #524040;">Os melhores pacotes</h2>
+
+
+        <section class="wrapper">
+          <div class="container-fostrap">
+
+            <div class="content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-4">
+                    <div class="card">
+                      <a class="img-card" href="#">
+                        <img
+                          src="https://static.pexels.com/photos/378570/pexels-photo-378570.jpeg"
+                          />
+                      </a>
+                      <div class="card-content">
+                        <h4 class="card-title">
+                          <a href="#"> NEW YORK
+                          </a>
+                        </h4>
+                        <p class="">
+                          FSDFSDF
+                        </p>
+                      </div>
+                      <div class="card-read-more">
+                        <div style="width: 30%; float: left;">
+                          <span class="icon-sun icon-medium"></span> <p>4
+                            diárias</p>
+                        </div>
+                        <div style="width: 30%; float: left;">
+                          <span class="icon-dinner icon-medium"></span> <p>All
+                            inclusive</p>
+                        </div>
+                        <div style="width: 40%; float: left;">
+                          <p>a partir de </p> <h5 style="color: green;
+                            font-size: 25px;
+                            font-weight: 700;">R$2000</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-4">
+                    <div class="card">
+                      <a class="img-card" href="#">
+                        <img
+                          src="https://static.pexels.com/photos/378570/pexels-photo-378570.jpeg"
+                          />
+                      </a>
+                      <div class="card-content">
+                        <h4 class="card-title">
+                          <a href="#"> NEW YORK
+                          </a>
+                        </h4>
+                        <p class="">
+                          FSDFSDF
+                        </p>
+                      </div>
+                      <div class="card-read-more">
+                        <div style="width: 30%; float: left;">
+                          <span class="icon-sun icon-medium"></span> <p>4
+                            diárias</p>
+                        </div>
+                        <div style="width: 30%; float: left;">
+                          <span class="icon-dinner icon-medium"></span> <p>All
+                            inclusive</p>
+                        </div>
+                        <div style="width: 40%; float: left;">
+                          <p>a partir de </p> <h5 style="color: green;
+                            font-size: 25px;
+                            font-weight: 700;">R$2000</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-4">
+                    <div class="card">
+                      <a class="img-card" href="#">
+                        <img
+                          src="https://static.pexels.com/photos/378570/pexels-photo-378570.jpeg"
+                          />
+                      </a>
+                      <div class="card-content">
+                        <h4 class="card-title">
+                          <a href="#"> NEW YORK
+                          </a>
+                        </h4>
+                        <p class="">
+                          FSDFSDF
+                        </p>
+                      </div>
+                      <div class="card-read-more">
+                        <div style="width: 30%; float: left;">
+                          <span class="icon-sun icon-medium"></span> <p>4
+                            diárias</p>
+                        </div>
+                        <div style="width: 30%; float: left;">
+                          <span class="icon-dinner icon-medium"></span> <p>All
+                            inclusive</p>
+                        </div>
+                        <div style="width: 40%; float: left;">
+                          <p>a partir de </p> <h5 style="color: green;
+                            font-size: 25px;
+                            font-weight: 700;">R$2000</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-12" style="display: block"
+                    style="margin: 0 auto;height: 100%;">
+
+                    <div class="" style="margin: 0 auto;height: 100%;width:
+                      40%; margin-top: 3%;
+                      width: 30%;">
+                      <span style="width: 8%;
+                        float: left;
+                        display: block;
+                        max-width: 50px;
+
+
+                        margin-left: 30%; border: 3px solid rgba(0,0,0,.1);">
+                      </span>
+                      <span style="width: 8%;
+                        float: left;
+                        display: block;
+                        max-width: 50px;
+
+
+                        margin-left: 5%; border: 3px solid rgba(0,0,0,.1);">
+                      </span>
+                      <span style="width: 8%;
+                        float: left;
+                        display: block;
+                        max-width: 50px;
+
+
+                        margin-left: 5%; border: 3px solid rgba(0,0,0,.1);">
+                      </span>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vantagens">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 style="color: #29749d;font-weight: 700;"
+          class="section-heading">Porque viajar com iuoff? </h2>
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <span style="color: #29749d;" class="icon-piggy-bank icon-big"></span>
+          <h4 class="mb-3" style="color: gray;">Economize! </h4>
+          <p class="text-muted mb-0">Você diz quanto quer pagar e ainda
+            ganha tempo no planejamento e aquisição da sua viagem.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <span style="color: #29749d;" class="icon-checklist icon-big"></span>
+          <h4 class="mb-3" style="color: gray;">Garanta a melhor proposta!</h4>
+          <p class="text-muted mb-0">Profissionais especializados em turismo
+            irão te oferecer as melhores propostas para a sua viagem.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <span style="color: #29749d;" class="icon-user icon-big"></span>
+          <h4 class="mb-3" style="color: gray;">Fique seguro!</h4>
+          <p class="text-muted mb-0">Tenha suporte profissional em todas as
+            fases da sua viagem, além de formas de pagamento diferenciadas.</p>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <a style="color: #29749d;border-radius: 15px; border: 3px solid
+            #29749d; background: white;" class="btn btn-light btn-xl
+            sr-button" href="#">SOLICITAR VIAGEM</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-0" id="portfolio">
+  <div class="container-fluid p-0">
+    <div class="row">
+
+      <div class="col-lg-6 col-md-12 text-center">
+
+        <img width="100%" height="100%" src="assets/img/home/imagem-parceiro.jpg"
+          class="custom-logo" alt="Parceiro" itemprop="logo"
+          srcset="assets/img/home/imagem-parceiro.jpg 768w" sizes="(max-width:
+          858px) 100vw, 858px">
+
+      </div>
+
+      <div class="col-lg-6 col-md-12 text-center">
+        <div class="service-box mt-5 mx-auto">
+
+          <a style="font-size: 20px;color: #6ebb52;border-radius: 5px;
+            border: none; background: #fcfdf2;" class="btn btn-light btn-xl
+            sr-button" href="/QueroSerParceiro.html">Seja um parceiro</a>
+          <br />
+          <br />
+
+          <p>
+
+            Você que possui uma agência de viagens, é um profissional do
+            setor de turismo, ou gostaria de se profissionalizar nessa área,
+            <strong>cadastre-se iremos potencializar a captação de clientes,
+              ampliar sua área de alcance e alavancar sua rentabilidade.
+            </strong>
+            <br />
+            <br />
+            <br />
+            <br />
+          </p>
+
+          <a style="margin-bottom: 5%; color: #6ebb52;border-radius: 15px;
+            border: 3px solid #6ebb52; background: white;" class="btn
+            btn-light btn-xl sr-button" href="/SejaUmParceiro.html">Saiba
+            mais</a>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-0" id="portfolio">
+  <div class="container-fluid p-0">
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12">
+
+        <img width="100%" height="100%"
+          src="/assets/img/home/imagem-oqtemdebom.jpg" class="custom-logo" alt="O
+          que tem de bom" itemprop="logo"
+          srcset="/assets/img/home/imagem-oqtemdebom.jpg 768w" sizes="(max-width:
+          1000x) 100vw, 858px">
+
+      </div>
+
+      <div class="container text-center">
+        <h1 class="mb-4">Encontre <strong>O Que Tem de Bom </strong> no
+          melhor </h1>
+        <h1>portal de Turismo do Brasil</h1>
+        <br />
+        <h3 class="text-muted mb-0">Opções de hospedagem, alimentação,
+          atrações, locais para compras, prestadores de serviços, eventos e
+          muito mais.</h3>
+        <br />
+        <br />
+        <a style="color: #fe845d;border-radius: 15px; border: 3px solid
+          #fe845d; background: white;" class="btn btn-light btn-xl
+          sr-button" href="#">Quero conhecer</a>
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
