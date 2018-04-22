@@ -1,0 +1,10 @@
+ .entrar input:not([type='checkbox']) 
+    {
+        border-radius: 10px;
+        height: 60px;
+        padding: 5%;
+        border: 2px solid #cac8c8;
+        font-style: italic;
+        font-size: 1.1em;
+        color: #757373;
+    }
