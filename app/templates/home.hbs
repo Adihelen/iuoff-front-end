@@ -124,8 +124,7 @@
         <div class="col-lg-3 col-md-12 text-center" style="margin-left: -5%;
           text-align: left;">
 
-          <a class="btn border-white btn-xl btnGreen"style=""
-            href="#" {{action "openModal"}}> CONTINUAR</a>
+          <a class="btn border-white btn-xl btnGreen" {{action "openModal"}}> CONTINUAR</a>
         </div>
       </div>
     </div>
@@ -426,3 +425,344 @@
     </div>
   </div>
 </section>
+{{!-- #TODO , refazer modal --}}
+<div class="modal" id="modal-oqtdb" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div style="" class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close">
+              <span style="font-size: 2.2em;
+                font-weight: 100;" aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+
+            <!-- required="" -->
+            <center>
+              <h3>
+                REFAZER MODAL DE SOLICITAÇÃO
+              </h3>
+            </center>
+           
+            <form class="demo-form hide" hidden>
+
+              <div class="form-section">
+
+                <h5 class="modal-title" id="exampleModalLabel">Preencha os
+                  campos e veja os melhores pacotes...</h5>
+
+
+                <section style="padding: 0;" class="cadastra-se-popup"
+                  id="portfolio">
+
+                  <div class="container-fluid">
+                    <div class="row">
+
+
+                      <form style="color: #414141;">
+
+
+                        <div class="col-lg-6 col-md-6 text-left" style="width:
+                          100%; margin-bottom: 3%; background: #f7f7f7;padding:
+                          5%;">
+                          <h5 style="color: #3b5999;">Cidade de origem </h5>
+                          <input style="width:100%;" placeholder="Insira uma
+                            cidade" />
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 text-left" style="width:
+                          100%; margin-bottom: 3%; background: #f7f7f7;padding:
+                          5%;">
+                          <h5 style="color: #3b5999;"> Período disponível para
+                            viajar</h5>
+
+                          <div class="input-group date" style="width: 49%;float:
+                            left">
+                            <input type="text" placeholder="De"
+                              class="form-control"><span
+                              class="input-group-addon"><i class="glyphicon
+                                glyphicon-calendar"></i></span>
+                          </div>
+
+
+                          <div class="input-group date" style="width: 49%;
+                            padding-left: 3%;">
+                            <input placeholder="Até" type="text"
+                              class="form-control"><span
+                              class="input-group-addon"><i class="glyphicon
+                                glyphicon-calendar"></i></span>
+                          </div>
+
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 text-left" style="width:
+                          50%; margin-bottom: 3%;padding: 5%;">
+
+                          <div style="width: 100%;">
+                            <h5 style="color: #3b5999; width: 40%;
+                              float: left;"> Quero ficar </h5>
+                            <p style="color: lightgray; width: 60%;
+                              float: left;font-style: italic;">Ex: De 05 a 10
+                              dias</p>
+                          </div>
+
+                          <div class="input-group date" style="width:80%;float:
+                            left"> <span style="margin-top: 3%;width: 20%;"> De</span>
+                            <input type="text" placeholder="00"
+                              class="form-control"><span
+                              class="input-group-addon"><i class="glyphicon
+                                glyphicon-calendar"></i></span>
+
+                            <span style="width: 20%;margin-top: 3%;padding-left:
+                              2%;"> a</span>
+                            <input placeholder="10" type="text"
+                              class="form-control"><span
+                              class="input-group-addon"><i class="glyphicon
+                                glyphicon-calendar"></i></span>
+
+                          </div>
+
+
+                          <span style="width: 20%;margin-top: 3%;padding-left:
+                            2%;"> dias </span>
+                        </div>
+
+
+                        <div class="col-lg-6 col-md-6 text-left" style="width:
+                          100%; margin-bottom: 3%; padding: 5%;">
+
+
+                          <div class="input-group" style="width: 50%;float:
+                            left"> <h5 style="color: #3b5999;width: 100%;">
+                              Quartos</h5>
+                            <input type="text" placeholder="1 quarto"
+                              class="form-control"><span
+                              class="input-group-addon"><i class="glyphicon
+                                glyphicon-calendar"></i></span>
+                          </div>
+
+
+                          <div class="input-group" style="width: 50%;
+                            padding-left: 3%;">
+                            <h5 style="color: #3b5999;width: 100%;"> Viajantes</h5>
+                            <input placeholder="1 pessoa" type="text"
+                              class="form-control"><span
+                              class="input-group-addon"><i class="glyphicon
+                                glyphicon-calendar"></i></span>
+                          </div>
+                        </div>
+
+
+                        <div class="col-lg-12 col-md-12 text-left" style="width:
+                          100%; margin-bottom: 3%;padding: 5%;">
+                          <h5 style="color: #3b5999;width: 100%;"> Incluir:</h5>
+                          <div class="button-group">
+                            <input id="checkbox1" type="checkbox">
+                            <label class="button" for="checkbox1">Hospedagem</label>
+                            <input id="checkbox2" type="checkbox">
+                            <label class="button" for="checkbox2">Passagens</label>
+                            <input id="checkbox3" type="checkbox">
+                            <label class="button" for="checkbox3">Traslados</label>
+                            <input id="checkbox4" type="checkbox">
+                            <label class="button" for="checkbox4">Passeios</label>
+                            <input id="checkbox5" type="checkbox">
+                            <label class="button" for="checkbox5">Aluguel de
+                              carro</label>
+                            <input id="checkbox6" type="checkbox">
+                            <label class="button" for="checkbox6">Ingressos</label>
+                          </div>
+
+
+                        </div>
+
+
+
+                      </form>
+
+                    </div>
+                  </div>
+                </section>
+
+
+              </div>
+
+              <div class="form-section">
+                <section style="padding: 0;" class="cadastra-se-popup two"
+                  id="portfolio">
+
+                  <div class="container-fluid">
+                    <div class="row">
+
+                      <div class="col-lg-12 col-md-12 text-left"
+                        style="margin-top: -10%;width: 100%; margin-bottom:
+                        3%;padding: 5%;">
+                        <form style="color: #414141;">
+                          <h5 style="color: #3b5999;width: 100%;"> Qual é o seu
+                            estilo de viagem?</h5>
+
+                          <div class="button-group">
+                            <input id="checkbox10" type="checkbox">
+                            <label class="button" for="checkbox10">Casal</label>
+                            <input id="checkbox20" type="checkbox">
+                            <label class="button" for="checkbox20">Econômico</label>
+                            <input id="checkbox30" type="checkbox">
+                            <label class="button" for="checkbox30">Família</label>
+                            <input id="checkbox40" type="checkbox">
+                            <label class="button" for="checkbox40">Conforto</label>
+                            <input id="checkbox50" type="checkbox">
+                            <label class="button" for="checkbox50">Amigos de
+                              carro</label>
+                            <input id="checkbox60" type="checkbox">
+                            <label class="button" for="checkbox60">Experiência</label>
+                          </div>
+
+
+                          <h5 style="color: #3b5999;width: 100%;margin-top:
+                            10%;"> Gostaria de informar mais algum detalhe?</h5>
+                          <span style="width: 100%; padding-top: 5%;
+                            padding-bottom: 5%;">Informar suas prefências, isso
+                            ajuda nossos vendedores a oferece as melhores opções
+                            de pacotes para você.</span>
+
+
+
+                          <textarea style="width: 100%;
+                            margin-top: 2%;" placeholder="Digite aqui suas
+                            preferências..."> </textarea>
+
+
+
+
+                        </form>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </section>
+              </div>
+
+              <div class="form-section">
+
+                <h5 class="modal-title" id="exampleModalLabel" style="color:
+                  darkgray; font-style: normal;">Agora <strong>cadastra-se
+                    gratuitamente,</strong> para receber os melhores pacotes.</h5>
+                <section style="padding: 0;" class="cadastra-se" id="portfolio">
+                  <div class="container-fluid">
+                    <div class="row">
+
+                      <div style="" class="col-lg-12 col-md-12 text-left">
+
+                        <a class="btn border-white btn-xl"style="border: 1px
+                          solid #fff;color: #fff;background-color: #3b5999;
+                          border-bottom: 0px; width: 70%; border-radius:
+                          15px;border-bottom: 1px solid #fff; border-bottom:
+                          0px; text-transform: none;width: 100%;font-size:
+                          1.3em;margin-top: 2%;font-weight: 500;padding: 3%;"
+                          href="#" onclick="Solicitacao.OpenPopupFormulario()">
+                          Cadastrar usando Facebook</a>
+
+                        <hr style="max-width: unset;border-width: 1.5px;
+                          border-color: #d8d2d2;" />
+
+                        <form style="color: #414141;">
+
+                          <p style="color: gray;">Ou inscreva-se usando seu
+                            email</p>
+
+                          <div style="width: 100%; margin-bottom: 3%;">
+                            <h4 style="color: #3b5999;width: 100%;">Nome</h4>
+                            <input style="width: 100%;" placeholder="Digite seu
+                              nome completo" />
+                          </div>
+
+                          <div style="width: 100%; margin-bottom: 3%;">
+                            <h4 style="color: #3b5999;">E-mail</h4>
+                            <input style="width:100%;" placeholder="Digite seu
+                              e-mail" />
+                          </div>
+
+                          <div style="width: 100%; margin-bottom: 3%;">
+                            <h4 style="color: #3b5999;">Telefone</h4>
+                            <input style="width:100%;" placeholder="Digite aqui
+                              seu telefone" />
+                            <div style="margin-top: 2%;">
+                              <input type="checkbox" />
+                              <span style="font-style: italic;">Este telefone é
+                                Whatsapp</span>
+                            </div>
+                          </div>
+
+                          <div style="width: 100%; margin-bottom: 3%;">
+                            <h4 style="width: 100%; color: #3b5999;">Senha</h4>
+                            <input style="width:49%;float: left;border-radius:
+                              19px;" placeholder="Digite a senha"
+                              type="password" />
+                            <input style="width:49%;margin-left:
+                              2%;border-radius: 19px;" placeholder="Confirme a
+                              senha" type="password" />
+                            <p style="font-style: italic; color: gray;font-size:
+                              14px;padding-top: 4%;">
+                              * A senha deve conter no mínimo 6 dígitos sendo 1
+                              número, 1 letra maíuscula, 1 letra minúscula e 1
+                              símbolo.
+                            </p>
+                          </div>
+
+
+                        </form>
+
+
+                      </div>
+
+
+
+                    </div>
+                  </div>
+                </section>
+
+
+
+              </div>
+
+
+
+              <div class="form-navigation" hidden>
+
+
+                <button style="border: 1px solid #fff;color:
+                  #fff;background-color: #6ebb51; border-bottom: 0px; width:
+                  40%; border-radius: 15px;border-bottom: 1px solid #fff;"
+                  type="button" class="btn border-white btn-xl previous btn
+                  btn-info pull-left"> Voltar
+                </button>
+
+
+                <button style="border: 1px solid #fff;color:
+                  #fff;background-color: #6ebb51; border-bottom: 0px; width:
+                  40%; border-radius: 15px;border-bottom: 1px solid #fff;"
+                  type="button" class="btn border-white btn-xl next btn btn-info
+                  pull-right">Continuar</button>
+
+
+                <input type="submit" value="CONTINUAR" style="border: 1px solid
+                  #fff;color: #fff;background-color: #6ebb51; border-bottom:
+                  0px; width: 40%; border-radius: 15px;border-bottom: 1px solid
+                  #fff;" class="btn border-white btn-xl next btn btn-info
+                  pull-right">
+
+
+                <span class="clearfix"></span>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+</div>
+
