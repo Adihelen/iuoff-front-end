@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('home', { path: '/', resetNamespace: true });
+  this.route('about-us');
 });
 
 export default Router;
