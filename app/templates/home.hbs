@@ -67,7 +67,7 @@
 
   {{#unless continue}}
 
-    <div id="content2" style="display: none;" class="container-fluid my-auto">
+    <div id="content2" class="container-fluid my-auto">
       <div class="row" style="padding-left:4%; padding-top: 1%;">
 
         <div class="col-lg-3 col-md-12"style="text-align: left;">
@@ -125,7 +125,7 @@
           text-align: left;">
 
           <a class="btn border-white btn-xl btnGreen"style=""
-            href="#" onclick="Solicitacao.OpenPopupFormulario()"> CONTINUAR</a>
+            href="#" {{action "openModal"}}> CONTINUAR</a>
         </div>
       </div>
     </div>
