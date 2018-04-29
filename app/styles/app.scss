@@ -14,3 +14,17 @@
 @import 'components/modal';
 @import 'components/footer';
 
+// generic
+
+.close-register {
+  float: right;
+  border-radius: 50%;
+  // background: rgba(154, 220, 255, 0.6);
+  background: #999;
+  color: #333;
+  text-align: center;
+  font-size: 1.1em;
+  margin-top: 7%; 
+  padding: 0.4em 0.8em;
+  text-decoration: none !important;
+}

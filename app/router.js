@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('home', { path: '/', resetNamespace: true });
   this.route('about-us');
   this.route('partners');
+  this.route('register');
+  this.route('login');
 });
 
 export default Router;

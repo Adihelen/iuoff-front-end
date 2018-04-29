@@ -1,10 +1,8 @@
  <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top mainNav">
-  <div class="container">
-    <a class="navbar-brand" href="/index.html">
+<nav id="#iuoff-menu" class="navbar navbar-expand-lg navbar-light fixed-top mainNav">
+  <div class="container">   
       <img width="auto" height="50" src="assets/img/logo.png"
-        class="custom-logo" alt="IUOFF">
-    </a>
+        class="custom-logo" alt="IUOFF">    
     <button class="navbar-toggler navbar-toggler-right" type="button"
       {{action "toggleNavbar" "#navbarResponsive"}}
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle
@@ -14,37 +12,41 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link " {{action "scrollTo" "#vantagens"}}>As vantagens
+          <a class="nav-link " {{action "scrollTo" "#vantagens"}} href="#vantagens">As vantagens
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " {{action "scrollTo" "#pacotes"}}>Pacotes</a>
+          <a class="nav-link " {{action "scrollTo" "#pacotes"}} href="#pacotes">Pacotes</a>
         </li>
         <li class="nav-item">
           {{!-- quem-somos --}}
-          <a class="nav-link " {{action "scrollTo" "#quem-somos"}}>Quem somos</a>
+          <a class="nav-link " {{action "scrollTo" "#quem-somos"}} href="#quem-somos">Quem somos</a>
           {{!-- {{#link-to "about-us" class="nav-link "}}
             Quem somos
           {{/link-to}}                  --}}
         </li>
         <li class="nav-item">
-          <a class="nav-link " {{action "scrollTo" "#seja-parceiro"}}>Seja um parceiro</a>
+          <a class="nav-link " {{action "scrollTo" "#seja-parceiro"}} href="#seja-parceiro">Seja um parceiro</a>
           {{!-- {{#link-to "partners" class="nav-link "}}
             Seja um parceiro
           {{/link-to}}          --}}
         </li>
         <li class="nav-item">
-          <a class="nav-link " {{action "scrollTo" "#atendimento"}}>Atendimento</a>
+          <a class="nav-link " {{action "scrollTo" "#atendimento"}} href="#atendimento">Atendimento</a>
           {{!-- <a class="nav-link " href="#atendimento">Atendimento</a> --}}
         </li>
         <div class="colum"></div>
-        <li class="nav-item">
-          <a class="nav-link btn-green btn btn-light btn-xl"
-            href="#">Cadastre-se grátis</a>
+        <li class="nav-item">         
+          {{#link-to "register" class="nav-link btn-green btn btn-light btn-xl"}}
+            Cadastre-se grátis
+          {{/link-to}}         
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#"> <span
-              class="icon-locked icon-medium"></span> Acessar </a>
+          {{!-- <a class="nav-link " href="#">  </a> --}}
+          {{#link-to "login" class="nav-link"}}
+            <span class="icon-locked icon-medium"></span> Acessar
+          {{/link-to}}  
+              
         </li>
       </ul>
     </div>
