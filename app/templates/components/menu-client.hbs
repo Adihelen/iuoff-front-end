@@ -1,12 +1,12 @@
  <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top mainNav">
   <div class="container">
-    <a class="navbar-brand js-scroll-trigger" href="/index.html">
+    <a class="navbar-brand" href="/index.html">
       <img width="auto" height="50" src="assets/img/logo.png"
         class="custom-logo" alt="IUOFF">
     </a>
     <button class="navbar-toggler navbar-toggler-right" type="button"
-      data-toggle="collapse" data-target="#navbarResponsive"
+      {{action "toggleNavbar" "#navbarResponsive"}}
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle
       navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,23 +14,28 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#vantagens">As vantagens
+          <a class="nav-link " {{action "scrollTo" "#vantagens"}}>As vantagens
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#portfolio">Pacotes</a>
+          <a class="nav-link " {{action "scrollTo" "#pacotes"}}>Pacotes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#">Quem
-            somos</a>
-            
+          {{!-- quem-somos --}}
+          <a class="nav-link " {{action "scrollTo" "#quem-somos"}}>Quem somos</a>
+          {{!-- {{#link-to "about-us" class="nav-link "}}
+            Quem somos
+          {{/link-to}}                  --}}
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#">Seja
-            um parceiro</a>
+          <a class="nav-link " {{action "scrollTo" "#seja-parceiro"}}>Seja um parceiro</a>
+          {{!-- {{#link-to "partners" class="nav-link "}}
+            Seja um parceiro
+          {{/link-to}}          --}}
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#atendimento">Atendimento</a>
+          <a class="nav-link " {{action "scrollTo" "#atendimento"}}>Atendimento</a>
+          {{!-- <a class="nav-link " href="#atendimento">Atendimento</a> --}}
         </li>
         <div class="colum"></div>
         <li class="nav-item">
@@ -38,10 +43,10 @@
             href="#">Cadastre-se grátis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#"> <span
+          <a class="nav-link " href="#"> <span
               class="icon-locked icon-medium"></span> Acessar </a>
         </li>
       </ul>
     </div>
   </div>
-</nav>>
+</nav>

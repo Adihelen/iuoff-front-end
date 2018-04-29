@@ -24,6 +24,7 @@
         font-weight: 700;
         text-transform: uppercase;
         color: $menu-color;
+        cursor: pointer;
         &:hover {
           color: $primary;
         }
