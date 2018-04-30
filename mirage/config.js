@@ -57,6 +57,19 @@ export default function() {
     return {};
   });
 
+  // login
+  this.post('dashboard/logins', (schema, request) => {
+    this.timing = sleep;   
+    var _body = JSON.parse(request.requestBody);
+    console.log("users objeto a ser salvo", _body, request.requestBody);   
+    
+    return {
+      users: {
+        id: 1
+      }
+    };
+  });
+
   // pacotes
   this.get('dashboard/package-overviews', (schema, request) => {
     this.timing = sleep;

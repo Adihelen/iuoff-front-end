@@ -6,8 +6,7 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   cellPhone: DS.attr('string'),
   phoneIsWhatsapp: DS.attr('boolean'),
-  passaword: DS.attr('number'),
-  passawordConfirmation: DS.attr('number')
- 
+  passaword: DS.attr('string'),
+  passawordConfirmation: DS.attr('string') 
 
 });
