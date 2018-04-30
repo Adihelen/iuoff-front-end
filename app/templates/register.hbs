@@ -4,7 +4,7 @@
     display: none !important;
   }
 </style>
-{{log "user form register: " model}}
+
 <section class="p-0 cadastra-se">
   <div class="container-fluid p-0">
     <div class="row no-gutters popup-gallery">
@@ -62,7 +62,7 @@
           <div style="width: 100%; margin-bottom: 3%;">
             <h4 style="color: #3b5999;">E-mail</h4>           
             {{input 
-               
+              type="email"
               placeholder="Digite seu e-mail *"
               value=model.email
             }}

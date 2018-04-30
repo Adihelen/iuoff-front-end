@@ -61,10 +61,10 @@ export default function() {
   this.post('dashboard/logins', (schema, request) => {
     this.timing = sleep;   
     var _body = JSON.parse(request.requestBody);
-    console.log("users objeto a ser salvo", _body, request.requestBody);   
+    console.log("users a logar", _body, request.requestBody);   
     
     return {
-      users: {
+      logins: {
         id: 1
       }
     };

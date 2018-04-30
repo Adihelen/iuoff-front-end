@@ -1,11 +1,20 @@
 import Ember from 'ember';
-// TODO , add valitations on user, with cp-validation
+
 export default Ember.Controller.extend({
+  // TODO começar a utlizar no .hbs canRegister,  add valitations on user, with cp-validation
+  canRegister: Ember.computed('model', ()=>{
+    let _canRegister = false;
+
+    if(this.get('model') && this.get('model.name') && this.get('model.cellPhone') && this.get('model.phoneIsWhatsapp') && this.get('model.email') && this.get('model.passaword') === this.get('model.passawordConfirmation')){
+      _canRegister = true;
+    }
+    return _canRegister;
+  }),
 
   actions: {
     registerUser() {
       // todo check isValid
-      if(this.get('model') && this.get('model.name') && this.get('model.email') && this.get('model.passaword') === this.get('model.passawordConfirmation')){
+      if(this.get('model') && this.get('model.name') && this.get('model.cellPhone') && this.get('model.phoneIsWhatsapp') && this.get('model.email') && this.get('model.passaword') === this.get('model.passawordConfirmation')){
 
         let _passaword = btoa(this.get('model.passaword'));
         let _passawordConfirmation = btoa(this.get('model.passawordConfirmation'));        
@@ -14,15 +23,14 @@ export default Ember.Controller.extend({
         this.set('model.passawordConfirmation',_passawordConfirmation);      
 
         this.get('model').save().then(() =>{         
-          this.toast.success('usuário registrado com sucesso');
+          this.toast.success('usuário registrado com sucesso', 'SUCESSO');
           this.transitionToRoute('home');
-        }).catch((error) =>{          
-          alert('ERRO ao registrar usuário');
-          this.toast.success('usuário registrado com sucesso');
+        }).catch((error) =>{     
+          this.toast.error('ao registrar usuário', 'ERRO');
           console.error('ERRO: não foi possível registrar o usuário, erro: ', error);
         });
       } else {
-        alert('Por favor preencha todos os campos marcados com *')
+        this.toast.error('Por favor preencha todos os campos marcados com *', 'ERRO');       
         console.error('ERRO formulário inválido');
       }
     }

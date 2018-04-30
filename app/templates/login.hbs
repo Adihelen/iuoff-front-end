@@ -5,7 +5,7 @@
   }
 </style>
  
-<section class="p-0 entrar" id="portfolio">
+<section class="p-0 entrar">
   <div class="container-fluid p-0">
     <div class="row no-gutters popup-gallery">
 
@@ -14,10 +14,13 @@
         <div style="float: left; width: 100%;margin-bottom: 5%;">
           <a class="navbar-brand js-scroll-trigger" href="/index.html">
             <img style="" width="auto" height="100" width="200"
-              src="img/logo/standart.png" class="custom-logo" alt="IUOFF"
-              itemprop="logo" srcset="img/logo/logo.png 768w" sizes="(max-width:
+              src="assets/img/logo.png" class="custom-logo" alt="IUOFF"
+              itemprop="logo" sizes="(max-width:
               858px) 100vw, 858px">
           </a>
+          {{#link-to "home" class="close-register"}}  
+           X
+          {{/link-to}}
         </div>
 
 
@@ -25,26 +28,35 @@
           #fff;background-color: #3b5999; border-bottom: 0px; width: 70%;
           border-radius: 15px;border-bottom: 1px solid #fff; border-bottom: 0px;
           text-transform: none;width: 100%;font-size: 1.3em;margin-top:
-          2%;font-weight: 500;padding: 3%;" href="#"
-          onclick="Solicitacao.OpenPopupFormulario()"> Conectar-se usando
+          2%;font-weight: 500;padding: 3%;"
+          hidden> Conectar-se usando
           Facebook</a>
 
-        <hr style="max-width: unset;border-width: 1.5px; border-color: #d8d2d2;"
+        <hr hidden style="max-width: unset;border-width: 1.5px; border-color: #d8d2d2;"
           />
 
-        <form style="color: #414141;">
+        <form style="color: #414141;" class="cadastre-se">
 
           <p style="color: gray;">Ou conecte-se usando seu email</p>
 
           <div style="width: 100%; margin-bottom: 3%;">
-            <input style="width: 100%;" placeholder="E-mail" />
+            {{
+              input
+              type="email"
+              value=model.email
+            }}
+           
           </div>
 
-          <div style="width: 100%; margin-bottom: 3%;">
-            <input style="width:100%;" placeholder="Senha" />
+          <div style="width: 100%; margin-bottom: 3%;">            
+             {{
+              input
+              type="password"
+              value=model.password
+             }}
           </div>
 
-          <div style="width: 100%; margin-bottom: 3%;">
+          <div style="width: 100%; margin-bottom: 3%;" hidden>
             <span style="color: #515151;">Esqueceu sua senha?</span>
           </div>
 
@@ -53,7 +65,7 @@
             ; background: #6DBE4C ; font-weight: 700;font-size: 19px;width:
             100%;text-transform: none;padding: 2.7%;margin: 0% 0 0% 0;font-size:
             1.3em;font-weight: 500;" class="btn btn-light btn-xl sr-button"
-            href="#">Acessar</a>
+            {{action "login"}}>Acessar</a>
 
         </form>
 
@@ -61,16 +73,16 @@
           />
 
 
-        <div style="width: 100%; margin-bottom: 3%;">
+        <div style="width: 100%; margin-bottom: 3%;" hidden>
           <h4 style="color: #3b5999;width: 100%;">Ainda não possui cadastro?</h4>
           <span style="color: slategray;">Escolha abaixo as opções que te atende</span>
           <div style="margin-top: 5%;padding-bottom: 5%;">
 
-            <a style="color: #515151 ;border-radius: 15px; border: 2px solid
+            {{#link-to "home" style="color: #515151 ;border-radius: 15px; border: 2px solid
               #3b5999 ; background: transparent ; font-weight: 700;font-size:
               19px;width: 49%;text-transform: none;padding: 2.7%;margin: 0% 0 0%
               0;font-size: 1.3em;font-weight: 500; display: inline-grid;"
-              class="btn btn-light btn-xl sr-button" href="/CadastreSe.html">
+              class="btn btn-light btn-xl sr-button" }}
               <span style="color: #a09d9d;
                 float: left;
                 width: 100%;
@@ -80,15 +92,13 @@
                 QUERO VIAJAR
               </span>
 
-            </a>
+            {{/link-to}}
 
-
-
-            <a style="color: #515151 ;border-radius: 15px; border: 2px solid
+            {{#link-to "home" style="color: #515151 ;border-radius: 15px; border: 2px solid
               #6DBE4C ; background: transparent ; font-weight: 700;font-size:
               19px;width: 49%;text-transform: none;margin: 0% 0 0%
               0;font-weight: 500; display: inline-grid;" class="btn btn-light
-              btn-xl sr-button" href="#">
+              btn-xl sr-button" href="#"}}
 
               <span style="color: #a09d9d;
                 float: left;
@@ -99,12 +109,9 @@
                 QUERO SER PARCEIRO
               </span>
 
-
-            </a>
+             {{/link-to}}
 
           </div>
-
-
 
         </div>
 
