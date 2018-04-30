@@ -1,18 +1,5 @@
 import Ember from 'ember';
-
-
-// init() {    
-
-//   // if( $("#iuoff-menu") ) {
-//     $("#iuoff-menu").hide();
-//   // }
-
-//   // if( $("#atendimento") ) {
-//     $("#atendimento").hide();
-//   // }
-// }
-
-
+// TODO , add valitations on user, with cp-validation
 export default Ember.Controller.extend({
 
 });

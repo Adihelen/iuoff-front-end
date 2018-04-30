@@ -5,7 +5,10 @@ module.exports = function(environment) {
     modulePrefix: 'iuoff-client',
     environment: environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
+    i18n: {
+      defaultLocale: 'pt-BR'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -29,9 +32,18 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'] = {
+      enabled: true
+    };    
+    ENV.apiNamespace = 'dashboard';
   }
 
   if (environment === 'test') {
+    ENV['ember-cli-mirage'] = {
+      enabled: true
+    };    
+    ENV.apiNamespace = 'dashboard';
+
     // Testem prefers this...
     ENV.locationType = 'none';
 
@@ -43,7 +55,13 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+ENV['ember-cli-mirage'] = {
+      enabled: false,
+      excludeFilesFromBuild: true
+    };
+    ENV.apiHost = 'https://rede-seguros-api.xpi.com.br';
+    ENV.apiNamespace = 'dashboard';
+    
   }
 
   return ENV;
