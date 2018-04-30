@@ -6,6 +6,7 @@ export default Ember.Route.extend({
 
     let user;
     user = this.get('store').createRecord('user', {
+      phoneIsWhatsapp: true
     });
     return user;
   },

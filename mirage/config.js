@@ -1,4 +1,5 @@
 import { Response } from 'ember-cli-mirage'; //REF: http://www.ember-cli-mirage.com/docs/v0.3.x/defining-routes/#dynamic-status-codes-and-http-headers
+let sleep = 250;
 
 export default function() {
   // nameSpace =  dashboard/
@@ -17,19 +18,19 @@ export default function() {
   // crud users
   this.post('dashboard/users', (schema, request) => {
     this.timing = sleep;   
-    var _body = JSON.stringify(request.requestBody);
+    var _body = JSON.parse(request.requestBody);
     console.log("users objeto a ser salvo", _body, request.requestBody);   
     
     return {
       users: {
-        id: _body.user.id
+        id: 1
       }
     };
   });
 
   this.get('dashboard/users', (schema) => {
     this.timing = sleep;
-    var params = JSON.stringify(schema.user.all);
+    var params = JSON.parse(schema.user.all);
     console.log("GET users: ", params);
 
     return schema.user.all();
@@ -41,7 +42,7 @@ export default function() {
 
     // Get one Element
     let users = schema.users.find(usersId);
-    var params = JSON.stringify(request.requestBody);
+    var params = JSON.parse(request.requestBody);
     console.log("GET users/:id ", params, request.requestBody);
 
     return users;
@@ -61,8 +62,8 @@ export default function() {
     this.timing = sleep;
 
     let filters = {};
-    let offset = request.queryParams.offset ? stringifyInt(request.queryParams.offset) : 0;
-    let finishOn = offset + stringifyInt(request.queryParams.limit);
+    let offset = request.queryParams.offset ? parseInt(request.queryParams.offset) : 0;
+    let finishOn = offset + parseInt(request.queryParams.limit);
     let startOn = offset;
 
     let packageOverviews = schema.packageOverviews.where(filters);  

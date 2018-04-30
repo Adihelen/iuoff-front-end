@@ -35,7 +35,7 @@
           border-radius: 15px;border-bottom: 1px solid #fff; border-bottom: 0px;
           text-transform: none;width: 100%;font-size: 1.3em;margin-top:
           2%;font-weight: 500;padding: 3%;" href="#"
-          onclick="Solicitacao.OpenPopupFormulario()"> Cadastrar usando Facebook</a>
+         hidden> Cadastrar usando Facebook</a>
         <hr style="max-width: unset;border-width: 1.5px; border-color: #d8d2d2;"
           />
 
@@ -45,30 +45,58 @@
 
           <div style="width: 100%; margin-bottom: 3%;">
             <h4 style="color: #3b5999;width: 100%;">Nome</h4>
-            <input style="width: 100%;" placeholder="Digite seu nome completo"
-              />
+            {{input                
+              placeholder="Digite seu nome completo *" 
+              value=model.name
+            }}
           </div>
 
           <div style="width: 100%; margin-bottom: 3%;">
-            <h4 style="color: #3b5999;">E-mail</h4>
-            <input style="width:100%;" placeholder="Digite seu e-mail" />
+            <h4 style="color: #3b5999;width: 100%;">CPF</h4>
+            {{input                
+              placeholder="cpf" 
+              value=model.cpf
+            }}
           </div>
 
           <div style="width: 100%; margin-bottom: 3%;">
-            <h4 style="color: #3b5999;">Telefone</h4>
-            <input style="width:100%;" placeholder="Digite aqui seu telefone" />
+            <h4 style="color: #3b5999;">E-mail</h4>           
+            {{input 
+               
+              placeholder="Digite seu e-mail *"
+              value=model.email
+            }}
+          </div>
+
+          <div style="width: 100%; margin-bottom: 3%;">
+            <h4 style="color: #3b5999;">Celular</h4>           
+             {{input                
+              placeholder="Digite aqui seu celuar *"
+              value=model.cellPhone
+             }}
             <div style="margin-top: 2%;">
-              <input type="checkbox" />
+              {{!-- phoneIsWhatsapp --}}
+              <input type="text" />
               <span style="font-style: italic;">Este telefone é Whatsapp</span>
             </div>
           </div>
 
           <div style="width: 100%; margin-bottom: 3%;">
-            <h4 style="width: 100%; color: #3b5999;">Senha</h4>
-            <input style="width:49%;float: left;border-radius: 19px;"
-              placeholder="Digite a senha" type="password" />
-            <input style="width:49%;margin-left: 2%;border-radius: 19px;"
-              placeholder="Confirme a senha" type="password" />
+            <h4 style="width: 100%; color: #3b5999;">Senha</h4>          
+
+             {{input 
+              type="password"              
+              placeholder="Digite a senha *"
+              value=model.passaword
+             }}
+
+           
+            {{input 
+              type="password"              
+              placeholder="Confirme a senha *"
+              value=model.passawordConfirmation              
+            }}
+
             <p style="font-style: italic; color: gray;font-size:
               14px;padding-top: 4%;">
               * A senha deve conter no mínimo 6 dígitos sendo 1 número, 1 letra
@@ -81,7 +109,7 @@
             ; background: #6DBE4C ; font-weight: 700;font-size: 19px;width:
             100%;text-transform: none;padding: 2.7%;margin: 0% 0 0% 0;font-size:
             1.3em;font-weight: 500;" class="btn btn-light btn-xl sr-button"
-            href="#">Cadastrar</a>
+           {{action "registerUser"}}>Cadastrar</a>
 
         </form>
 
