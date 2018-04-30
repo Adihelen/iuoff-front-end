@@ -76,8 +76,15 @@
              }}
             <div style="margin-top: 2%;">
               {{!-- phoneIsWhatsapp --}}
-              <input type="text" />
-              <span style="font-style: italic;">Este telefone é Whatsapp</span>
+              <span style="font-style: italic;margin-top:0.1%;position: absolute;">Este telefone é Whatsapp</span>
+              {{x-toggle
+                value=model.phoneIsWhatsapp
+                showLabels=true
+                onLabel='Sim'
+                offLabel='Não'
+                onToggle=(action (mut model.phoneIsWhatsapp))
+              }}
+                           
             </div>
           </div>
 

@@ -59,7 +59,7 @@ ENV['ember-cli-mirage'] = {
       enabled: false,
       excludeFilesFromBuild: true
     };
-    ENV.apiHost = 'https://rede-seguros-api.xpi.com.br';
+    ENV.apiHost = 'http://iuoff-api.com.br';
     ENV.apiNamespace = 'dashboard';
     
   }
