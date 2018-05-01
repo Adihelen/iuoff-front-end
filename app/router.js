@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('login');
   this.route('loading');
   this.route('profile');
+  this.route('packages');
 });
 
 export default Router;

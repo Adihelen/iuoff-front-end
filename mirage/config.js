@@ -3,7 +3,7 @@ let sleep = 250;
 
 export default function() {
   // nameSpace =  dashboard/
-  this.get('dashboard/user/authentications', () => { 
+  this.get('/dashboard/user/authentications', () => { 
 
     return {
       "user/authentication": {
@@ -16,7 +16,7 @@ export default function() {
   });
   
   // crud users
-  this.post('dashboard/users', (schema, request) => {
+  this.post('/dashboard/users', (schema, request) => {
     this.timing = sleep;   
     var _body = JSON.parse(request.requestBody);
     console.log("users objeto a ser salvo", _body, request.requestBody);   
@@ -28,7 +28,7 @@ export default function() {
     };
   });
 
-  this.get('dashboard/users', (schema) => {
+  this.get('/dashboard/users', (schema) => {
     this.timing = sleep;
     var params = JSON.parse(schema.user.all);
     console.log("GET users: ", params);
@@ -36,7 +36,7 @@ export default function() {
     return schema.user.all();
   });
 
-  this.get('dashboard/users/:id', (schema, request) => {
+  this.get('/dashboard/users/:id', (schema, request) => {
     this.timing = sleep;
     var usersId = request.params.id;
 
@@ -48,7 +48,7 @@ export default function() {
     return users;
   });
 
-  this.delete('dashboard/users/:id', (schema, request) => {
+  this.delete('/dashboard/users/:id', (schema, request) => {
     this.timing = sleep;
     var id = request.params.id;
 
@@ -58,7 +58,7 @@ export default function() {
   });
 
   // login
-  this.post('dashboard/logins', (schema, request) => {
+  this.post('/dashboard/logins', (schema, request) => {
     this.timing = sleep;   
     var _body = JSON.parse(request.requestBody);
     console.log("users a logar", _body, request.requestBody);   
@@ -71,49 +71,74 @@ export default function() {
   });
 
   // pacotes
-  this.get('dashboard/package-overviews', (schema, request) => {
-    this.timing = sleep;
+  // this.get('dashboard/package-overviews', (schema, request) => {
+  //   this.timing = sleep;
 
-    let filters = {};
-    let offset = request.queryParams.offset ? parseInt(request.queryParams.offset) : 0;
-    let finishOn = offset + parseInt(request.queryParams.limit);
-    let startOn = offset;
+  //   let filters = {};
+  //   let offset = request.queryParams.offset ? parseInt(request.queryParams.offset) : 0;
+  //   let finishOn = offset + parseInt(request.queryParams.limit);
+  //   let startOn = offset;
 
-    let packageOverviews = schema.packageOverviews.where(filters);  
+  //   let packageOverviews = schema.packageOverviews.where(filters);  
 
-    // ver pacotes filtrados por nome
-    if (request.queryParams.name) {
-      packageOverviews = packageOverviews.filter((packageItem) => {
-        if (request.queryParams.name == packageItem.name) {
-          return true;
-        }
-        return false;
-      });
-    }  
-    // order by name
-    packageOverviews = packageOverviews.sort(function (a, b) {
-      if (request.queryParams.sort === 'name') {
-        if (request.queryParams.direction === "ASC") {
-          return a.prize < b.prize ? -1 : 1;
-        } else {
-          return a.prize > b.prize ? -1 : 1;
-        }
-      } 
+  //   // ver pacotes filtrados por nome
+  //   if (request.queryParams.name) {
+  //     packageOverviews = packageOverviews.filter((packageItem) => {
+  //       if (request.queryParams.name == packageItem.name) {
+  //         return true;
+  //       }
+  //       return false;
+  //     });
+  //   }  
+  //   // order by name
+  //   packageOverviews = packageOverviews.sort(function (a, b) {
+  //     if (request.queryParams.sort === 'name') {
+  //       if (request.queryParams.direction === "ASC") {
+  //         return a.prize < b.prize ? -1 : 1;
+  //       } else {
+  //         return a.prize > b.prize ? -1 : 1;
+  //       }
+  //     } 
 
-    });
+  //   });
 
-    // aplica limite de itens
-    // #reminf, package é uma palavra reservada , por isso packageItem ao invés de package
-    packageOverviews = packageOverviews.filter(function (packageItem, index) {
-      return startOn <= index && finishOn > index;
-    });
+  //   // aplica limite de itens
+  //   // #reminf, package é uma palavra reservada , por isso packageItem ao invés de package
+  //   packageOverviews = packageOverviews.filter(function (packageItem, index) {
+  //     return startOn <= index && finishOn > index;
+  //   });
 
-    return {
-      "package-overview": packageOverviews.models,    
-    };
-  });
+  //   return {
+  //     "package-overview": packageOverviews.models,    
+  //   };
+  // });
 
  
+  this.get('/dashboard/packages', (schema) => {
+    this.timing = sleep;
+    // var params = JSON.parse(schema.package.all);
+    // console.log("GET users: ", params);
+    let packages =  schema.packages.all;
+    console.log('schema: ', schema);
+    return packages;
+    // return {
+    //   "packages": packages.models
+    // }
+  });
+
+  this.get('/dashboard/packages/:id', (schema, request) => {
+    this.timing = sleep;
+    var packageId = request.params.id;
+
+    // Get one Element
+    let packageSelected = schema.packages.find(packageId);
+    // var params = JSON.parse(request.requestBody);
+    // console.log("GET packages/:id ", params, request.requestBody);
+
+    return packageSelected;
+  });
+  
+
   
   // These comments are here to help you get started. Feel free to delete them.
 

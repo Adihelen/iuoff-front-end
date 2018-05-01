@@ -14,8 +14,8 @@ export default DS.RESTAdapter.extend({
 
   headers: Ember.computed(function () {
     let headers;
-    if (document.cookie && document.cookie.match(/userToken\=([^;]*)/)) {
-      headers = { "User-Token": Ember.get(document.cookie.match(/userToken\=([^;]*)/), "1") };
+    if (document.cookie && document.cookie.match(/token\=([^;]*)/)) {
+      headers = { "token": Ember.get(document.cookie.match(/token\=([^;]*)/), "1") };
     }
     return headers;
   }),
