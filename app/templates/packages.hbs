@@ -1,8 +1,14 @@
 
+
+<div style="background: #999;margin: 300px;color:#red">
 <h1>
   Pacotes
 </h1>
+{{#each packages as |package|}}
+  {{package.title}}
+{{/each}}
 
-{{!-- {{#each model as |package|}}
-  {{package.name}}
-{{/each}} --}}
+{{#each model as |package|}}
+  {{package.title}}
+{{/each}}
+</div>

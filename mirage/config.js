@@ -30,10 +30,10 @@ export default function() {
 
   this.get('/dashboard/users', (schema) => {
     this.timing = sleep;
-    var params = JSON.parse(schema.user.all);
+    var params = JSON.parse(schema.users.all);
     console.log("GET users: ", params);
 
-    return schema.user.all();
+    return schema.users.all().models;
   });
 
   this.get('/dashboard/users/:id', (schema, request) => {
@@ -114,29 +114,30 @@ export default function() {
   // });
 
  
-  this.get('/dashboard/packages', (schema) => {
-    this.timing = sleep;
-    // var params = JSON.parse(schema.package.all);
-    // console.log("GET users: ", params);
-    let packages =  schema.packages.all;
-    console.log('schema: ', schema);
-    return packages;
-    // return {
-    //   "packages": packages.models
-    // }
+ 
+  this.get('/dashboard/packages', (schema) => { 
+    // var params =  JSON.stringify(schema.packages.all().models);  
+    // console.log('GET packages: ', params);
+    return schema.packages.all().models;
   });
-
+ 
   this.get('/dashboard/packages/:id', (schema, request) => {
     this.timing = sleep;
     var packageId = request.params.id;
 
     // Get one Element
-    let packageSelected = schema.packages.find(packageId);
+    let packages = schema.packages.find(packageId);
     // var params = JSON.parse(request.requestBody);
     // console.log("GET packages/:id ", params, request.requestBody);
 
-    return packageSelected;
+    return {
+      packages: {
+        id: 1
+      }
+    };
   });
+
+  
   
 
   
