@@ -1,34 +1,10 @@
-import DS from 'ember-data';
-import config from 'iuoff-client/config/environment';
 import Ember from 'ember';
+import FirebaseAdapter from 'emberfire/adapters/firebase';
 
-export default DS.RESTAdapter.extend({
-  host: config.apiHost,
-  namespace: config.apiNamespace,
-  // modalService: Ember.inject.service("modal-service"),
 
-  pathForType: function (type) {
-    var dasherized = Ember.String.dasherize(type);
-    return Ember.String.pluralize(dasherized);
-  },
+const { inject } = Ember;
 
-  headers: Ember.computed(function () {
-    let headers;
-    if (document.cookie && document.cookie.match(/token\=([^;]*)/)) {
-      headers = { "token": Ember.get(document.cookie.match(/token\=([^;]*)/), "1") };
-    }
-    return headers;
-  }),
 
-  // handleResponse(status) {
-
-  //   if (401 === status || 403 === status) {
-  //     if (this.get("modalService")) {
-  //       this.get("modalService").showUnauthorizedAlert();
-  //     }
-  //   }
-
-  //   return this._super(...arguments);
-  // }
-
+export default FirebaseAdapter.extend({
+  firebase: inject.service(),
 });
