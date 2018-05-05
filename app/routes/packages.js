@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   model: function(){  
     
     let packages = this.store.findAll('package');
-    console.log('packages from route: ', packages);
+    // console.log('packages from route: ', packages);
     let newPackage =  this.store.createRecord('package', {
       title: "Novo Pacote",
       initialAmount: 1500.00, 
