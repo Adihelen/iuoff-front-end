@@ -14,6 +14,9 @@ export default DS.Model.extend({
   passaword: DS.attr('string'),
   passawordConfirmation: DS.attr('string') ,
 
-  address: fragmentArray('users/address', {defaultValue: []})
+  address: fragmentArray('users/address', {defaultValue: []}),
 
+  // scope
+  userType: DS.attr('number', {defaultValue: 1}), // User
+  userStatus: DS.attr('number', {defaultValue: 2}) // Activated
 });

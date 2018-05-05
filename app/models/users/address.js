@@ -1,10 +1,11 @@
-import DS from 'ember-data';
+import attr from 'ember-data/attr';
+import Fragment from 'ember-data-model-fragments/fragment';
 
-export default DS.Model.extend({
-    street: DS.attr('string'),
-    cep: DS.attr('string'),
-    state: DS.attr('string'),
-    city: DS.attr('string'),
-    number: DS.attr('string'),
-    complement: DS.attr('string')
+export default Fragment.extend({
+    street: attr('string'),
+    cep: attr('string'),
+    state: attr('string'),
+    city: attr('string'),
+    number: attr('string'),
+    complement: attr('string')
 });
