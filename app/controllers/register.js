@@ -20,13 +20,14 @@ export default Ember.Controller.extend({
 
         let _email =  this.get('model.email');
         let _passaword = btoa(this.get('model.passaword'));
-        let _passawordConfirmation = btoa(this.get('model.passawordConfirmation'));        
+        let _passawordConfirmation = btoa(this.get('model.passawordConfirmation'));      
+        let _normalPassaword = this.get('model.passaword');
 
         this.set('model.passaword',_passaword);
         this.set('model.passawordConfirmation',_passawordConfirmation);    
         
         firebase.auth().
-         createUserWithEmailAndPassword(_email, _passaword).
+         createUserWithEmailAndPassword(_email, _normalPassaword).
          then(() => {
 
             this.get('model').save().then(() =>{         
@@ -42,7 +43,7 @@ export default Ember.Controller.extend({
           var errorCode = error.code;
           var errorMessage = error.message;
           this.toast.error('ao registrar usuário', 'ERRO');
-          console.log('Erro ao  registrar usuário code: ', errorCode, ' Msg: ', errorMessage);
+          console.error('Erro ao  registrar usuário code: ', errorCode, ' Msg: ', errorMessage);
           // ...
         });
        
