@@ -41,7 +41,7 @@
 
         <form style="color: #414141;">
 
-          <p style="color: gray;">Ou inscreva-se usando seu email</p>
+          <p style="color: gray;">Inscreva-se usando seu email</p>
 
           <div style="width: 100%; margin-bottom: 3%;">
             <h4 style="color: #3b5999;width: 100%;">Nome</h4>
@@ -106,10 +106,51 @@
 
             <p style="font-style: italic; color: gray;font-size:
               14px;padding-top: 4%;">
-              * A senha deve conter no mínimo 6 dígitos sendo 1 número, 1 letra
-              maíuscula, 1 letra minúscula e 1 símbolo.
+              * A senha deve conter no mínimo 6 dígitos.
             </p>
           </div>
+
+          <div style="width: 100%; margin-bottom: 3%;">         
+            <span style="color: slategray;">Escolha abaixo as opções que te atende</span>
+            <div style="margin-top: 5%;padding-bottom: 5%;">
+
+              <a style="color: #515151 ;border-radius: 15px; border: 2px solid
+                #3b5999 ; background: transparent ; font-weight: 700;font-size:
+                19px;width: 49%;text-transform: none;padding: 2.7%;margin: 0% 0 0%
+                0;font-size: 1.3em;font-weight: 500; display: inline-grid;"
+                class="btn btn-light btn-xl sr-button {{if clientSelected 'type-selected'}}" {{action "setUserTypeClient"}}>
+                <span style="color: #a09d9d;
+                  float: left;
+                  width: 100%;
+                  font-size: 35px;" class="icon-travel-linha"></span>
+
+                <span style="width: 100%;color: #a09d9d;font-size: 0.8em;">
+                  QUERO VIAJAR
+                </span>
+
+              </a>
+
+              <a style="color: #515151 ;border-radius: 15px; border: 2px solid
+                #6DBE4C ; background: transparent ; font-weight: 700;font-size:
+                19px;width: 49%;text-transform: none;margin: 0% 0 0%
+                0;font-weight: 500; display: inline-grid;" class="btn btn-light
+                btn-xl sr-button {{if sellerSelected 'type-selected'}}" {{action "setUserTypeSeller"}}>
+
+                <span style="color: #a09d9d;
+                  float: left;
+                  width: 100%;
+                  font-size: 35px;" class="icon-handshake"></span>
+
+                <span style="width: 100%;color: #a09d9d;font-size: 0.8em;">
+                  QUERO SER PARCEIRO
+                </span>
+              </a>
+              
+
+            </div>
+
+          </div>
+          
 
 
           <a style="color: #fff ;border-radius: 15px; border: 3px solid #6DBE4C

@@ -12,6 +12,8 @@ export default Ember.Controller.extend({
     return _canRegister;
   }),
   
+  clientSelected: false, 
+  sellerSelected: false, 
 
   actions: {
     registerUser() {
@@ -32,7 +34,14 @@ export default Ember.Controller.extend({
 
             this.get('model').save().then(() =>{         
               this.toast.success('usuário registrado com sucesso', 'SUCESSO');
-              this.transitionToRoute('home');
+              if(parseInt(this.get('model.userType')) === 1){
+                this.transitionToRoute('home');
+              } else {
+                let host = window.location.origin;
+                // todo mudar pra /admin
+                window.location.replace(host+'/login');
+              }
+              
             }).catch((error) =>{     
               this.toast.error('ao registrar usuário', 'ERRO');
               console.error('ERRO: não foi possível registrar o usuário, erro: ', error);
@@ -51,6 +60,20 @@ export default Ember.Controller.extend({
         this.toast.error('Por favor preencha todos os campos marcados com *', 'ERRO');       
         console.error('ERRO formulário inválido');
       }
+    }, 
+
+    setUserTypeClient(){
+      this.set('model.userType', 1);
+      this.set('clientSelected', true);
+      this.set('sellerSelected', false);
+      console.log('host: ', window.location.origin , window.location.host,'/admin');
+
+    }, 
+    setUserTypeSeller(){
+      this.set('model.userType', 0);
+      this.set('clientSelected', false);
+      this.set('sellerSelected', true);
+      
     }
   }
 });
