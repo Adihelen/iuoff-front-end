@@ -2,6 +2,7 @@ import Ember from "ember";
 import firebase from "firebase";
 
 export default Ember.Controller.extend({
+ 
   actions: {
     login() {
       if (
@@ -10,26 +11,33 @@ export default Ember.Controller.extend({
         this.get("model.password")
       ) {
         let _email = this.get("model.email");
-        let _passaword = this.get("model.password");
+        let _passaword = this.get("model.password");        
+      
 
         firebase
           .auth()
           .signInWithEmailAndPassword(_email, _passaword)
-          .then(() => {
+          .then(() => {                       
+            if(_email === 'admin@teste.com'){
+                            
+              let host = window.location.origin;
+              // todo mudar pra /admin
+              window.location.replace(host + "/login");
+            } else {
+              this.transitionToRoute("home");              
+            }
             this.toast.success("Bem-vindo", "IUOFF");
-            this.transitionToRoute('home');
           })
           .catch(error => {
             let errorCode = error.code;
             let errorMessage = error.message;
 
-            if(errorCode === 'auth/wrong-password'){
+            if (errorCode === "auth/wrong-password") {
               this.toast.error("Usuário ou senha inválidos", "ERRO");
             } else {
               this.toast.error("ao logar usuário", "ERRO");
             }
-            
-            
+
             console.error(
               "Erro ao  logar com usuário code: ",
               errorCode,
