@@ -8,6 +8,7 @@ import {
 
 export default DS.Model.extend({
   title: DS.attr('string'), 
+  code: DS.attr('string'),
   initialAmount: DS.attr('number'),
   initialPeriod: DS.attr('date'),
   finalPeriod: DS.attr('date'),

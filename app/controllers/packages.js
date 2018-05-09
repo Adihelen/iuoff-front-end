@@ -3,10 +3,11 @@ import Ember from 'ember';
 
 
 export default Ember.Controller.extend({
-  menuItemExternal: true, 
-  // store: Ember.inject.service('store'),
 
-  // packageList: Ember.computed('model', function() {
-  //   return this.get('store').findAll('package')
-  // })
+  // filtros
+
+  queryParams: ['origin', 'destination'],
+
+  menuItemExternal: true, 
+ 
 });

@@ -1,7 +1,7 @@
 
    <div class="container-fluid no-margin no-padding">
       <div class="banner">
-        <img src="http://lorempixel.com/1920/520" alt="banner pacotes">
+        <img src="assets/img/pacotes-banner.jpg" alt="banner pacotes">
        
         <div class="container">
           <div class="banner-caption">
@@ -20,7 +20,8 @@
     </div>
 
     <main role="main" class="container page-with-banner">
-      <div class="row mt-15">
+      
+      <div class="row">
         <div class="col-md-4">
           <!-- filtro -->
 
@@ -36,24 +37,10 @@
             <input type="text" placeholder="Fortaleza" id="destino">
 
             <label>Data ida</label>
-            <input type="date" id="dataIda">
+            <input type="date" id="dataIda" disabled>
 
             <label>Data volta</label>
-            <input type="date" id="dataVolta">
-
-            <label>Quartos</label>
-            <select name="quartos" id="quartos">
-              <option value="">1 Quarto</option>
-              <option value="">2 Quartos</option>
-              <option value="">3 Quartos</option>
-            </select>
-
-            <label>Viajantes</label>
-            <select name="pessoas" id="pessoas">
-              <option value="">1 Pessoa</option>
-              <option value="">2 Pessoas</option>
-              <option value="">3 Pessoas</option>
-            </select>
+            <input type="date" id="dataVolta" disabled>
 
 
           </div>
@@ -109,50 +96,51 @@
             </div>
 
           {{else}}
-            <div class="card-deck">
-
+            
+            <div class="row">
               {{#each model as |package|}}                
-                
-                <div class="card">
-                    <img class="card-img-top" src="http://lorempixel.com/400/270"
-                      alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title b-none">
-                        {{package.title}}
+                <div class="col-md-6">                  
+                  <div class="card">
+                      <img class="card-img-top" src="http://odisseia.pt/wp-content/themes/html5blank-stable6-4-16/img/imagenotfound.png"
+                        alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title b-none">
+                          {{package.title}}
 
-                        <div class="small text-uppercase">
-                          HOTEL + ÁREO
-                        </div>
-                      </h5>
+                          <div class="small text-uppercase">
+                            De: {{package.initialPeriod}} | Para: {{package.finalperiod}}
+                          </div>
+                        </h5>
 
-                    </div>
-                    <div class="card-footer">
-                      <div class="row">
-                        <div class="col-sm-12 col-md-4">
-                          <i class={{package.includeds.firstObject.icon}}></i>
-                          <br> {{package.includeds.firstObject.name}}
-                        </div>
-                        <div class="col-sm-12 col-md-4">
-                          <i class="fa fa-smile"> </i>
-                          <br> 4 All
-                        </div>
-                        <div class="col-sm-12 col-md-4">
-                          <small>
-                            a partir de
-                          </small>
-                          <br>
-                          <span class="text-secondary negrito">
-                            {{!-- TODO, criar helper pra formatar moeda --}}
-                            R$ {{package.initialAmount}}
-                          </span>
-                        </div>
                       </div>
+                      <div class="card-footer">
+                        <div class="row">
+                          <div class="col-sm-12 col-md-4">
+                            <i class={{package.includeds.firstObject.icon}}></i>
+                            <br> {{package.includeds.firstObject.name}}
+                          </div>
+                          <div class="col-sm-12 col-md-4">
+                            <i class={{package.styles.firstObject.icon}}></i>
+                            <br> {{package.styles.firstObject.name}}
+                          </div>
+                          <div class="col-sm-12 col-md-4">
+                            <small>
+                              a partir de
+                            </small>
+                            <br>
+                            <span class="text-secondary negrito">
+                              {{!-- TODO, criar helper pra formatar moeda --}}
+                              R$ {{package.initialAmount}}
+                            </span>
+                          </div>
+                        </div>
 
-                    </div>
+                      </div>
+                  </div>
                 </div>
               {{/each}}
-
             </div>
+            
            
           {{/if}}
          

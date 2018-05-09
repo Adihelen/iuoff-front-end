@@ -1,6 +1,7 @@
 .banner, .banner img {
   width: 100%;
   height: auto;
+  max-height: 560px;
   margin: 0;
   padding: 0;
   position: relative;
@@ -24,8 +25,8 @@
 }
 
 .banner .banner-caption {
-  color: #fff;
-  text-shadow: 1px 2px #333;
+  color:$gray-200;
+  text-shadow: 2px 2px $gray-900;
   font-size: 4em;
   width: 100%;
   height: auto;
@@ -35,8 +36,8 @@
 }
 
 .banner .banner-caption-small {
-  color: #fff;
-  text-shadow: 1px 2px #333;
+  color:$gray-200;
+  text-shadow: 2px 2px $gray-900;
   font-size: 30px;
 }
 
