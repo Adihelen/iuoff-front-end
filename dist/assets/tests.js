@@ -137,7 +137,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('routes/packages.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'routes/packages.js should pass ESLint\n\n');
+    assert.ok(false, 'routes/packages.js should pass ESLint\n\n14:30 - \'transition\' is defined but never used. (no-unused-vars)');
   });
 
   QUnit.test('routes/partners.js', function (assert) {

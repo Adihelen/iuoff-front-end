@@ -1,13 +1,33 @@
-import Ember from 'ember';
-
-
+import Ember from "ember";
 
 export default Ember.Controller.extend({
-
   // filtros
 
-  queryParams: ['origin', 'destination'],
+  queryParams: ["origin", "destination"],
 
-  menuItemExternal: true, 
- 
+  menuItemExternal: true,
+
+  origin: null,
+  destination: null,
+
+  filteredPackages: Ember.computed(
+    "model",
+    "origin",
+    "destination",
+    function() {
+      let origin = this.get("origin");
+      let destination = this.get("destination");
+      let packages = this.get("model");
+
+      if (origin) {
+        return packages.filterBy("origin", origin);
+      } else if (origin && destination) {
+        return packages.filterBy("origin", origin, "destination", destination);
+      } else if (destination) {
+        return packages.filterBy("origin", origin);
+      } else {        
+        return packages;
+      }
+    }
+  )
 });

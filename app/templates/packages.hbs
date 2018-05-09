@@ -31,16 +31,19 @@
             </label>
 
             <label>Origem:</label>
-            <input type="text" placeholder="São Paulo" id="origem">
+            {{input type="text" placeholder="ex: SP" id="origem" value=origin}}
 
             <label>Destino:</label>
-            <input type="text" placeholder="Fortaleza" id="destino">
+            {{input type="text" placeholder="ex: RE" id="destino" value=destination}}
 
-            <label>Data ida</label>
-            <input type="date" id="dataIda" disabled>
+            <div hidden>
 
-            <label>Data volta</label>
-            <input type="date" id="dataVolta" disabled>
+              <label>Data ida</label>
+              <input type="date" id="dataIda" disabled>
+
+              <label>Data volta</label>
+              <input type="date" id="dataVolta" disabled>
+            </div>
 
 
           </div>
@@ -96,9 +99,9 @@
             </div>
 
           {{else}}
-            
+            {{#if filteredPackages}}
             <div class="row">
-              {{#each model as |package|}}                
+              {{#each filteredPackages as |package|}}                
                 <div class="col-md-6">                  
                   <div class="card">
                       <img class="card-img-top" src="http://odisseia.pt/wp-content/themes/html5blank-stable6-4-16/img/imagenotfound.png"
@@ -108,7 +111,7 @@
                           {{package.title}}
 
                           <div class="small text-uppercase">
-                            De: {{package.initialPeriod}} | Para: {{package.finalperiod}}
+                            De: {{package.origin}} | Para: {{package.destination}}
                           </div>
                         </h5>
 
@@ -139,7 +142,17 @@
                   </div>
                 </div>
               {{/each}}
+              
             </div>
+            {{else}}
+              <div class="row">
+                <div class="col-xs-12">
+                  <h3>
+                    Não foi encontrado nenhum resultado para sua pesquisa.
+                  </h3>
+                </div>
+              </div>
+            {{/if}}
             
            
           {{/if}}
