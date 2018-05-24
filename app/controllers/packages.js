@@ -10,6 +10,9 @@ export default Ember.Controller.extend({
   origin: null,
   destination: null,
 
+
+  numberofFilters:  0,
+  
   filteredPackages: Ember.computed(
     "model",
     "origin",
@@ -24,7 +27,7 @@ export default Ember.Controller.extend({
       } else if (origin && destination) {
         return packages.filterBy("origin", origin, "destination", destination);
       } else if (destination) {
-        return packages.filterBy("origin", origin);
+        return packages.filterBy("destination", destination);
       } else {        
         return packages;
       }

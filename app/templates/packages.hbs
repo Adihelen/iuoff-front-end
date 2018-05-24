@@ -35,15 +35,12 @@
 
             <label>Destino:</label>
             {{input type="text" placeholder="ex: RE" id="destino" value=destination}}
+            
+            <label>Data ida</label>
+            <input type="date" id="dataIda" disabled>
 
-            <div hidden>
-
-              <label>Data ida</label>
-              <input type="date" id="dataIda" disabled>
-
-              <label>Data volta</label>
-              <input type="date" id="dataVolta" disabled>
-            </div>
+            <label>Data volta</label>
+            <input type="date" id="dataVolta" disabled>          
 
 
           </div>
@@ -51,7 +48,7 @@
 
           <!-- filtros adicionais -->
 
-          <div class="form-iuoff filtro-adicional" hidden>
+          <div class="form-iuoff filtro-adicional">
             <div class="filtro-adicional-titulo">
               Filtros adicionais
             </div>
@@ -148,7 +145,7 @@
               <div class="row">
                 <div class="col-xs-12">
                   <h3>
-                    Não foi encontrado nenhum resultado para sua pesquisa.
+                    <i class="fa fa-2x fa-info-circle"></i> Não foi encontrado nenhum resultado para sua pesquisa.
                   </h3>
                 </div>
               </div>
