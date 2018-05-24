@@ -28,6 +28,9 @@ export default Ember.Route.extend({
     }, 
     numDias: {
       refreshModel: true
+    },
+    travelStyle: {
+      refreshModel: true
     }
 
   },

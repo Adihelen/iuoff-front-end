@@ -70,7 +70,7 @@
 
                       <div class="checkbox">
                         <label for="{{travelStyle.name}}">
-                          {{input type="checkbox" id=travelStyle.name changed=(action "setTravelStyle") }}
+                          {{input type="checkbox" id=travelStyle.name changed=(action "setTravelStyle" travelStyle.name) }}
                           <i class="{{travelStyle.icon}}"></i> 
                           {{travelStyle.name}}
                         </label>
@@ -123,17 +123,22 @@
                       </div>
                       <div class="card-footer">
                         <div class="row">
-                          <div class="col-sm-12 col-md-6">                            
-                            {{package.numDias}}
-                          </div>
-                          <div class="col-sm-12 col-md-6">
+                          <div class="col-sm-12 col-md-6"> 
                             <small>
-                              a partir de
+                              número de dias
+                            </small>    
+                            <br>                                                    
+                            <span class="text-secondary negrito" title="número de dias">                            
+                              {{package.numDias}}
+                            </span>
+                          </div>
+                          <div class="col-sm-12 col-md-6">                          
+                            <small>
+                              a partir de 
                             </small>
                             <br>
-                            <span class="text-secondary negrito">
-                              {{!-- TODO, criar helper pra formatar moeda --}}
-                              R$ {{package.initialAmount}}
+                            <span class="text-secondary negrito" title="a partir de">                            
+                              R$ {{ package.initialAmount}} ,00
                             </span>
                           </div>
                         </div>

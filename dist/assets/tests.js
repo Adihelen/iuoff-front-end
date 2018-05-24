@@ -47,7 +47,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('controllers/packages.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/packages.js should pass ESLint\n\n71:20 - \'style\' is defined but never used. (no-unused-vars)');
+    assert.ok(true, 'controllers/packages.js should pass ESLint\n\n');
   });
 
   QUnit.test('controllers/partners.js', function (assert) {
@@ -58,6 +58,11 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
   QUnit.test('controllers/register.js', function (assert) {
     assert.expect(1);
     assert.ok(false, 'controllers/register.js should pass ESLint\n\n47:15 - Unexpected console statement. (no-console)\n55:11 - Unexpected console statement. (no-console)\n61:9 - Unexpected console statement. (no-console)\n69:7 - Unexpected console statement. (no-console)');
+  });
+
+  QUnit.test('helpers/format-money.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'helpers/format-money.js should pass ESLint\n\n');
   });
 
   QUnit.test('models/login.js', function (assert) {
@@ -524,6 +529,11 @@ define('iuoff-client/tests/tests.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'unit/controllers/register-test.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/helpers/format-money-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/helpers/format-money-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/models/login-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/models/login-test.js should pass ESLint\n\n');
@@ -691,6 +701,16 @@ define('iuoff-client/tests/unit/controllers/register-test', ['exports', 'ember-q
   (0, _emberQunit.test)('it exists', function (assert) {
     var controller = this.subject();
     assert.ok(controller);
+  });
+});
+define('iuoff-client/tests/unit/helpers/format-money-test', ['exports', 'iuoff-client/helpers/format-money', 'qunit'], function (exports, _iuoffClientHelpersFormatMoney, _qunit) {
+
+  (0, _qunit.module)('Unit | Helper | format money');
+
+  // Replace this with your real tests.
+  (0, _qunit.test)('it works', function (assert) {
+    var result = (0, _iuoffClientHelpersFormatMoney.formatMoney)([42]);
+    assert.ok(result);
   });
 });
 define('iuoff-client/tests/unit/models/login-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {

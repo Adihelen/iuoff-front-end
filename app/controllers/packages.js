@@ -39,13 +39,14 @@ export default Ember.Controller.extend({
     "confort",
     "friends",
     "xp",
+    "travelStyle",
     function() {
       let origin = this.get("origin");
       let destination = this.get("destination");
       let packages = this.get("model");
 
       // estilos de viagem
-      let casal =  this.get("casal");
+      let travelStyle =  this.get("travelStyle");
 
       if (origin) {
         // let _origin =  origin.toLowerCase();
@@ -54,10 +55,10 @@ export default Ember.Controller.extend({
         return packages.filterBy("origin", origin, "destination", destination);
       } else if (destination) {
         return packages.filterBy("destination", destination);
-      } else if (casal) {
+      } else if (travelStyle) {
         return packages.find((item ) => {
           item.styles.find((style) => {
-            style.name.toLowerCase() === casal.toLowerCase()
+            style.name.toLowerCase() === travelStyle.toLowerCase()
           })
         })
       }
@@ -69,7 +70,7 @@ export default Ember.Controller.extend({
 
   action: {
     setTravelStyle(style){
-      
+      this.set('travelStyle', style);
     }
   }
 });

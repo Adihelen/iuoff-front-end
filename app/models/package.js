@@ -22,6 +22,6 @@ export default DS.Model.extend({
   services: fragmentArray('packages/services'), 
   status: DS.attr('boolean'), 
   numDias: DS.attr('number'),  // final period -  initial  period
-  image: DS.attr('string', {defaultValue: 'https://iuoff-admin.azurewebsites.net/assets/app/media/img/pacotes/iuoff-thumb.jpeg'})
+  image: DS.attr('string')
 
 });
