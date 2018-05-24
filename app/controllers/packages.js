@@ -20,7 +20,9 @@ export default Ember.Controller.extend({
   menuItemExternal: true,
 
   origin: null,
-  destination: null,  
+  destination: null,
+  travelStyle: null,
+  numDias: null,    
 
   travelStyles: Ember.computed("", function() {
     let _travelStyles = [];
@@ -37,6 +39,7 @@ export default Ember.Controller.extend({
     }
     return _hasfilters;
   }),
+  
 
   filteredPackages: Ember.computed(
     "origin",
@@ -68,11 +71,12 @@ export default Ember.Controller.extend({
         return packages.filterBy("destination", destination);
       } else if (travelStyle) {
         let filteredStyles =  [];
-        console.log('packages:', packages);
-        packages.styles.find((style ) => {
-            style.name.toLowerCase() === travelStyle.toLowerCase() ;
-            filteredStyles.push(style.name);        
-        })       
+        filteredStyles  = this.get('model').forEach((element) => {
+        element.get('styles').forEach((style) => {
+          return style === travelStyle
+        })
+       });
+         
         return packages.filterBy('styles', filteredStyles);
 
       } else if(numDias){
@@ -88,8 +92,11 @@ export default Ember.Controller.extend({
     setTravelStyle(style){
       this.set('travelStyle', style);
     }, 
-    clearFilters(){
-      this.set('queryParams', []);
+    clearFilters(){      
+      this.set('origin', null);  
+      this.set('destination', null);  
+      this.set('travelStyle', null);  
+      this.set('numDias', null);      
     }
   }
 });

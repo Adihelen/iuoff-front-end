@@ -27,10 +27,12 @@
 
           <div class="form-iuoff filtro-principal">
             <label class="filtro-principal-titulo">
-              Econtre seu pacote
+              Encontre seu pacote
               {{#if hasFilters}} 
-                <i class="fa fa-times" {{action "clearFilters"}}></i>
-                limpar filtros
+                <i class="fa fa-times pull-right" {{action "clearFilters"}}>
+                  limpar filtros
+                </i>
+                
               {{/if}}
             </label>
 

@@ -47,7 +47,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('controllers/packages.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/packages.js should pass ESLint\n\n71:9 - Unexpected console statement. (no-console)');
+    assert.ok(true, 'controllers/packages.js should pass ESLint\n\n');
   });
 
   QUnit.test('controllers/partners.js', function (assert) {
