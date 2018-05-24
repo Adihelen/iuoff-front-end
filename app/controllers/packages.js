@@ -20,9 +20,7 @@ export default Ember.Controller.extend({
   menuItemExternal: true,
 
   origin: null,
-  destination: null,
-
-  numberOfFilters: 0,
+  destination: null,  
 
   travelStyles: Ember.computed("", function() {
     let _travelStyles = [];
@@ -30,6 +28,14 @@ export default Ember.Controller.extend({
       _travelStyles = this.get("store").findAll("style");
     }
     return _travelStyles;
+  }),
+
+  hasFilters: Ember.computed('queryParams', function(){
+    let _hasfilters = false;
+    if(this.get('queryParams')){
+      _hasfilters =  true;
+    }
+    return _hasfilters;
   }),
 
   filteredPackages: Ember.computed(
@@ -61,11 +67,14 @@ export default Ember.Controller.extend({
       } else if (destination) {
         return packages.filterBy("destination", destination);
       } else if (travelStyle) {
-        return packages.filterBy((item ) => {
-          item.styles.filter((style) => {
-            style.name.toLowerCase() === travelStyle.toLowerCase()
-          })
-        })
+        let filteredStyles =  [];
+        console.log('packages:', packages);
+        packages.styles.find((style ) => {
+            style.name.toLowerCase() === travelStyle.toLowerCase() ;
+            filteredStyles.push(style.name);        
+        })       
+        return packages.filterBy('styles', filteredStyles);
+
       } else if(numDias){
         return packages.filterBy("numDias", numDias);
       }
@@ -78,6 +87,9 @@ export default Ember.Controller.extend({
   actions: {
     setTravelStyle(style){
       this.set('travelStyle', style);
+    }, 
+    clearFilters(){
+      this.set('queryParams', []);
     }
   }
 });
