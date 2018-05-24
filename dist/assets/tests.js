@@ -95,6 +95,11 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'models/packages/styles.js should pass ESLint\n\n');
   });
 
+  QUnit.test('models/style.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/style.js should pass ESLint\n\n');
+  });
+
   QUnit.test('models/user.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'models/user.js should pass ESLint\n\n');
@@ -137,7 +142,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('routes/packages.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/packages.js should pass ESLint\n\n14:30 - \'transition\' is defined but never used. (no-unused-vars)');
+    assert.ok(true, 'routes/packages.js should pass ESLint\n\n');
   });
 
   QUnit.test('routes/partners.js', function (assert) {
@@ -529,6 +534,11 @@ define('iuoff-client/tests/tests.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'unit/models/package-test.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/models/style-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/style-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/models/user-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/models/user-test.js should pass ESLint\n\n');
@@ -699,6 +709,19 @@ define('iuoff-client/tests/unit/models/login-test', ['exports', 'ember-qunit'], 
 define('iuoff-client/tests/unit/models/package-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleForModel)('package', 'Unit | Model | package', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('iuoff-client/tests/unit/models/style-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('style', 'Unit | Model | style', {
     // Specify the other units that are required for this test.
     needs: []
   });

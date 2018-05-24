@@ -51,32 +51,37 @@
           <div class="form-iuoff filtro-adicional">
             <div class="filtro-adicional-titulo">
               Filtros adicionais
+              {{#if travelStyles.isPending}}
+                <i class="fa fa-spin fa-spinner fx-5"></i> <br>
+              {{/if}}
             </div>
             <div class="mt-15"></div>
 
-
-            <label for="">
-              Estilo viagem
-            </label>
             <div class="estilo-viagem-lista">
+              {{#if travelStyles.isPending}}
+                <div class="row">
+                  <div class="col-xs-12">
+                    <i class="fa fa-spin fa-spinner fx-5"></i> <br>
+                  </div>
+                </div>                 
 
-              <div class="checkbox">
-                <label for="casal"><input type="checkbox" id="casal"><i class="fa fa-user"></i> Casal</label>
-              </div>
-              <div class="checkbox">
-                <label for="familia"><input type="checkbox" id="familia"><i class="fa fa-users"></i>
-                  Família</label>
-              </div>
-              <div class="checkbox">
-                <label for="amigos"><input type="checkbox" id="amigos"><i class="fa fa-people-carry"></i> Amigos</label>
-              </div>
-              <div class="checkbox">
-                <label for="economico"><input type="checkbox" id="economico"><i class="fas fa-money-bill-alt"></i>
-                  Econômico</label>
-              </div>
+                {{else}}
+                  {{#each travelStyles as |travelStyle|}}
+                      {{!-- {{travelStyle.icon}}
 
+                      {{travelStyle.name}} --}}
 
+                      <div class="checkbox">
+                        <label for="{{travelStyle.name}}">
+                          <input type="checkbox" id="{{travelStyle.name}}">
+                          <i class="{{travelStyle.icon}}"></i> 
+                          {{travelStyle.name}}
+                        </label>
+                      </div>
+                  {{/each}}
 
+              {{/if}}            
+             
             </div>
 
           </div>

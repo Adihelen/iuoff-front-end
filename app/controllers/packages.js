@@ -2,6 +2,7 @@ import Ember from "ember";
 
 export default Ember.Controller.extend({
   // filtros
+  store: Ember.inject.service('store'),
 
   queryParams: ["origin", "destination"],
 
@@ -12,6 +13,14 @@ export default Ember.Controller.extend({
 
 
   numberofFilters:  0,
+
+  travelStyles: Ember.computed('', function() {
+    let _travelStyles = [];
+    if(this.get('model')){
+      _travelStyles =  this.get('store').findAll('style')
+    }
+    return _travelStyles;
+  }),
   
   filteredPackages: Ember.computed(
     "model",
@@ -23,7 +32,8 @@ export default Ember.Controller.extend({
       let packages = this.get("model");
 
       if (origin) {
-        return packages.filterBy("origin", origin);
+        let _origin =  origin.toLowerCase();
+        return packages.filterBy("origin", _origin);
       } else if (origin && destination) {
         return packages.filterBy("origin", origin, "destination", destination);
       } else if (destination) {

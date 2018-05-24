@@ -8306,6 +8306,9 @@ header.SejaUmParceiro {
   padding: 15px;
   margin: -15px; }
 
+.estilo-viagem-lista {
+  margin-top: 40px; }
+
 .estilo-viagem-lista .checkbox input {
   width: initial;
   width: 20px;

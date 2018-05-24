@@ -11,10 +11,10 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    willTransition: function(transition) {
-      this.controller.set('origin').clear();
-      this.controller.set('destination').clear();
-    }
+    // willTransition: function(transition) {
+    //   this.controller.set('origin').clear();
+    //   this.controller.set('destination').clear();
+    // }
   },
 
   model: function(){  
