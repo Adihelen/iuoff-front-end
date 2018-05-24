@@ -12,7 +12,9 @@ export default Ember.Controller.extend({
     "family",
     "confort",
     "friends",
-    "xp"
+    "xp", 
+    "travelStyle",
+    "numDias"
   ],
 
   menuItemExternal: true,
@@ -40,6 +42,7 @@ export default Ember.Controller.extend({
     "friends",
     "xp",
     "travelStyle",
+    "numDias",
     function() {
       let origin = this.get("origin");
       let destination = this.get("destination");
@@ -47,6 +50,8 @@ export default Ember.Controller.extend({
 
       // estilos de viagem
       let travelStyle =  this.get("travelStyle");
+
+      let numDias =  this.get("numDias");
 
       if (origin) {
         // let _origin =  origin.toLowerCase();
@@ -61,6 +66,8 @@ export default Ember.Controller.extend({
             style.name.toLowerCase() === travelStyle.toLowerCase()
           })
         })
+      } else if(numDias){
+        return packages.filterBy("numDias", numDias);
       }
       else {
         return packages;
@@ -68,7 +75,7 @@ export default Ember.Controller.extend({
     }
   ), 
 
-  action: {
+  actions: {
     setTravelStyle(style){
       this.set('travelStyle', style);
     }

@@ -649,7 +649,7 @@ define("iuoff-client/controllers/packages", ["exports", "ember"], function (expo
     // filtros
     store: _ember["default"].inject.service("store"),
 
-    queryParams: ["origin", "destination", "casal", "economy", "family", "confort", "friends", "xp"],
+    queryParams: ["origin", "destination", "casal", "economy", "family", "confort", "friends", "xp", "travelStyle", "numDias"],
 
     menuItemExternal: true,
 
@@ -666,13 +666,15 @@ define("iuoff-client/controllers/packages", ["exports", "ember"], function (expo
       return _travelStyles;
     }),
 
-    filteredPackages: _ember["default"].computed("origin", "destination", "casal", "economy", "family", "confort", "friends", "xp", "travelStyle", function () {
+    filteredPackages: _ember["default"].computed("origin", "destination", "casal", "economy", "family", "confort", "friends", "xp", "travelStyle", "numDias", function () {
       var origin = this.get("origin");
       var destination = this.get("destination");
       var packages = this.get("model");
 
       // estilos de viagem
       var travelStyle = this.get("travelStyle");
+
+      var numDias = this.get("numDias");
 
       if (origin) {
         // let _origin =  origin.toLowerCase();
@@ -687,12 +689,14 @@ define("iuoff-client/controllers/packages", ["exports", "ember"], function (expo
             style.name.toLowerCase() === travelStyle.toLowerCase();
           });
         });
+      } else if (numDias) {
+        return packages.filterBy("numDias", numDias);
       } else {
         return packages;
       }
     }),
 
-    action: {
+    actions: {
       setTravelStyle: function setTravelStyle(style) {
         this.set('travelStyle', style);
       }
