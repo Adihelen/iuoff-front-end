@@ -96,52 +96,62 @@
           {{else}}
             {{#if filteredPackages}}
             <div class="row">
-              {{#each filteredPackages as |package|}}                
-                <div class="col-md-6">                  
-                  <div class="card">                     
-                     {{#if package.image}}
-                        <img class="card-img-top" src={{package.image}}
-                        alt="image do pacote">
-                     {{else}}
-                        <img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg"
-                        alt="iuoff thumb pacotes">
-                     {{/if}}
+              {{#each filteredPackages as |package|}}    
+
+                
+                  <div class="col-md-6">                  
+                    <div class="card">     
                       
-                      <div class="card-body">
-                        <h5 class="card-title b-none">
-                          {{package.title}}
+                        {{#if package.image}}
+                            <img class="card-img-top" src={{package.image}}
+                            alt="image do pacote">
+                        {{else}}
+                            <img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg"
+                            alt="iuoff thumb pacotes">
+                        {{/if}}
+                      
+                        
+                        <div class="card-body">
+                          <h5 class="card-title b-none">    
+                            {{!-- {{#link-to 'packages.detail' package.id}}          
+                             
+                            {{/link-to}} --}}
+                            {{package.title}}
+                            
 
-                          <div class="small text-uppercase">
-                            De: {{package.origin}} | Para: {{package.destination}}
-                          </div>
-                        </h5>
+                            <div class="small text-uppercase">
+                              De: {{package.origin}} | Para: {{package.destination}}
+                            </div>
+                          </h5>
 
-                      </div>
-                      <div class="card-footer">
-                        <div class="row">
-                          <div class="col-sm-12 col-md-6"> 
-                            <small>
-                              número de dias
-                            </small>    
-                            <br>                                                    
-                            <span class="text-secondary negrito" title="número de dias">                            
-                              {{package.numDias}}
-                            </span>
-                          </div>
-                          <div class="col-sm-12 col-md-6">                          
-                            <small>
-                              a partir de 
-                            </small>
-                            <br>
-                            <span class="text-secondary negrito" title="a partir de">                            
-                              R$ {{ package.initialAmount}} ,00
-                            </span>
-                          </div>
                         </div>
+                        <div class="card-footer">
+                          <div class="row">
+                            <div class="col-sm-12 col-md-6"> 
+                              <small>
+                                número de dias
+                              </small>    
+                              <br>                                                    
+                              <span class="text-secondary negrito" title="número de dias">                            
+                                {{package.numDias}}
+                              </span>
+                            </div>
+                            <div class="col-sm-12 col-md-6">                          
+                              <small>
+                                a partir de 
+                              </small>
+                              <br>
+                              <span class="text-secondary negrito" title="a partir de">                            
+                                R$ {{ package.initialAmount}} ,00
+                              </span>
+                            </div>
+                          </div>
 
-                      </div>
+                        </div>
+                    </div>
                   </div>
-                </div>
+                
+
               {{/each}}
               
             </div>

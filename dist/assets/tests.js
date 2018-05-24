@@ -150,6 +150,11 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'routes/packages.js should pass ESLint\n\n');
   });
 
+  QUnit.test('routes/packages/detail.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/packages/detail.js should pass ESLint\n\n');
+  });
+
   QUnit.test('routes/partners.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/partners.js should pass ESLint\n\n');
@@ -584,6 +589,11 @@ define('iuoff-client/tests/tests.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'unit/routes/packages-test.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/routes/packages/detail-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/packages/detail-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/routes/partners-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/partners-test.js should pass ESLint\n\n');
@@ -829,6 +839,18 @@ define('iuoff-client/tests/unit/routes/login-test', ['exports', 'ember-qunit'], 
 define('iuoff-client/tests/unit/routes/packages-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleFor)('route:packages', 'Unit | Route | packages', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('iuoff-client/tests/unit/routes/packages/detail-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:packages/detail', 'Unit | Route | packages/detail', {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
   });
