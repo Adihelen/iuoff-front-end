@@ -51,7 +51,7 @@ export default Ember.Controller.extend({
       // estilos de viagem
       let travelStyle =  this.get("travelStyle");
 
-      let numDias =  this.get("numDias");
+      let numDias =  parseInt(this.get("numDias"));
 
       if (origin) {
         // let _origin =  origin.toLowerCase();
@@ -61,8 +61,8 @@ export default Ember.Controller.extend({
       } else if (destination) {
         return packages.filterBy("destination", destination);
       } else if (travelStyle) {
-        return packages.find((item ) => {
-          item.styles.find((style) => {
+        return packages.filterBy((item ) => {
+          item.styles.filter((style) => {
             style.name.toLowerCase() === travelStyle.toLowerCase()
           })
         })
