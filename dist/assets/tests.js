@@ -47,7 +47,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('controllers/packages.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'controllers/packages.js should pass ESLint\n\n');
+    assert.ok(false, 'controllers/packages.js should pass ESLint\n\n71:20 - \'style\' is defined but never used. (no-unused-vars)');
   });
 
   QUnit.test('controllers/partners.js', function (assert) {

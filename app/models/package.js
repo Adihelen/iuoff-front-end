@@ -19,6 +19,9 @@ export default DS.Model.extend({
   styles: fragmentArray('packages/styles'), 
   pictures: fragmentArray('packages/pictures'), 
   accommodations: fragmentArray('packages/accommodations'), 
-  services: fragmentArray('packages/services')
+  services: fragmentArray('packages/services'), 
+  status: DS.attr('boolean'), 
+  numDias: DS.attr('number'),  // final period -  initial  period
+  image: DS.attr('string', {defaultValue: 'https://iuoff-admin.azurewebsites.net/assets/app/media/img/pacotes/iuoff-thumb.jpeg'})
 
 });

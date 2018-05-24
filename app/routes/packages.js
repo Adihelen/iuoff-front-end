@@ -7,7 +7,29 @@ export default Ember.Route.extend({
     }, 
     destination: {
       refreshModel: true
+    }, 
+    casal: {
+      refreshModel: true
+    }, 
+    economy: {
+      refreshModel: true
+    }, 
+    family: {
+      refreshModel: true
+    }, 
+    confort: {
+      refreshModel: true
+    },
+    friends: {
+      refreshModel: true
+    }, 
+    xp: {
+      refreshModel: true
+    }, 
+    numDias: {
+      refreshModel: true
     }
+
   },
 
   actions: {

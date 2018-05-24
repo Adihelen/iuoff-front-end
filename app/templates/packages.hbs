@@ -66,14 +66,11 @@
                 </div>                 
 
                 {{else}}
-                  {{#each travelStyles as |travelStyle|}}
-                      {{!-- {{travelStyle.icon}}
-
-                      {{travelStyle.name}} --}}
+                  {{#each travelStyles as |travelStyle|}}             
 
                       <div class="checkbox">
                         <label for="{{travelStyle.name}}">
-                          <input type="checkbox" id="{{travelStyle.name}}">
+                          {{input type="checkbox" id=travelStyle.name changed=(action "setTravelStyle") }}
                           <i class="{{travelStyle.icon}}"></i> 
                           {{travelStyle.name}}
                         </label>
@@ -105,9 +102,15 @@
             <div class="row">
               {{#each filteredPackages as |package|}}                
                 <div class="col-md-6">                  
-                  <div class="card">
-                      <img class="card-img-top" src="http://odisseia.pt/wp-content/themes/html5blank-stable6-4-16/img/imagenotfound.png"
-                        alt="Card image cap">
+                  <div class="card">                     
+                     {{#if package.image}}
+                        <img class="card-img-top" src={{package.image}}
+                        alt="image do pacote">
+                     {{else}}
+                        <img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg"
+                        alt="iuoff thumb pacotes">
+                     {{/if}}
+                      
                       <div class="card-body">
                         <h5 class="card-title b-none">
                           {{package.title}}
@@ -120,15 +123,10 @@
                       </div>
                       <div class="card-footer">
                         <div class="row">
-                          <div class="col-sm-12 col-md-4">
-                            <i class={{package.includeds.firstObject.icon}}></i>
-                            <br> {{package.includeds.firstObject.name}}
+                          <div class="col-sm-12 col-md-6">                            
+                            {{package.numDias}}
                           </div>
-                          <div class="col-sm-12 col-md-4">
-                            <i class={{package.styles.firstObject.icon}}></i>
-                            <br> {{package.styles.firstObject.name}}
-                          </div>
-                          <div class="col-sm-12 col-md-4">
+                          <div class="col-sm-12 col-md-6">
                             <small>
                               a partir de
                             </small>
