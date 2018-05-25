@@ -63,7 +63,7 @@ export default Ember.Controller.extend({
       let destination = this.get("destination");      
       let numDias =  parseInt(this.get("numDias"));
       // // estilos de viagem
-      // let travelStyle =  this.get("travelStyle");        
+      let travelStyle =  this.get("travelStyle");        
 
     
       if(title) {
@@ -93,6 +93,19 @@ export default Ember.Controller.extend({
           return item.get('numDias').match(rxNumDias)
         });
       }      
+
+      // travel styles
+      if(travelStyle) {
+        var rxStyles = new RegExp(this.get('travelStyle'), 'gi');
+        return packages.filter((item) => {
+          return item.get('styles').map((style) => {
+            // console.log('style to filter:', style, 'rx: ', style.match(rxStyles));
+            return style.match(rxStyles); 
+          })
+        });
+      }      
+
+
 
       return packages;
     

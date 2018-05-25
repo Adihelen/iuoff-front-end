@@ -61,9 +61,15 @@
 
           <!-- filtros adicionais -->
 
-          <div class="form-iuoff filtro-adicional" hidden>
+          <div class="form-iuoff filtro-adicional">
             <div class="filtro-adicional-titulo">
               Filtros adicionais
+              
+              <i 
+                class="fa fa-times-circle clear-filter" 
+                title="limpar filtros" 
+                {{action "clearFilters"}}>                  
+              </i>       
               
             </div>
             <div class="mt-15"></div>
