@@ -14,11 +14,13 @@ export default Ember.Controller.extend({
     "friends",
     "xp", 
     "travelStyle",
-    "numDias"
+    "numDias", 
+    "title"
   ],
 
   menuItemExternal: true,
 
+  title: null, 
   origin: null,
   destination: null,
   travelStyle: null,
@@ -52,39 +54,48 @@ export default Ember.Controller.extend({
     "xp",
     "travelStyle",
     "numDias",
+    "title",
     function() {
-      let origin = this.get("origin");
-      let destination = this.get("destination");
       let packages = this.get("model");
 
-      // estilos de viagem
-      let travelStyle =  this.get("travelStyle");
-
+      let title =  this.get('title');
+      let origin = this.get("origin");
+      let destination = this.get("destination");      
       let numDias =  parseInt(this.get("numDias"));
+      // // estilos de viagem
+      // let travelStyle =  this.get("travelStyle");        
 
-      if (origin) {
-        // let _origin =  origin.toLowerCase();
-        return packages.filterBy("origin", origin);
-      } else if (origin && destination) {
-        return packages.filterBy("origin", origin, "destination", destination);
-      } else if (destination) {
-        return packages.filterBy("destination", destination);
-      } else if (travelStyle) {
-        let filteredStyles =  [];
-        filteredStyles  = this.get('model').forEach((element) => {
-        element.get('styles').forEach((style) => {
-          return style === travelStyle
-        })
-       });
-         
-        return packages.filterBy('styles', filteredStyles);
+    
+      if(title) {
+        var rxTitle = new RegExp(this.get('title'), 'gi');
+        return packages.filter((item) => {
+          return item.get('title').match(rxTitle)
+        });
+      }
 
-      } else if(numDias){
-        return packages.filterBy("numDias", numDias);
+      if(origin) {
+        var rxOrigin = new RegExp(this.get('origin'), 'gi');
+        return packages.filter((item) => {
+          return item.get('origin').match(rxOrigin)
+        });
       }
-      else {
-        return packages;
+
+      if(destination) {
+        var rxDestination = new RegExp(this.get('destination'), 'gi');
+        return packages.filter((item) => {
+          return item.get('destination').match(rxDestination)
+        });
       }
+    
+      if(numDias) {
+        var rxNumDias = new RegExp(this.get('numDias'), 'gi');
+        return packages.filter((item) => {
+          return item.get('numDias').match(rxNumDias)
+        });
+      }      
+
+      return packages;
+    
     }
   ), 
 
@@ -97,6 +108,7 @@ export default Ember.Controller.extend({
       this.set('destination', null);  
       this.set('travelStyle', null);  
       this.set('numDias', null);      
+      this.set('title', null); 
     }
   }
 });

@@ -31,6 +31,9 @@ export default Ember.Route.extend({
     },
     travelStyle: {
       refreshModel: true
+    }, 
+    title: {
+      refreshModel: true
     }
 
   },

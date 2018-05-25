@@ -8434,7 +8434,8 @@ header .fa {
 
 .clear-filter {
   font-size: 1.5em;
-  float: right; }
+  float: right;
+  cursor: pointer; }
 
 .banner, .banner img {
   width: 100%;

@@ -28,14 +28,17 @@
 
           <div class="form-iuoff filtro-principal">
             <label class="filtro-principal-titulo">
-              Encontre seu pacote
-              {{#if hasFilters}} 
-                <i class="fa fa-times-circle clear-filter " title="limpar filtros" {{action "clearFilters"}}>
-                  
-                </i>
-                
-              {{/if}}
+              Encontre seu pacote              
+                <i 
+                  class="fa fa-times-circle clear-filter" 
+                  title="limpar filtros" 
+                  {{action "clearFilters"}}>                  
+                </i>                
+              
             </label>
+            
+            <label>Titulo:</label>
+            {{input type="text" placeholder="ex: Pacote SP" id="title" value=title}}
 
             <label>Origem:</label>
             {{input type="text" placeholder="ex: SP" id="origem" value=origin}}
@@ -161,7 +164,9 @@
               <div class="row">
                 <div class="col-xs-12">
                   <h3>
-                    <i class="fa fa-2x fa-info-circle"></i> Não foi encontrado nenhum resultado para sua pesquisa.
+                    <i class="fa fa-2x fa-info-circle blue-color"></i> 
+                    <br>
+                    Não foi encontrado nenhum resultado para sua pesquisa.
                   </h3>
                 </div>
               </div>
