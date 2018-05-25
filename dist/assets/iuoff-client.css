@@ -8003,6 +8003,107 @@ header.SejaUmParceiro {
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
       font-size: 22px; } }
 
+header {
+  border: 1px solid #ebebeb;
+  margin: 150px 0px 30px 0px; }
+
+header .title {
+  margin-top: 20px;
+  margin-left: 15px;
+  display: inline-block; }
+
+header small {
+  color: #8e9083;
+  display: block; }
+
+header .fa {
+  margin-top: 15px;
+  font-size: 30px;
+  display: inline-block;
+  color: #317ba1; }
+
+.box-preco {
+  background: #317ba1;
+  color: #fff;
+  padding: 1em;
+  font-weight: 700;
+  font-size: 1.2em; }
+
+.box-preco span {
+  font-size: 12px;
+  font-weight: 300; }
+
+.box-preco .preco-icones {
+  float: right;
+  margin-top: -20px; }
+
+.preco-icones .fa {
+  margin-left: 20px; }
+
+/**
+    
+      fim header
+    
+      */
+.title {
+  color: #0f6594;
+  margin: 30px 0px; }
+
+.hospedagem-adicional {
+  border: 1px solid #ebebeb;
+  padding: 1em;
+  width: 100%;
+  background: #f7f7f7; }
+
+.hospedagem-adicional > * {
+  display: inline-block;
+  margin-top: 8px; }
+
+.hospedagem-adicional .hospedagem-titulo {
+  font-weight: bold;
+  color: #333;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #333;
+  display: block; }
+
+.hospedagem-adicional button {
+  background: #fe5d26;
+  padding: 0.5em;
+  color: #fff;
+  outline: none;
+  border: none; }
+
+.hospedagem-adicional input[type="text"] {
+  width: 100%; }
+
+.hospedagem-adicional input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-right: 5px;
+  background: #fff; }
+
+.btn-green {
+  color: #fff;
+  background: #6ebb51;
+  margin-top: 15px;
+  margin-left: 15px;
+  padding: 1em 4em;
+  border-radius: 10px;
+  font-weight: bold; }
+
+/* conteudo direita */
+.box-item {
+  border-bottom: 2px solid #ebebeb; }
+
+.box-item span {
+  color: #8e9083;
+  font-size: 12px;
+  display: block; }
+
+.divisor {
+  border-left: 2px solid #ebebeb; }
+
 .text-primary {
   color: #616161 !important; }
 
@@ -8460,5 +8561,9 @@ header.SejaUmParceiro {
     left: 120%; }
   to {
     left: 100%; } }
+
+.img-responsive {
+  width: 100%;
+  height: auto; }
 
 /*# sourceMappingURL=iuoff-client.css.map */

@@ -15,6 +15,7 @@ export default DS.Model.extend({
   validity: DS.attr('date'),
   origin: DS.attr('string'),
   destination: DS.attr('string'),
+  description: DS.attr('string'),
   includeds: fragmentArray('packages/includeds'), 
   styles: fragmentArray('packages/styles'), 
   pictures: fragmentArray('packages/pictures'), 

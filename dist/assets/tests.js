@@ -130,6 +130,11 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'routes/about-us.js should pass ESLint\n\n');
   });
 
+  QUnit.test('routes/details.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/details.js should pass ESLint\n\n');
+  });
+
   QUnit.test('routes/home.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/home.js should pass ESLint\n\n');
@@ -148,11 +153,6 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
   QUnit.test('routes/packages.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/packages.js should pass ESLint\n\n');
-  });
-
-  QUnit.test('routes/packages/detail.js', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'routes/packages/detail.js should pass ESLint\n\n');
   });
 
   QUnit.test('routes/partners.js', function (assert) {
@@ -569,6 +569,11 @@ define('iuoff-client/tests/tests.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'unit/routes/about-us-test.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/routes/details-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/details-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/routes/home-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/home-test.js should pass ESLint\n\n');
@@ -791,6 +796,18 @@ define('iuoff-client/tests/unit/models/users/address-test', ['exports', 'ember-q
 define('iuoff-client/tests/unit/routes/about-us-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleFor)('route:about-us', 'Unit | Route | about us', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var route = this.subject();
+    assert.ok(route);
+  });
+});
+define('iuoff-client/tests/unit/routes/details-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('route:details', 'Unit | Route | details', {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
   });

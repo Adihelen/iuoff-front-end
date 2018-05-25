@@ -15,9 +15,10 @@ Router.map(function() {
   this.route("loading");
   this.route("profile");
 
-  this.resource("packages", function() {
-    this.route("detail", { path: "/:package_id" });
-  });
+
+  this.route("packages");
+  this.route("details", { path: "/packages/:package_id" });  
+  
 });
 
 export default Router;

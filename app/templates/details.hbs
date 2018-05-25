@@ -1,0 +1,217 @@
+
+<header class="land-header container">
+   <div class="row">
+      <!-- header esquerda -->
+      <div class="col-md-8">
+         <i class="fa fa-chevron-left"></i>
+         <div class="title">
+            {{model.title}} <br>   
+            <small>
+            Código: {{model.code}}
+            </small>
+         </div>
+      </div>
+      <!-- header direita -->
+      <div class="col-md-4 no-padding">
+         <div class="box-preco">
+            <span>Valor a partir de <br></span> R$ {{model.initialAmount}}
+            <span class="preco-icones">
+            <i class="fa fa-2x fa-share"></i>
+            Compartihar
+            </span>
+         </div>
+      </div>
+   </div>
+</header>
+<main role="main" class="container">
+   <div class="row">
+      <!-- conteudo esquerda -->
+      <div class="col-md-8 no-padding">
+         <div class="banner-packages">
+            <img src={{model.image}} alt="" class="img-responsive">
+         </div>
+         <section>
+            <h3 class="title">
+               Descrição
+            </h3>
+            <p>
+               {{model.description}}
+            </p>
+            {{!-- #alterado no modelo , não tem mais essa informaçõa --}}
+            {{!-- 
+            <div class="hospedagem-adicional">
+               <div class="hospedagem-titulo">
+                  Hospedagem Adicional
+               </div>
+               <input class="pull-left" type="checkbox">
+               <label class="pull-left">Nome da Hospedagem adicional</label>
+               <input type="text" placeholder="Descrição...">
+               <button>
+               Valor adicional R$ 400,00
+               </button>
+            </div>
+            --}}
+            {{!-- <div class="row">
+               <!-- Button trigger modal -->
+               <button type="button" class="btn btn-green" data-toggle="modal" data-target="#tenhoInteresseModal">
+               TENHO INTERESSE
+               </button>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="text-danger">
+                     Estes detalhes são sujeitos a alteração atá a confirmação da compra.
+                  </div>
+               </div>
+            </div> --}}
+         </section>
+      </div>
+      <!-- conteudo direita-->
+      <div class="col-md-4">
+         <div class="row">
+            <div class="col-md-6 box-item">
+               <h5 class="title">
+                  Período
+                  <span>
+                  {{model.initialPeriod}} a {{model.finalPeriod}}
+                  </span>
+               </h5>
+            </div>
+            <div class="col-md-6 box-item">
+               <h5 class="title">
+                  Vigência
+                  <span>
+                  {{model.validity}}
+                  </span>
+               </h5>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6 box-item">
+               <h5 class="title">
+                  Número de dias
+                  <span>
+                  {{model.numDias}}
+                  </span>
+               </h5>
+            </div>
+            <div class="col-md-6 box-item">
+               <h5 class="title">
+                  Estilo do pacote
+                  <span>
+                  {{model.styles.[0]}}
+                  </span>
+               </h5>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6 box-item">
+               <h5 class="title">
+                  Origem
+                  <span>
+                  {{model.origin}}
+                  </span>
+               </h5>
+            </div>
+            <div class="col-md-6 box-item divisor">
+               <h5 class="title">
+                  Destino
+                  <span>
+                  {{model.destination}}
+                  </span>
+               </h5>
+            </div>
+         </div>
+         {{!-- removido por alteração de  modelo, atributo inexistente --}}
+         {{!-- 
+         <div class="row">
+            <h5 class="col-md-12 title">
+               Serviços inclusos
+            </h5>
+         </div>
+         <div class="row">
+            <div class="col-md-4">
+               <span>
+               <i class="fa fa-building"></i>
+               Lorem.
+               </span>
+            </div>
+            <div class="col-md-4 divisor">
+               <span>
+               <i class="fa fa-plane"></i>
+               Lorem.
+               </span>
+            </div>
+            <div class="col-md-4 divisor">
+               <span>
+               <i class="fa fa-car"></i>
+               Lorem.
+               </span>
+            </div>
+         </div>
+         --}}
+      </div>
+   </div>
+   <!-- /.row -->
+</main>
+<!-- /.container -->
+<!-- Modal -->
+<div class="modal fade" id="tenhoInteresseModal" tabindex="-1" role="dialog" aria-labelledby="tenhoInteresseModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="tenhoInteresseModalLabel">Tenho Interesse
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="form-title">
+               <h5 class="title">
+                  Nova york
+                  <br>
+                  <small>
+                  Código: A4589
+                  </small>
+               </h5>
+            </div>
+            <form class="form-iuoff">
+               <div class="form-group">
+                  <label for="exampleInputEmail1"><i class="fa fa-bed"></i> Quartos</label>
+                  <select name="quarto" id="quarto">
+                     <option value="1quarto"> 1 Quarto </option>
+                     <option value="2quarto" selected>2 Quartos </option>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <label><i class="fa fa-user"></i> Viajantes</label>
+                  <select name="quarto" id="quarto">
+                     <option value="2pessoas"> 2 pessoas</option>
+                     <option value="4pessoas" selected>4 Quartos </option>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <label><i class="fa fa-briefcase"></i> Adultos</label>
+                  <input type="number" class="form-control" min="18" id="exampleInputPassword1" placeholder="ex: 2">
+               </div>
+               <div class="form-group">
+                  <label><i class="fa fa-child"></i> Crianças</label>
+                  <input type="number" class="form-control" min="0" id="exampleInputPassword1" placeholder="ex: 2">
+               </div>
+               <div class="form-group bg-cinza p-15">
+                  <label><i class="fa fa-child"></i> Idade das crianças (anos)</label>
+                  <input type="number" class="form-control" min="0" id="exampleInputPassword1" placeholder="ex: 10">
+               </div>
+               <div class="form-group">
+                  <label><i class="fa sticky-note"></i> Observações</label>
+                  <textarea name="observacoes" id="" cols="30" rows="5" placeholder="Digite aqui alguma obeservação..."></textarea>
+               </div>
+               <div class="text-center">
+                  <button type="submit" class="btn btn-success bg-verde btn-lg">CONTINUAR</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>

@@ -24,6 +24,7 @@
       <div class="row">
         <div class="col-md-4">
           <!-- filtro -->
+          {{!-- usar rgx para efeito de 'autocomplete' --}}
 
           <div class="form-iuoff filtro-principal">
             <label class="filtro-principal-titulo">
@@ -57,7 +58,7 @@
 
           <!-- filtros adicionais -->
 
-          <div class="form-iuoff filtro-adicional">
+          <div class="form-iuoff filtro-adicional" hidden>
             <div class="filtro-adicional-titulo">
               Filtros adicionais
               
@@ -113,11 +114,10 @@
                         
                         <div class="card-body">
                           <h5 class="card-title b-none">    
-                            {{!-- {{#link-to 'packages.detail' package.id}}          
-                             
-                            {{/link-to}} --}}
-                            {{package.title}}
+                            {{#link-to 'details' package.id}}                                    
                             
+                                <i class="fa fa-eye" title="ver mais"></i> {{package.title}}
+                            {{/link-to}}
 
                             <div class="small text-uppercase">
                               De: {{package.origin}} | Para: {{package.destination}}
@@ -141,8 +141,10 @@
                                 a partir de 
                               </small>
                               <br>
-                              <span class="text-secondary negrito" title="a partir de">                            
-                                R$ {{ package.initialAmount}} ,00
+                              <span class="text-secondary negrito" title="a partir de">
+                                {{#if package.initialAmount}}                            
+                                  R$ {{ package.initialAmount}} ,00
+                                {{/if}}
                               </span>
                             </div>
                           </div>
