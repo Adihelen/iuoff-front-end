@@ -34,6 +34,9 @@ export default Ember.Route.extend({
     }, 
     title: {
       refreshModel: true
+    }, 
+    initialAmount: {
+      refreshModel: true
     }
 
   },

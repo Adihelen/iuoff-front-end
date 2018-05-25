@@ -15,7 +15,8 @@ export default Ember.Controller.extend({
     "xp", 
     "travelStyle",
     "numDias", 
-    "title"
+    "title", 
+    "initialAmount"
   ],
 
   menuItemExternal: true,
@@ -25,6 +26,7 @@ export default Ember.Controller.extend({
   destination: null,
   travelStyle: null,
   numDias: null,    
+  initialAmount: null, 
 
   travelStyles: Ember.computed("", function() {
     let _travelStyles = [];
@@ -55,6 +57,7 @@ export default Ember.Controller.extend({
     "travelStyle",
     "numDias",
     "title",
+    "initialAmount", 
     function() {
       let packages = this.get("model");
 
@@ -62,6 +65,7 @@ export default Ember.Controller.extend({
       let origin = this.get("origin");
       let destination = this.get("destination");      
       let numDias =  parseInt(this.get("numDias"));
+      let initialAmount =  parseFloat(this.get('initialAmount'));
       // // estilos de viagem
       let travelStyle =  this.get("travelStyle");        
 
@@ -87,12 +91,14 @@ export default Ember.Controller.extend({
         });
       }
     
-      if(numDias) {
-        var rxNumDias = new RegExp(this.get('numDias'), 'gi');
-        return packages.filter((item) => {
-          return item.get('numDias').match(rxNumDias)
-        });
-      }      
+      if(numDias) {        
+        return packages.filterBy('numDias', numDias);
+      }
+      // initialAmount
+      if(initialAmount) {
+        return packages.filterBy('initialAmount', initialAmount);
+      }
+
 
       // travel styles
       if(travelStyle) {
@@ -122,6 +128,7 @@ export default Ember.Controller.extend({
       this.set('travelStyle', null);  
       this.set('numDias', null);      
       this.set('title', null); 
+      this.set('initialAmount', null);
     }
   }
 });
