@@ -8003,20 +8003,20 @@ header.SejaUmParceiro {
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
       font-size: 22px; } }
 
-header {
+.header-packages {
   border: 1px solid #ebebeb;
   margin: 150px 0px 30px 0px; }
 
-header .title {
+.header-packages .title {
   margin-top: 20px;
   margin-left: 15px;
   display: inline-block; }
 
-header small {
+.header-packages small {
   color: #8e9083;
   display: block; }
 
-header .fa {
+.header-packages .fa {
   margin-top: 15px;
   font-size: 30px;
   display: inline-block;
