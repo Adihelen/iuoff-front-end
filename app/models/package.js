@@ -17,7 +17,7 @@ export default DS.Model.extend({
   destination: DS.attr('string'),
   description: DS.attr('string'),
   includeds: fragmentArray('packages/includeds'), 
-  styles: fragmentArray('packages/styles'), 
+  styles: DS.attr('', {defaultValue: []}), 
   pictures: fragmentArray('packages/pictures'), 
   accommodations: fragmentArray('packages/accommodations'), 
   services: fragmentArray('packages/services'), 

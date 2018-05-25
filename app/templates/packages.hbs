@@ -30,8 +30,8 @@
             <label class="filtro-principal-titulo">
               Encontre seu pacote
               {{#if hasFilters}} 
-                <i class="fa fa-times pull-right" {{action "clearFilters"}}>
-                  limpar filtros
+                <i class="fa fa-times-circle clear-filter " title="limpar filtros" {{action "clearFilters"}}>
+                  
                 </i>
                 
               {{/if}}
@@ -113,10 +113,10 @@
                       
                         
                         <div class="card-body">
-                          <h5 class="card-title b-none">    
+                          <h5 class="card-title b-none" title="ver detalhe">    
                             {{#link-to 'details' package.id}}                                    
                             
-                                <i class="fa fa-eye" title="ver mais"></i> {{package.title}}
+                              {{package.title}}
                             {{/link-to}}
 
                             <div class="small text-uppercase">

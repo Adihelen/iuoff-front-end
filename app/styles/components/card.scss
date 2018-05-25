@@ -8,6 +8,10 @@
 .card-title{
     color: #317ba1;
     border-bottom: 2px solid #ebebeb;
+
+    a {
+      color: #317ba1 !important;
+    }
 }
 .card-title .sub-title {
   display: block;

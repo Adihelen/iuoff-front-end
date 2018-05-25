@@ -8035,10 +8035,11 @@ header .fa {
 
 .box-preco .preco-icones {
   float: right;
-  margin-top: -20px; }
+  margin-top: 0px; }
 
 .preco-icones .fa {
-  margin-left: 20px; }
+  margin-left: 20px;
+  color: #fff !important; }
 
 /**
     
@@ -8345,6 +8346,8 @@ header .fa {
 .card-title {
   color: #317ba1;
   border-bottom: 2px solid #ebebeb; }
+  .card-title a {
+    color: #317ba1 !important; }
 
 .card-title .sub-title {
   display: block;
@@ -8428,6 +8431,10 @@ header .fa {
   background: #317ba1;
   color: #fff !important;
   cursor: pointer; }
+
+.clear-filter {
+  font-size: 1.5em;
+  float: right; }
 
 .banner, .banner img {
   width: 100%;

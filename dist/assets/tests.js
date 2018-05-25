@@ -35,6 +35,11 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'controllers/application.js should pass ESLint\n\n');
   });
 
+  QUnit.test('controllers/details.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'controllers/details.js should pass ESLint\n\n');
+  });
+
   QUnit.test('controllers/home.js', function (assert) {
     assert.expect(1);
     assert.ok(false, 'controllers/home.js should pass ESLint\n\n12:7 - \'$\' is not defined. (no-undef)');
@@ -509,6 +514,11 @@ define('iuoff-client/tests/tests.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'unit/controllers/application-test.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/controllers/details-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/controllers/details-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/controllers/home-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/controllers/home-test.js should pass ESLint\n\n');
@@ -643,6 +653,19 @@ define('iuoff-client/tests/unit/controllers/about-us-test', ['exports', 'ember-q
 define('iuoff-client/tests/unit/controllers/application-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleFor)('controller:application', 'Unit | Controller | application', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
+
+  // Replace this with your real tests.
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var controller = this.subject();
+    assert.ok(controller);
+  });
+});
+define('iuoff-client/tests/unit/controllers/details-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleFor)('controller:details', 'Unit | Controller | details', {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']
   });
