@@ -1,8 +1,10 @@
  <!-- Navigation -->
 <nav id="#iuoff-menu" class="navbar navbar-expand-lg navbar-light fixed-top mainNav">
   <div class="container">   
+      {{#link-to 'home'}}
       <img width="auto" height="50" src="/assets/img/logo.png"
         class="custom-logo" alt="IUOFF">    
+      {{/link-to}}
     <button class="navbar-toggler navbar-toggler-right" type="button"
       {{action "toggleNavbar" "#navbarResponsive"}}
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle
