@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default DS.Model.extend({
     // prenchidos em tela
@@ -15,6 +16,7 @@ export default DS.Model.extend({
     qtdCriancas: DS.attr('string'),
     idadeCriancas: DS.attr('string'),
     detalhesAdicionais: DS.attr('string'),
+    isDetalhes: DS.attr('boolean'), // true quando detalhesAdicionais.length > 0 
     
     // dados vindos do pacote
     pacoteCode: DS.attr('string'),
@@ -25,14 +27,19 @@ export default DS.Model.extend({
     valorInicialTipo: DS.attr('string'),
     dataInicio: DS.attr('string'),
     dataVolta: DS.attr('string'),
-    // 
-    isDetalhes: DS.attr('string'),
-
+    descricaoPacote: DS.attr('string'),
+    
     // regras
     agree: DS.attr('boolean', {defaulValue: true}),
     profilename: DS.attr('string', {defaulValue: "user"}),
     userType: DS.attr('string', {defaulValue: "user"}),
     agent: DS.attr('string', {defaulValue: "pacotes-site"}),
     dataSolicitacao: DS.attr('string'),
-    status: "aguardando-propostas"
+    status: DS.attr('string', { defaulValue: "aguardando-propostas" }), 
+    
+    detalhesObservador: Ember.observer('isDetalhes', 'detalhesAdicionais', function(){
+        if(this.get('detalhesAdicionais') && this.get('detalhesAdicionais.length') > 0){
+            this.set('isDetalhes', true);
+        }
+    })
 });

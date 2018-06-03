@@ -4,6 +4,7 @@
 */
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800';
 @import 'https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic';
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css";
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -8529,6 +8530,9 @@ body.modal-open {
 .form-iuoff .title {
   padding: 15px;
   background: #ebebeb; }
+
+.form-iuoff .fa {
+  margin-right: 10px; }
 
 .loaderGeneric {
   height: 8px;

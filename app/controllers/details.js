@@ -33,7 +33,7 @@ export default Ember.Controller.extend({
                     valorInicialTipo: '',
                     dataInicio: this.get('model.initialPeriod'), 
                     dataVolta: this.get('model.finalPeriod'),
-                    isDetalhes: this.get('model.description'),
+                    descricaoPacote: this.get('model.description'),
                     dataSolicitacao: this.get('today'),
                     
                 });
