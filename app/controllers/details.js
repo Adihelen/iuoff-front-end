@@ -16,15 +16,32 @@ export default Ember.Controller.extend({
         return  _styles;
     }),
 
+    today:  Ember.computed('model', function() {
+        return new Date().getFullYear()+"/"+new Date().getMonth()+"/"+new Date().getDay();
+    }),
     actions: {
         tenhoInteresse(){
-            $('#tenhoInteresseModal').modal('show');
-            // this.set('modalPackage', true);
-            let _solicitacao =  this.createRecord('solicitacoes', {
-                code: this._randomString()
-            });
-            this.set('solicitacao', _solicitacao);
-            console.log('solicitação: ', _solicitacao);
+            // model  = package
+            if(this.get('model')){
+                let _solicitacao =  this.get('store').createRecord('solicitacoes', {
+                    code: this._randomString(), 
+                    pacoteCode: this.get('model.code'),
+                    origem: this.get('model.origin'),
+                    destino: this.get('model.destination'),
+                    servicosInclusos: this.get('model.includeds'),                   
+                    valorInicial: this.get('model.initialAmount'),
+                    valorInicialTipo: '',
+                    dataInicio: this.get('model.initialPeriod'), 
+                    dataVolta: this.get('model.finalPeriod'),
+                    isDetalhes: this.get('model.description'),
+                    dataSolicitacao: this.get('today'),
+                    
+                });
+                this.set('solicitacao', _solicitacao);
+            } else {
+                console.error('model não encontrada.');
+            }
+           
         }, 
         savePackage(){
 

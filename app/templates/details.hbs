@@ -7,7 +7,7 @@
          <div class="title">
             {{model.title}} <br>   
             <small>
-            Código: {{model.code}}
+            Código: {{solicitacao.code}}
             </small>
          </div>
       </div>
@@ -53,7 +53,7 @@
             --}}
             <div class="row">
                <!-- Button trigger modal -->
-               <button type="button" class="btn btn-green" data-toggle="modal" data-target="#tenhoInteresseModal">
+               <button type="button" {{action "tenhoInteresse"}} class="btn btn-green" data-toggle="modal" data-target="#tenhoInteresseModal">
                 TENHO INTERESSE
                </button>
             </div>
@@ -160,7 +160,7 @@
 <!-- /.container -->
 <!-- Modal -->
 <div class="modal fade" id="tenhoInteresseModal" tabindex="-1" role="dialog" aria-labelledby="tenhoInteresseModalLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
+   <div class="modal-dialog modal-lg">
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="tenhoInteresseModalLabel">Tenho Interesse
@@ -172,10 +172,10 @@
          <div class="modal-body">
             <div class="form-title">
                <h5 class="title">
-                  Nova york
+                 {{model.title}}
                   <br>
                   <small>
-                  Código: A4589
+                  Código: {{model.code}}
                   </small>
                </h5>
             </div>
