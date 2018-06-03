@@ -37,12 +37,12 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('controllers/details.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'controllers/details.js should pass ESLint\n\n');
+    assert.ok(false, 'controllers/details.js should pass ESLint\n\n21:13 - \'$\' is not defined. (no-undef)\n27:13 - Unexpected console statement. (no-console)');
   });
 
   QUnit.test('controllers/home.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/home.js should pass ESLint\n\n12:7 - \'$\' is not defined. (no-undef)');
+    assert.ok(true, 'controllers/home.js should pass ESLint\n\n');
   });
 
   QUnit.test('controllers/login.js', function (assert) {
@@ -103,6 +103,11 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
   QUnit.test('models/packages/styles.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'models/packages/styles.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('models/solicitacoes.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/solicitacoes.js should pass ESLint\n\n');
   });
 
   QUnit.test('models/style.js', function (assert) {
@@ -559,6 +564,11 @@ define('iuoff-client/tests/tests.lint-test', ['exports'], function (exports) {
     assert.ok(true, 'unit/models/package-test.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/models/solicitacoes-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/solicitacoes-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/models/style-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/models/style-test.js should pass ESLint\n\n');
@@ -767,6 +777,19 @@ define('iuoff-client/tests/unit/models/login-test', ['exports', 'ember-qunit'], 
 define('iuoff-client/tests/unit/models/package-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
 
   (0, _emberQunit.moduleForModel)('package', 'Unit | Model | package', {
+    // Specify the other units that are required for this test.
+    needs: []
+  });
+
+  (0, _emberQunit.test)('it exists', function (assert) {
+    var model = this.subject();
+    // let store = this.store();
+    assert.ok(!!model);
+  });
+});
+define('iuoff-client/tests/unit/models/solicitacoes-test', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
+
+  (0, _emberQunit.moduleForModel)('solicitacoes', 'Unit | Model | solicitacoes', {
     // Specify the other units that are required for this test.
     needs: []
   });

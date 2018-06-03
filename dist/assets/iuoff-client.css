@@ -4451,7 +4451,7 @@ button.close {
   -webkit-appearance: none; }
 
 .modal-open {
-  overflow: hidden; }
+  overflow: hidden !important; }
 
 .modal {
   position: fixed;
@@ -8254,6 +8254,12 @@ header.SejaUmParceiro {
 
 .icon-whatsapp-logo:before {
   content: "\e91b"; }
+
+.modal-open .modal {
+  overflow-y: auto; }
+
+body.modal-open {
+  overflow-y: hidden !important; }
 
 .modal .form-section {
   display: none; }
