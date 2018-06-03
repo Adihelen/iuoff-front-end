@@ -37,7 +37,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('controllers/details.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/details.js should pass ESLint\n\n42:17 - Unexpected console statement. (no-console)');
+    assert.ok(false, 'controllers/details.js should pass ESLint\n\n49:17 - Unexpected console statement. (no-console)\n59:17 - Unexpected console statement. (no-console)\n61:17 - Unexpected console statement. (no-console)\n65:19 - \'$\' is not defined. (no-undef)');
   });
 
   QUnit.test('controllers/home.js', function (assert) {
