@@ -17,6 +17,15 @@ export default Ember.Controller.extend({
         return  _styles;
     }),
 
+    servicosInclusosComputed:  Ember.computed('model', function(){
+        let _servicos =  [];
+        if(this.get('model') && this.get('model.accommodations')){
+            let _accomodations = this.get('model.accommodations').join(',');
+            _servicos = _accomodations;
+        }
+        return _servicos;
+    }),
+
     today:  Ember.computed('model', function() {
         return new Date().getFullYear()+"/"+new Date().getMonth()+"/"+new Date().getDay();
     }),
@@ -29,13 +38,13 @@ export default Ember.Controller.extend({
                     pacoteCode: this.get('model.code'),
                     origem: this.get('model.origin'),
                     destino: this.get('model.destination'),
-                    servicosInclusos: this.get('model.includeds'),                   
+                    servicosInclusos: this.get('servicosInclusosComputed'),                   
                     valorInicial: this.get('model.initialAmount'),
                     valorInicialTipo: '',
-                    dataInicio: this.get('model.initialPeriod'), 
-                    dataVolta: this.get('model.finalPeriod'),
+                    dataInicio: this._formatDate(this.get('model.initialPeriod')), 
+                    dataVolta: this._formatDate(this.get('model.finalPeriod')),
                     descricaoPacote: this.get('model.description'),
-                    dataSolicitacao: this.get('today'),
+                    dataSolicitacao: this._formatDate(new Date()),
                     iswhatsapp: true,
                     agree: true,
                     profilename: "user",
@@ -80,4 +89,13 @@ export default Ember.Controller.extend({
         }
         return randomstring.toUpperCase();
       }, 
+
+    _formatDate(date) {
+        let _date =  "";
+        let _dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
+        if(date) {
+            _date =  date.toLocaleString('pt-BR', _dateOptions);
+        }
+        return _date
+    }
 });

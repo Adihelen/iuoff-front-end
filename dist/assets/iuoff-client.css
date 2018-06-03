@@ -8348,7 +8348,10 @@ body.modal-open {
 
 .card {
   box-shadow: 2px 4px 8px 0px #717171;
-  margin: 15px 0px; }
+  margin: 15px 0px;
+  height: 475px; }
+  .card img {
+    height: 250px !important; }
 
 .card-title {
   color: #317ba1;
@@ -8364,7 +8367,8 @@ body.modal-open {
   margin-bottom: 10px; }
 
 .card-body {
-  font-size: 14px; }
+  font-size: 14px;
+  overflow: auto; }
 
 .card-body p {
   display: inline-block; }
@@ -8585,6 +8589,7 @@ body.modal-open {
   height: auto; }
 
 .text-center {
-  text-align: center; }
+  text-align: center;
+  margin: auto; }
 
 /*# sourceMappingURL=iuoff-client.css.map */

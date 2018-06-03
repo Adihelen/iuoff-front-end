@@ -606,6 +606,15 @@ define('iuoff-client/controllers/details', ['exports', 'ember'], function (expor
             return _styles;
         }),
 
+        servicosInclusosComputed: _ember['default'].computed('model', function () {
+            var _servicos = [];
+            if (this.get('model') && this.get('model.accommodations')) {
+                var _accomodations = this.get('model.accommodations').join(',');
+                _servicos = _accomodations;
+            }
+            return _servicos;
+        }),
+
         today: _ember['default'].computed('model', function () {
             return new Date().getFullYear() + "/" + new Date().getMonth() + "/" + new Date().getDay();
         }),
@@ -618,13 +627,13 @@ define('iuoff-client/controllers/details', ['exports', 'ember'], function (expor
                         pacoteCode: this.get('model.code'),
                         origem: this.get('model.origin'),
                         destino: this.get('model.destination'),
-                        servicosInclusos: this.get('model.includeds'),
+                        servicosInclusos: this.get('servicosInclusosComputed'),
                         valorInicial: this.get('model.initialAmount'),
                         valorInicialTipo: '',
-                        dataInicio: this.get('model.initialPeriod'),
-                        dataVolta: this.get('model.finalPeriod'),
+                        dataInicio: this._formatDate(this.get('model.initialPeriod')),
+                        dataVolta: this._formatDate(this.get('model.finalPeriod')),
                         descricaoPacote: this.get('model.description'),
-                        dataSolicitacao: this.get('today'),
+                        dataSolicitacao: this._formatDate(new Date()),
                         iswhatsapp: true,
                         agree: true,
                         profilename: "user",
@@ -667,6 +676,15 @@ define('iuoff-client/controllers/details', ['exports', 'ember'], function (expor
                 randomstring += chars.substring(rnum, rnum + 1);
             }
             return randomstring.toUpperCase();
+        },
+
+        _formatDate: function _formatDate(date) {
+            var _date = "";
+            var _dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
+            if (date) {
+                _date = date.toLocaleString('pt-BR', _dateOptions);
+            }
+            return _date;
         }
     });
 });
@@ -757,7 +775,7 @@ define("iuoff-client/controllers/packages", ["exports", "ember"], function (expo
       var origin = this.get("origin");
       var destination = this.get("destination");
       var numDias = parseInt(this.get("numDias"));
-      var initialAmount = parseFloat(this.get('initialAmount'));
+      var initialAmount = this.get('initialAmount');
       // // estilos de viagem
       var travelStyle = this.get("travelStyle");
 
@@ -1978,7 +1996,7 @@ define('iuoff-client/models/package', ['exports', 'ember-data', 'ember-data-mode
     includeds: (0, _emberDataModelFragmentsAttributes.fragmentArray)('packages/includeds'),
     styles: _emberData['default'].attr('', { defaultValue: [] }),
     pictures: (0, _emberDataModelFragmentsAttributes.fragmentArray)('packages/pictures'),
-    accommodations: (0, _emberDataModelFragmentsAttributes.fragmentArray)('packages/accommodations'),
+    accommodations: _emberData['default'].attr('', { defaultValue: [] }),
     services: (0, _emberDataModelFragmentsAttributes.fragmentArray)('packages/services'),
     status: _emberData['default'].attr('boolean'),
     numDias: _emberData['default'].attr('number'), // final period -  initial  period
@@ -2413,6 +2431,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("iuoff-client/app")["default"].create({"name":"iuoff-client","version":"0.0.0+185a7229"});
+  require("iuoff-client/app")["default"].create({"name":"iuoff-client","version":"0.0.0+7c12bce0"});
 }
 //# sourceMappingURL=iuoff-client.map

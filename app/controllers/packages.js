@@ -65,7 +65,7 @@ export default Ember.Controller.extend({
       let origin = this.get("origin");
       let destination = this.get("destination");      
       let numDias =  parseInt(this.get("numDias"));
-      let initialAmount =  parseFloat(this.get('initialAmount'));
+      let initialAmount =  this.get('initialAmount');
       // // estilos de viagem
       let travelStyle =  this.get("travelStyle");        
 

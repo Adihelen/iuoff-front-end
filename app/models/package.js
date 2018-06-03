@@ -19,7 +19,7 @@ export default DS.Model.extend({
   includeds: fragmentArray('packages/includeds'), 
   styles: DS.attr('', {defaultValue: []}), 
   pictures: fragmentArray('packages/pictures'), 
-  accommodations: fragmentArray('packages/accommodations'), 
+  accommodations: DS.attr('', {defaultValue: []}), 
   services: fragmentArray('packages/services'), 
   status: DS.attr('boolean'), 
   numDias: DS.attr('number'),  // final period -  initial  period

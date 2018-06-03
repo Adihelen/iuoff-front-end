@@ -4,6 +4,10 @@
 .card {
   box-shadow: 2px 4px 8px 0px #717171;
   margin: 15px 0px;  
+  height: 475px;
+   & img {
+     height: 250px !important;
+   }
 }
 .card-title{
     color: #317ba1;
@@ -22,6 +26,7 @@
 }
 .card-body {
   font-size: 14px;
+  overflow: auto;
 }
 .card-body p {
   display: inline-block;
