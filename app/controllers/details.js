@@ -40,11 +40,11 @@ export default Ember.Controller.extend({
                     destino: this.get('model.destination'),
                     servicosInclusos: this.get('servicosInclusosComputed'),                   
                     valorInicial: this.get('model.initialAmount'),
-                    valorInicialTipo: '',
                     dataInicio: this._formatDate(this.get('model.initialPeriod')), 
                     dataVolta: this._formatDate(this.get('model.finalPeriod')),
                     descricaoPacote: this.get('model.description'),
                     dataSolicitacao: this._formatDate(new Date()),
+                    valorInicialTipo: "Por Pessoa",
                     iswhatsapp: true,
                     agree: true,
                     profilename: "user",
@@ -71,13 +71,15 @@ export default Ember.Controller.extend({
                 this.toast.error("Erro ao criar solicitação", "ERRO");
               }).finally(() =>{
                   this.set('salvandoSolicitacao', false);
-                  $('#tenhoInteresseModal').modal('hide');
               });
             } else {
               this.toast.error("formulário incompleto", "ERRO");
             }
             
-          }, 
+        }, 
+        escolherValorTipo(tipoEscolhido){            
+            this.set('solicitacao.valorInicialTipo', tipoEscolhido);
+        }
     }, 
     _randomString() {
         var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";

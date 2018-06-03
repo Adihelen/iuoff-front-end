@@ -16,7 +16,7 @@
       <!-- header direita -->
       <div class="col-md-4 no-padding">
          <div class="box-preco">
-            <span>Valor a partir de <br></span> R$ {{model.initialAmount}}
+            <span>Valor a partir de <br></span>{{format-money model.initialAmount}}
             <span class="preco-icones">
             <i class="fas fa-2x fa-share-alt"></i>
             Compartihar
@@ -217,6 +217,25 @@
                     <label><i class="fa fa-calendar"></i>Idade crianças</label>
                     {{input type="text" class="form-control" value=solicitacao.idadeCriancas placeholder="ex: 2"}}
                 </div>
+               </div>
+               <div class="row">
+                   <div class="col-md-12">
+                       <label class="text-secondary">
+                           Este  valor ({{format-money  model.initialAmount}}) é:
+                       </label>
+                   </div>
+                    <div class="col-sm-3">
+                        <label class="radio-inline">
+                            {{input id="todos" change=(action "escolherValorTipo" "Para Todos") type="radio" name="valorInicialTipo" value="Para Todos"}}
+                            para todos
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-inline">
+                            {{input id="pessoa" change=(action "escolherValorTipo" "Por Pessoa") type="radio" name="valorInicialTipo" value="Por pessoa"}}
+                            por  pessoa
+                        </label>
+                    </div>
                </div>
 
                <div class="form-group">
