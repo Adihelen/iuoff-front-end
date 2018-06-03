@@ -3,7 +3,9 @@
    <div class="row">
       <!-- header esquerda -->
       <div class="col-md-8">
-         <i class="fa fa-chevron-left"></i>
+         {{#link-to 'packages'}}
+            <i class="fa fa-chevron-left"></i>
+         {{/link-to}}
          <div class="title">
             {{model.title}} <br>   
             <small>
