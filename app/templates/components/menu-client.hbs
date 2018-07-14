@@ -1,55 +1,54 @@
  <!-- Navigation -->
 <nav id="#iuoff-menu" class="navbar navbar-expand-lg navbar-light fixed-top mainNav">
-  <div class="container">   
-      {{#link-to 'home'}}
-      <img width="auto" height="50" src="/assets/img/logo.png"
-        class="custom-logo" alt="IUOFF">    
-      {{/link-to}}
+  <div class="container">
+    {{#link-to 'home'}}
+    <img height="50" src="/assets/img/logo.png" class="custom-logo" alt="IUOFF">
+    {{/link-to}}
     <button class="navbar-toggler navbar-toggler-right" type="button"
-      {{action "toggleNavbar" "#navbarResponsive"}}
-      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle
+            {{action "toggleNavbar" "#navbarResponsive"}}
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle
       navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link " {{action "scrollTo" "#vantagens"}} href="#vantagens">As vantagens
+          <a class="nav-link " {{action "scrollTo" "#vantagens"}} href="#vantagens">
+            As vantagens
           </a>
         </li>
-        <li class="nav-item">        
+        <li class="nav-item">
           {{#link-to "packages" class="nav-link "}}
-            Pacotes
-          {{/link-to}}                 
-           {{!-- <a class="nav-link " {{action "scrollTo" "#pacotes"}} href="#pacotes">Pacotes</a> --}}
+          Pacotes
+          {{/link-to}}
+          {{!-- <a class="nav-link " {{action "scrollTo" "#pacotes"}} href="#pacotes">Pacotes</a> --}}
         </li>
-        <li class="nav-item">          
+        <li class="nav-item">
           {{!-- <a class="nav-link " {{action "scrollTo" "#quem-somos"}} href="#quem-somos">Quem somos</a> --}}
           {{#link-to "about-us" class="nav-link "}}
-            Quem somos
-          {{/link-to}}                 
+          Quem somos
+          {{/link-to}}
         </li>
         <li class="nav-item">
           {{!-- <a class="nav-link " {{action "scrollTo" "#seja-parceiro"}} href="#seja-parceiro">Seja um parceiro</a> --}}
           {{#link-to "partners" class="nav-link "}}
-            Seja um parceiro
-          {{/link-to}}         
+          Seja um parceiro
+          {{/link-to}}
         </li>
         <li class="nav-item">
           <a class="nav-link " {{action "scrollTo" "#atendimento"}} href="#atendimento">Atendimento</a>
           {{!-- <a class="nav-link " href="#atendimento">Atendimento</a> --}}
         </li>
-        <div class="colum"></div>
-        <li class="nav-item">                      
+        <li class="nav-item">
           <a href="https://iuoff-admin.azurewebsites.net/login?returnUrl=%2Findex" target="_blank" class="nav-link btn-green btn btn-light btn-xl">
             Cadastre-se grátis
           </a>
         </li>
-        <li class="nav-item">           
+        <li class="nav-item">
           <a class="nav-link" href="https://iuoff-admin.azurewebsites.net/login?returnUrl=%2Findex" target="_blank">
             <span class="icon-locked icon-medium"></span> Acessar
           </a>
-              
+
         </li>
       </ul>
     </div>

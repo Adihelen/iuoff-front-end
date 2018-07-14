@@ -7539,6 +7539,20 @@ h1.heading {
     text-align: center;
     width: 100%; }
 
+.btn-link-parceiro {
+  font-size: 20px;
+  color: #6ebb52;
+  border-radius: 5px;
+  border: none;
+  background: #fcfdf2; }
+
+.btn-link-parceiro:hover {
+  font-size: 20px;
+  color: #6ebb52;
+  border-radius: 5px;
+  border: none;
+  background: #fcfdf2; }
+
 .queroSerParceiro input:not([type='checkbox']),
 textarea {
   border-radius: 10px;
@@ -8290,6 +8304,16 @@ body.modal-open {
   bottom: 0;
   width: 100%;
   margin-top: 30px; }
+
+.btn-link-about {
+  color: #0056b3;
+  text-transform: uppercase;
+  font-size: 14px; }
+
+.btn-link-about:hover {
+  color: #0056b3;
+  text-transform: uppercase;
+  font-size: 14px; }
 
 .x-toggle-default.x-toggle-btn {
   background: #6dbd4a !important;

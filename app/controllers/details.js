@@ -40,10 +40,10 @@ export default Ember.Controller.extend({
                     destino: this.get('model.destination'),
                     servicosInclusos: this.get('servicosInclusosComputed'),                   
                     valorInicial: this.get('model.initialAmount'),
-                    dataInicio: this._formatDate(this.get('model.initialPeriod')), 
-                    dataVolta: this._formatDate(this.get('model.finalPeriod')),
+                    dataInicio: this._formatDate(this.get('model.initialPeriod').toUTCString("pt-BR")), 
+                    dataVolta: this._formatDate(this.get('model.finalPeriod').toUTCString("pt-BR")),
                     descricaoPacote: this.get('model.description'),
-                    dataSolicitacao: this._formatDate(new Date()),
+                    dataSolicitacao: this._formatDate(new Date().toUTCString("pt-BR")),
                     valorInicialTipo: "Por Pessoa",
                     iswhatsapp: true,
                     agree: true,
@@ -95,9 +95,7 @@ export default Ember.Controller.extend({
     _formatDate(date) {
         let _date =  "";
         let _dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric' };
-        if(date) {
-            _date =  date.toLocaleString('pt-BR', _dateOptions);
-        }
+        if(date) { _date =  date.toLocaleString('pt-BR', _dateOptions); }
         return _date
     }
 });
