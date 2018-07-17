@@ -96,29 +96,32 @@
 
                 {{package.title}}
                 {{/link-to}}
-                <div class="small text-uppercase">
+                
+              </h5>
+			  <h5 class="card-title-locate" title="ver detalhe">
+			    <div class="small text-uppercase">
                   De: {{package.origin}} | Para: {{package.destination}}
                 </div>
-              </h5>
+			  </h5>
             </div>
             <div class="card-footer">
               <div class="row">
                 <div class="col-sm-12 col-md-6">
                   <small>
-                    número de dias
+                    Número de noites
                   </small>
                   <br>
-                  <span class="text-secondary negrito" title="número de dias">
+                  <span class="text-secondary negrito" title="Número de noites">
                     {{package.numDias}}
                   </span>
                 </div>
                 <div class="col-sm-12 col-md-6">
                   <small>
-                    a partir de
+                    A partir de
                   </small>
                   <br>
-                  <span class="text-secondary negrito" title="a partir de">
-                    {{!-- {{#if package.initialAmount}}                             --}}
+                  <span class="text-secondary negrito" title="A partir de">
+                    {{!-- {{#if package.initialAmount}} --}}
                     {{ format-money package.initialAmount}}
                     {{!-- {{/if}} --}}
                   </span>

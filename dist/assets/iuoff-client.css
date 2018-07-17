@@ -7327,7 +7327,7 @@ h1.heading {
 .card-title {
   margin-top: 0px;
   font-weight: 700;
-  font-size: 1.65em; }
+  font-size: 1.40em; }
 
 .card-title a {
   color: #000;
@@ -8377,10 +8377,22 @@ body.modal-open {
     height: 250px !important; }
 
 .card-title {
-  color: #317ba1;
-  border-bottom: 2px solid #ebebeb; }
+  color: #317ba1; }
   .card-title a {
     color: #317ba1 !important; }
+
+.card-title-locate {
+  color: #317ba1;
+  border-bottom: 2px solid #ebebeb; }
+  .card-title-locate a {
+    color: #317ba1 !important; }
+
+.card-title-locate .sub-title {
+  display: block;
+  font-weight: bold;
+  color: #333;
+  font-size: 12px;
+  margin-bottom: 10px; }
 
 .card-title .sub-title {
   display: block;

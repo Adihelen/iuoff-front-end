@@ -110,18 +110,18 @@ export default Ember.Controller.extend({
           })
         });
       }      
-
-
-
+      
       return packages;
     
     }
   ), 
 
   actions: {
-    setTravelStyle(style){
+
+    setTravelStyle(style) {
       this.set('travelStyle', style);
-    }, 
+    },
+
     clearFilters(){      
       this.set('origin', null);  
       this.set('destination', null);  

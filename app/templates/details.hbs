@@ -1,262 +1,217 @@
 
 <header class="header-packages land-header container">
-   <div class="row">
-      <!-- header esquerda -->
-      <div class="col-md-8">
-         {{#link-to 'packages'}}
-            <i class="fa fa-chevron-left"></i>
-         {{/link-to}}
-         <div class="title">
-            {{model.title}} <br>   
-            <small>
-            Código: {{solicitacao.code}}
-            </small>
-         </div>
+  <div class="row">
+    <!-- header esquerda -->
+    <div class="col-md-8">
+      {{#link-to 'packages'}}
+      <i class="fa fa-chevron-left"></i>
+      {{/link-to}}
+      <div class="title">
+        {{model.title}} <br>
+        <small>
+          Código: {{solicitacao.code}}
+        </small>
       </div>
-      <!-- header direita -->
-      <div class="col-md-4 no-padding">
-         <div class="box-preco">
-            <span>Valor a partir de <br></span>{{format-money model.initialAmount}}
-            <span class="preco-icones">
-            <i class="fas fa-2x fa-share-alt"></i>
-            Compartihar
-            </span>
-         </div>
+    </div>
+    <!-- header direita -->
+    <div class="col-md-4 no-padding">
+      <div class="box-preco">
+        <span>Valor a partir de <br></span>{{format-money model.initialAmount}}
+        <span class="preco-icones">
+          <i class="fas fa-2x fa-share-alt"></i>
+          Compartihar
+        </span>
       </div>
-   </div>
+    </div>
+  </div>
 </header>
 <main role="main" class="container">
-   <div class="row">
-      <!-- conteudo esquerda -->
-      <div class="col-md-8 no-padding">
-         <div class="banner-packages">
-            <img src={{model.image}} alt="" class="img-responsive">
-         </div>
-         <section>
-            <h3 class="title">
-               Descrição
-            </h3>
-            <p>
-               {{model.description}}
-            </p>
-            {{!-- #alterado no modelo , não tem mais essa informaçõa --}}
-            {{!-- 
-            <div class="hospedagem-adicional">
-               <div class="hospedagem-titulo">
-                  Hospedagem Adicional
-               </div>
-               <input class="pull-left" type="checkbox">
-               <label class="pull-left">Nome da Hospedagem adicional</label>
-               <input type="text" placeholder="Descrição...">
-               <button>
-               Valor adicional R$ 400,00
-               </button>
-            </div>
-            --}}
-            <div class="row">
-               <!-- Button trigger modal -->
-               <button type="button" {{action "tenhoInteresse"}} class="btn btn-green" data-toggle="modal" data-target="#tenhoInteresseModal">
-                TENHO INTERESSE
-               </button>
-            </div>
-            {{!-- <div class="row">
-               <div class="col-md-12">
-                  <div class="text-danger">
-                     Estes detalhes são sujeitos a alteração atá a confirmação da compra.
-                  </div>
-               </div>
-            </div> --}}
-         </section>
+  <div class="row">
+    <!-- conteudo esquerda -->
+    <div class="col-md-8 no-padding">
+      <div class="banner-packages">
+        <img src={{model.image}} alt="" class="img-responsive">
       </div>
-      <!-- conteudo direita-->
-      <div class="col-md-4">
-         <div class="row">
-            <div class="col-md-6 box-item">
-               <h5 class="title">
-                  Período
-                  <span>
-                  {{date-format-l model.initialPeriod}} a {{date-format-l model.finalPeriod}}
-                  </span>
-               </h5>
+      <section>
+        <h3 class="title">
+          Detalhes
+        </h3>
+        <p>
+          {{model.description}}
+        </p>
+        {{!-- #alterado no modelo , não tem mais essa informaçõa --}}
+
+        <div class="row">
+          <!-- Button trigger modal -->
+          <button type="button" {{action "tenhoInteresse"}} class="btn btn-green" data-toggle="modal" data-target="#tenhoInteresseModal">
+            TENHO INTERESSE
+          </button>
+        </div>
+        <!--<div class="row">
+            <div class="col-md-12">
+               <div class="text-danger">
+                  Estes detalhes são sujeitos a alteração atá a confirmação da compra.
+               </div>
             </div>
-            <div class="col-md-6 box-item">
-               <h5 class="title">
-                  Vigência
-                  <span>
-                  {{date-format-l model.validity}}
-                  </span>
-               </h5>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-6 box-item">
-               <h5 class="title">
-                  Número de dias
-                  <span>
-                  {{model.numDias}}
-                  </span>
-               </h5>
-            </div>
-            <div class="col-md-6 box-item">
-               <h5 class="title">
-                  Estilo do pacote
-                  <span>
-                  {{!-- {{model.styles}} --}}
-                  {{#each packageTravelStyles as |style| }}
-                     {{style}} | 
-                  {{/each}}
-                  </span>
-               </h5>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-6 box-item">
-               <h5 class="title">
-                  Origem
-                  <span>
-                  {{model.origin}}
-                  </span>
-               </h5>
-            </div>
-            <div class="col-md-6 box-item divisor">
-               <h5 class="title">
-                  Destino
-                  <span>
-                  {{model.destination}}
-                  </span>
-               </h5>
-            </div>
-         </div>
-         {{!-- removido por alteração de  modelo, atributo inexistente --}}
-         {{!-- 
-         <div class="row">
-            <h5 class="col-md-12 title">
-               Serviços inclusos
-            </h5>
-         </div>
-         <div class="row">
-            <div class="col-md-4">
-               <span>
-               <i class="fa fa-building"></i>
-               Lorem.
-               </span>
-            </div>
-            <div class="col-md-4 divisor">
-               <span>
-               <i class="fa fa-plane"></i>
-               Lorem.
-               </span>
-            </div>
-            <div class="col-md-4 divisor">
-               <span>
-               <i class="fa fa-car"></i>
-               Lorem.
-               </span>
-            </div>
-         </div>
-         --}}
+         </div>-->
+      </section>
+    </div>
+    <!-- conteudo direita-->
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-6 box-item">
+          <h5 class="title">
+            Período
+            <span>
+              {{date-format-l model.initialPeriod}} a {{date-format-l model.finalPeriod}}
+            </span>
+          </h5>
+        </div>
+        <div class="col-md-6 box-item">
+          <!--<h5 class="title">
+             Vigência
+             <span>
+             {{date-format-l model.validity}}
+             </span>
+          </h5>-->
+        </div>
       </div>
-   </div>
-   <!-- /.row -->
+      <div class="row">
+        <div class="col-md-6 box-item">
+          <h5 class="title">
+            Número de noites
+            <span>
+              {{model.numDias}}
+            </span>
+          </h5>
+        </div>
+        <div class="col-md-6 box-item divisor">
+          <h5 class="title">
+            Estilo do pacote
+            <span>
+              {{!-- {{model.styles}} --}}
+              {{#each packageTravelStyles as |style| }}
+              {{style}} |
+              {{/each}}
+            </span>
+          </h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 box-item">
+          <h5 class="title">
+            Origem
+            <span>
+              {{model.origin}}
+            </span>
+          </h5>
+        </div>
+        <div class="col-md-6 box-item divisor">
+          <h5 class="title">
+            Destino
+            <span>
+              {{model.destination}}
+            </span>
+          </h5>
+        </div>
+      </div>
+      {{!-- removido por alteração de  modelo, atributo inexistente --}}
+
+    </div>
+  </div>
+  <!-- /.row -->
 </main>
 <!-- /.container -->
 <!-- Modal -->
 <div class="modal fade" id="tenhoInteresseModal" tabindex="-1" role="dialog" aria-labelledby="tenhoInteresseModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-         <div class="modal-header">
-            <h5 class="modal-title" id="tenhoInteresseModalLabel">Tenho Interesse
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-         </div>
-         <div class="modal-body">
-            <div class="form-title">
-               <h5 class="title">
-                 {{model.title}}
-                  <br>
-                  <small>
-                  Código: {{model.code}}
-                  </small>
-               </h5>
-            </div>
-            <form class="form-iuoff">           
-               <div class="row">               
-                <div class="form-group col-sm-4">
-                    <label><i class="fa fa-user"></i>Nome</label>
-                    {{input type="text" class="form-control" value=solicitacao.nome placeholder="ex: João Silva"}}
-                </div>
-                <div class="form-group col-sm-4">
-                    <label><i class="fa fa-envelope"></i>E-mail</label>
-                    {{input type="email" class="form-control" value=solicitacao.email placeholder="ex: email@email.com"}}
-                </div>
-                <div class="form-group col-sm-4">
-                    <label><i class="fa fa-mobile"></i>Telefone</label>
-                    {{input type="tel" class="form-control" value=solicitacao.telefone placeholder="ex: 99999-9999"}}
-                </div>
-               </div>
-
-               <div class="row">               
-                <div class="form-group col-sm-6">
-                    <label><i class="fa fa-calendar"></i>Qtd. dias</label>
-                    {{input type="text" class="form-control" value=solicitacao.qtdDias placeholder="ex: 2"}}
-                </div>
-                <div class="form-group col-sm-6">
-                    <label><i class="fa fa-users"></i>Qtd. pessoas</label>
-                    {{input type="text" class="form-control" value=solicitacao.qtdPessoas placeholder="ex: 2"}}
-                </div>                
-               </div>
-
-               <div class="row">  
-                <div class="form-group col-sm-6">
-                    <label><i class="fa fa-users"></i>Qtd. crianças</label>
-                    {{input type="text" class="form-control" value=solicitacao.qtdCriancas placeholder="ex: 2"}}
-                </div>             
-                <div class="form-group col-sm-6">
-                    <label><i class="fa fa-calendar"></i>Idade crianças</label>
-                    {{input type="text" class="form-control" value=solicitacao.idadeCriancas placeholder="ex: 2"}}
-                </div>
-               </div>
-               <div class="row">
-                   <div class="col-md-12">
-                       <label class="text-secondary">
-                           Este  valor ({{format-money  model.initialAmount}}) é:
-                       </label>
-                   </div>
-                    <div class="col-sm-3">
-                        <label class="radio-inline">
-                            {{input id="todos" change=(action "escolherValorTipo" "Para Todos") type="radio" name="valorInicialTipo" value="Para Todos"}}
-                            para todos
-                        </label>
-                    </div>
-                    <div class="col-sm-2">
-                        <label class="radio-inline">
-                            {{input id="pessoa" change=(action "escolherValorTipo" "Por Pessoa") type="radio" name="valorInicialTipo" value="Por pessoa"}}
-                            por  pessoa
-                        </label>
-                    </div>
-               </div>
-
-               <div class="form-group">
-                  <label><i class="fa sticky-note"></i>Observações</label>
-                  {{#textarea name="observacoes" value=solicitacao.detalhesAdicionais id="" cols="30" rows="5" placeholder="Digite aqui alguma obeservação..."}}{{/textarea}}
-               </div>
-
-               <div class="text-center">
-                  {{#if salvandoSolicitacao}}
-                    <div class="row">
-                        <div class="col-xs-12 text-center">
-                            <i class="fa fa-spinner fa-spin"></i> SALVANDO...
-                        </div>
-                    </div>                    
-                  {{else}}
-                    <button type="submit" {{action "salvarSolicitacao"}} class="btn btn-success bg-verde btn-lg">CONTINUAR</button>
-                  {{/if}}
-                  
-               </div>
-            </form>
-         </div>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tenhoInteresseModalLabel">
+          Tenho Interesse
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-   </div>
+      <div class="modal-body">
+        <div class="form-title">
+          <h5 class="title">
+            {{model.title}}
+            <br>
+            <small>
+              Código: {{model.code}}
+            </small>
+          </h5>
+        </div>
+        <form class="form-iuoff">
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label><i class="fa fa-user"></i>Nome</label>
+              {{input type="text" class="form-control" value=solicitacao.nome placeholder="ex: João Silva"}}
+            </div>
+            <div class="form-group col-sm-6">
+              <label><i class="fa fa-envelope"></i>E-mail</label>
+              {{input type="email" class="form-control" value=solicitacao.email placeholder="ex: email@email.com"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label><i class="fa fa-mobile"></i>Telefone</label>
+              {{input type="tel" class="form-control" value=solicitacao.telefone placeholder="ex: 99999-9999"}}
+            </div>
+            <div class="form-group col-sm-6">
+              <label><i class="fa fa-users"></i>Qtd. pessoas</label>
+              {{input type="text" class="form-control" value=solicitacao.qtdPessoas placeholder="ex: 2"}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label><i class="fa fa-users"></i>Qtd. crianças</label>
+              {{input type="text" class="form-control" value=solicitacao.qtdCriancas placeholder="ex: 2"}}
+            </div>
+            <div class="form-group col-sm-6">
+              <label><i class="fa fa-calendar"></i>Idade crianças</label>
+              {{input type="text" class="form-control" value=solicitacao.idadeCriancas placeholder="ex: 2"}}
+            </div>
+          </div>
+          <!--<div class="row">
+              <div class="col-md-12">
+                  <label class="text-secondary">
+                      Este  valor ({{format-money  model.initialAmount}}) é:
+                  </label>
+              </div>
+               <div class="col-sm-3">
+                   <label class="radio-inline">
+                       {{input id="todos" change=(action "escolherValorTipo" "Para Todos") type="radio" name="valorInicialTipo" value="Para Todos"}}
+                       para todos
+                   </label>
+               </div>
+               <div class="col-sm-2">
+                   <label class="radio-inline">
+                       {{input id="pessoa" change=(action "escolherValorTipo" "Por Pessoa") type="radio" name="valorInicialTipo" value="Por pessoa"}}
+                       por  pessoa
+                   </label>
+               </div>
+          </div>-->
+          <div class="form-group">
+            <label><i class="fa sticky-note"></i>Observações</label>
+            {{#textarea name="observacoes" value=solicitacao.detalhesAdicionais id="" cols="30" rows="5" placeholder="Digite aqui alguma obeservação..."}}{{/textarea}}
+          </div>
+          <div class="text-center">
+            {{#if salvandoSolicitacao}}
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <i class="fa fa-spinner fa-spin"></i> SALVANDO...
+              </div>
+            </div>
+            {{else}}
+            <button type="submit" {{action "salvarSolicitacao"}} class="btn btn-success bg-verde btn-lg">CONTINUAR</button>
+            {{/if}}
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
