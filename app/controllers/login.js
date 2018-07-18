@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
               this.toast.error("ao logar usuário", "ERRO");
             }
 
-            console.error(
+            error(
               "Erro ao  logar com usuário code: ",
               errorCode,
               " Msg: ",

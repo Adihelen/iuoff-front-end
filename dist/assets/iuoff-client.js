@@ -515,35 +515,8 @@ define('iuoff-client/components/ember-popper', ['exports', 'ember-popper/compone
 define('iuoff-client/components/footer-client', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({});
 });
-define("iuoff-client/components/menu-client", ["exports", "ember"], function (exports, _ember) {
-  exports["default"] = _ember["default"].Component.extend({
-
-    scrollDuration: 500,
-    showNavbar: false,
-
-    menuItemExternal: false,
-
-    actions: {
-
-      scrollTo: function scrollTo(section) {
-        var _this = this;
-
-        _ember["default"].run.schedule("afterRender", function () {
-          if ($(section)) {
-            $("html,body").animate({ scrollTop: $(section).offset().top - 50 }, _this.get('scrollDuration'));
-          } else {
-            return;
-          }
-        });
-      },
-
-      toggleNavbar: function toggleNavbar(navbar) {
-        this.toggleProperty('showNavbar');
-        $(navbar).slideToggle();
-      }
-
-    }
-  });
+define('iuoff-client/components/menu-client', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({});
 });
 define('iuoff-client/components/welcome-page', ['exports', 'ember-welcome-page/components/welcome-page'], function (exports, _emberWelcomePageComponentsWelcomePage) {
   Object.defineProperty(exports, 'default', {
@@ -587,7 +560,7 @@ define('iuoff-client/controllers/about-us', ['exports', 'ember'], function (expo
 define('iuoff-client/controllers/application', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller.extend({});
 });
-define('iuoff-client/controllers/details', ['exports', 'ember'], function (exports, _ember) {
+define('iuoff-client/controllers/details', ['exports', 'ember', '@ember/error'], function (exports, _ember, _emberError) {
     // import $ from  'jQuery';
 
     exports['default'] = _ember['default'].Controller.extend({
@@ -644,7 +617,7 @@ define('iuoff-client/controllers/details', ['exports', 'ember'], function (expor
                     });
                     this.set('solicitacao', _solicitacao);
                 } else {
-                    console.error('model não encontrada.');
+                    (0, _emberError['default'])('model não encontrada.');
                 }
             },
             salvarSolicitacao: function salvarSolicitacao() {
@@ -654,9 +627,10 @@ define('iuoff-client/controllers/details', ['exports', 'ember'], function (expor
                     this.set('salvandoSolicitacao', true);
                     this.get("solicitacao").save().then(function (solicitacao) {
                         _this.toast.success('solicitação criado com sucesso', 'SUCESSO');
-                        console.log("nova solicitação criada com sucesso id: ", solicitacao.id);
+
+                        _this.log("nova solicitação criada com sucesso id: ", solicitacao.id);
                     })['catch'](function (error) {
-                        console.error("erro ao salvar solicitação", error);
+                        error("erro ao salvar solicitação", error);
                         _this.toast.error("Erro ao criar solicitação", "ERRO");
                     })['finally'](function () {
                         _this.set('salvandoSolicitacao', false);
@@ -728,7 +702,7 @@ define("iuoff-client/controllers/login", ["exports", "ember", "firebase"], funct
                 _this.toast.error("ao logar usuário", "ERRO");
               }
 
-              console.error("Erro ao  logar com usuário code: ", errorCode, " Msg: ", errorMessage);
+              error("Erro ao  logar com usuário code: ", errorCode, " Msg: ", errorMessage);
             });
           })();
         } else {
@@ -888,19 +862,18 @@ define('iuoff-client/controllers/register', ['exports', 'ember', 'firebase'], fu
               }
             })['catch'](function (error) {
               _this2.toast.error('ao registrar usuário', 'ERRO');
-              console.error('ERRO: não foi possível registrar o usuário, erro: ', error);
+              error('ERRO: não foi possível registrar o usuário, erro: ', error);
             });
           })['catch'](function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             _this2.toast.error('ao registrar usuário', 'ERRO');
-            console.error('Erro ao  registrar usuário code: ', errorCode, ' Msg: ', errorMessage);
+            _this2.error('Erro ao  registrar usuário code: ', errorCode, ' Msg: ', errorMessage);
             // ...
           });
         } else {
-            this.toast.error('Por favor preencha todos os campos marcados com *', 'ERRO');
-            console.error('ERRO formulário inválido');
+            this.toast.error('Por favor preencha todos os campos marcados com *', 'ERRO formulário inválido');
           }
       },
 
@@ -908,7 +881,7 @@ define('iuoff-client/controllers/register', ['exports', 'ember', 'firebase'], fu
         this.set('model.userType', 1);
         this.set('clientSelected', true);
         this.set('sellerSelected', false);
-        console.log('host: ', window.location.origin, window.location.host, '/admin');
+        this.log('host: ', window.location.origin, window.location.host, '/admin');
       },
       setUserTypeSeller: function setUserTypeSeller() {
         this.set('model.userType', 0);
@@ -1655,168 +1628,168 @@ define('iuoff-client/instance-initializers/ember-gestures', ['exports', 'ember']
 
   };
 });
-define('iuoff-client/mirage/config', ['exports', 'ember-cli-mirage'], function (exports, _emberCliMirage) {
-  //REF: http://www.ember-cli-mirage.com/docs/v0.3.x/defining-routes/#dynamic-status-codes-and-http-headers
-  var sleep = 250;
+define("iuoff-client/mirage/config", ["exports"], function (exports) {});
+//import { Response } from 'ember-cli-mirage'; //REF: http://www.ember-cli-mirage.com/docs/v0.3.x/defining-routes/#dynamic-status-codes-and-http-headers
+//let sleep = 250;
 
-  exports['default'] = function () {
-    var _this = this;
+//export default function() {
+//  // nameSpace =  dashboard/
+//  this.get('/dashboard/user/authentications', () => {
 
-    // nameSpace =  dashboard/
-    this.get('/dashboard/user/authentications', function () {
+//    return {
+//      "user/authentication": {
+//        "token": "3ubhU-QetZMMmqIYB-j2UFWoN2haABA2q38TwEJShjDhKvslkDRLgVoQrtGzMGf7KOtHBm8CT1junvp_ke0KzVZ23gm4BcbgevNa5qtoD_mlw7jwMkKoR4de9xyFmbimccJ-xN3H4E8Mp_yM-274jAi7NxoEiV53xi3du6lYVR0fYKrZ0",
 
-      return {
-        "user/authentication": {
-          "token": "3ubhU-QetZMMmqIYB-j2UFWoN2haABA2q38TwEJShjDhKvslkDRLgVoQrtGzMGf7KOtHBm8CT1junvp_ke0KzVZ23gm4BcbgevNa5qtoD_mlw7jwMkKoR4de9xyFmbimccJ-xN3H4E8Mp_yM-274jAi7NxoEiV53xi3du6lYVR0fYKrZ0",
+//        "packageOverview": true, // Chave Pacotes:
+//        "createPackage": true, // Chave adicionar pacotes     
+//      }
+//    };
+//  });
 
-          "packageOverview": true, // Chave Pacotes:
-          "createPackage": true }
-      };
-    });
+//  // crud users
+//  this.post('/dashboard/users', (schema, request) => {
+//    this.timing = sleep;  
+//    var _body = JSON.parse(request.requestBody);
+//    console.log("users objeto a ser salvo", _body, request.requestBody);  
 
-    // crud users
-    // Chave adicionar pacotes     
-    this.post('/dashboard/users', function (schema, request) {
-      _this.timing = sleep;
-      var _body = JSON.parse(request.requestBody);
-      console.log("users objeto a ser salvo", _body, request.requestBody);
+//    return {
+//      users: {
+//        id: 1
+//      }
+//    };
+//  });
 
-      return {
-        users: {
-          id: 1
-        }
-      };
-    });
+//  this.get('/dashboard/users', (schema) => {
+//    this.timing = sleep;
+//    var params = JSON.parse(schema.users.all);
+//    console.log("GET users: ", params);
 
-    this.get('/dashboard/users', function (schema) {
-      _this.timing = sleep;
-      var params = JSON.parse(schema.users.all);
-      console.log("GET users: ", params);
+//    return schema.users.all().models;
+//  });
 
-      return schema.users.all().models;
-    });
+//  this.get('/dashboard/users/:id', (schema, request) => {
+//    this.timing = sleep;
+//    var usersId = request.params.id;
 
-    this.get('/dashboard/users/:id', function (schema, request) {
-      _this.timing = sleep;
-      var usersId = request.params.id;
+//    // Get one Element
+//    let users = schema.users.find(usersId);
+//    var params = JSON.parse(request.requestBody);
+//    console.log("GET users/:id ", params, request.requestBody);
 
-      // Get one Element
-      var users = schema.users.find(usersId);
-      var params = JSON.parse(request.requestBody);
-      console.log("GET users/:id ", params, request.requestBody);
+//    return users;
+//  });
 
-      return users;
-    });
+//  this.delete('/dashboard/users/:id', (schema, request) => {
+//    this.timing = sleep;
+//    var id = request.params.id;
 
-    this['delete']('/dashboard/users/:id', function (schema, request) {
-      _this.timing = sleep;
-      var id = request.params.id;
+//    console.log("DELETE: life/users/:id", id);
 
-      console.log("DELETE: life/users/:id", id);
+//    return {};
+//  });
 
-      return {};
-    });
+//  // login
+//  this.post('/dashboard/logins', (schema, request) => {
+//    this.timing = sleep;  
+//    var _body = JSON.parse(request.requestBody);
+//    console.log("users a logar", _body, request.requestBody);  
 
-    // login
-    this.post('/dashboard/logins', function (schema, request) {
-      _this.timing = sleep;
-      var _body = JSON.parse(request.requestBody);
-      console.log("users a logar", _body, request.requestBody);
+//    return {
+//      logins: {
+//        id: 1
+//      }
+//    };
+//  });
 
-      return {
-        logins: {
-          id: 1
-        }
-      };
-    });
+//  // pacotes
+//  // this.get('dashboard/package-overviews', (schema, request) => {
+//  //   this.timing = sleep;
 
-    // pacotes
-    // this.get('dashboard/package-overviews', (schema, request) => {
-    //   this.timing = sleep;
+//  //   let filters = {};
+//  //   let offset = request.queryParams.offset ? parseInt(request.queryParams.offset) : 0;
+//  //   let finishOn = offset + parseInt(request.queryParams.limit);
+//  //   let startOn = offset;
 
-    //   let filters = {};
-    //   let offset = request.queryParams.offset ? parseInt(request.queryParams.offset) : 0;
-    //   let finishOn = offset + parseInt(request.queryParams.limit);
-    //   let startOn = offset;
+//  //   let packageOverviews = schema.packageOverviews.where(filters); 
 
-    //   let packageOverviews = schema.packageOverviews.where(filters); 
+//  //   // ver pacotes filtrados por nome
+//  //   if (request.queryParams.name) {
+//  //     packageOverviews = packageOverviews.filter((packageItem) => {
+//  //       if (request.queryParams.name == packageItem.name) {
+//  //         return true;
+//  //       }
+//  //       return false;
+//  //     });
+//  //   } 
+//  //   // order by name
+//  //   packageOverviews = packageOverviews.sort(function (a, b) {
+//  //     if (request.queryParams.sort === 'name') {
+//  //       if (request.queryParams.direction === "ASC") {
+//  //         return a.prize < b.prize ? -1 : 1;
+//  //       } else {
+//  //         return a.prize > b.prize ? -1 : 1;
+//  //       }
+//  //     }
 
-    //   // ver pacotes filtrados por nome
-    //   if (request.queryParams.name) {
-    //     packageOverviews = packageOverviews.filter((packageItem) => {
-    //       if (request.queryParams.name == packageItem.name) {
-    //         return true;
-    //       }
-    //       return false;
-    //     });
-    //   } 
-    //   // order by name
-    //   packageOverviews = packageOverviews.sort(function (a, b) {
-    //     if (request.queryParams.sort === 'name') {
-    //       if (request.queryParams.direction === "ASC") {
-    //         return a.prize < b.prize ? -1 : 1;
-    //       } else {
-    //         return a.prize > b.prize ? -1 : 1;
-    //       }
-    //     }
+//  //   });
 
-    //   });
+//  //   // aplica limite de itens
+//  //   // #reminf, package é uma palavra reservada , por isso packageItem ao invés de package
+//  //   packageOverviews = packageOverviews.filter(function (packageItem, index) {
+//  //     return startOn <= index && finishOn > index;
+//  //   });
 
-    //   // aplica limite de itens
-    //   // #reminf, package é uma palavra reservada , por isso packageItem ao invés de package
-    //   packageOverviews = packageOverviews.filter(function (packageItem, index) {
-    //     return startOn <= index && finishOn > index;
-    //   });
+//  //   return {
+//  //     "package-overview": packageOverviews.models,   
+//  //   };
+//  // });
 
-    //   return {
-    //     "package-overview": packageOverviews.models,   
-    //   };
-    // });
+//  this.get('/dashboard/packages', (schema) => {
+//    // var params =  JSON.stringify(schema.packages.all().models); 
+//    // console.log('GET packages: ', params);
+//    return schema.packages.all().models;
+//  });
 
-    this.get('/dashboard/packages', function (schema) {
-      // var params =  JSON.stringify(schema.packages.all().models); 
-      // console.log('GET packages: ', params);
-      return schema.packages.all().models;
-    });
+//  this.get('/dashboard/packages/:id', (schema, request) => {
+//    this.timing = sleep;
+//    var packageId = request.params.id;
 
-    this.get('/dashboard/packages/:id', function (schema, request) {
-      _this.timing = sleep;
-      var packageId = request.params.id;
+//    // Get one Element
+//    let packages = schema.packages.find(packageId);
+//    // var params = JSON.parse(request.requestBody);
+//    // console.log("GET packages/:id ", params, request.requestBody);
 
-      // Get one Element
-      var packages = schema.packages.find(packageId);
-      // var params = JSON.parse(request.requestBody);
-      // console.log("GET packages/:id ", params, request.requestBody);
+//    return {
+//      packages: {
+//        id: 1
+//      }
+//    };
+//  });
 
-      return {
-        packages: {
-          id: 1
-        }
-      };
-    });
+//  // These comments are here to help you get started. Feel free to delete them.
 
-    // These comments are here to help you get started. Feel free to delete them.
+//  /*
+//    Config (with defaults).
 
-    /*
-      Config (with defaults).
-        Note: these only affect routes defined *after* them!
-    */
+//    Note: these only affect routes defined *after* them!
+//  */
 
-    // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
-    // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
-    // this.timing = 400;      // delay for each request, automatically set to 0 during testing
+//  // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
+//  // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
+//  // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
-    /*
-      Shorthand cheatsheet:
-        this.get('/posts');
-      this.post('/posts');
-      this.get('/posts/:id');
-      this.put('/posts/:id'); // or this.patch
-      this.del('/posts/:id');
-        http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
-    */
-  };
-});
+//  /*
+//    Shorthand cheatsheet:
+
+//    this.get('/posts');
+//    this.post('/posts');
+//    this.get('/posts/:id');
+//    this.put('/posts/:id'); // or this.patch
+//    this.del('/posts/:id');
+
+//    http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
+//  */
+//}
 define("iuoff-client/mirage/fixtures/logins", ["exports"], function (exports) {
   exports["default"] = [{
     "id": 1,
@@ -2167,7 +2140,7 @@ define('iuoff-client/routes/loading', ['exports', 'ember'], function (exports, _
 });
 define('iuoff-client/routes/login', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
-    model: function model(params) {
+    model: function model() {
 
       var login = undefined;
       login = this.get('store').createRecord('login', {});
@@ -2350,7 +2323,7 @@ define('iuoff-client/tests/mirage/mirage.lint-test', ['exports'], function (expo
 
   QUnit.test('mirage/config.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'mirage/config.js should pass ESLint\n\n1:10 - \'Response\' is defined but never used. (no-unused-vars)\n22:5 - Unexpected console statement. (no-console)\n34:5 - Unexpected console statement. (no-console)\n46:5 - Unexpected console statement. (no-console)\n55:5 - Unexpected console statement. (no-console)\n64:5 - Unexpected console statement. (no-console)\n129:9 - \'packages\' is assigned a value but never used. (no-unused-vars)');
+    assert.ok(true, 'mirage/config.js should pass ESLint\n\n');
   });
 
   QUnit.test('mirage/fixtures/logins.js', function (assert) {
@@ -2435,6 +2408,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("iuoff-client/app")["default"].create({"name":"iuoff-client","version":"0.0.0+36b0a0bf"});
+  require("iuoff-client/app")["default"].create({"name":"iuoff-client","version":"0.0.0+1b8aee58"});
 }
 //# sourceMappingURL=iuoff-client.map

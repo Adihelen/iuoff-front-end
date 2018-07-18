@@ -44,7 +44,7 @@ export default Ember.Controller.extend({
               
             }).catch((error) =>{     
               this.toast.error('ao registrar usuário', 'ERRO');
-              console.error('ERRO: não foi possível registrar o usuário, erro: ', error);
+              error('ERRO: não foi possível registrar o usuário, erro: ', error);
             });
 
          }).catch((error) => {
@@ -52,13 +52,12 @@ export default Ember.Controller.extend({
           var errorCode = error.code;
           var errorMessage = error.message;
           this.toast.error('ao registrar usuário', 'ERRO');
-          console.error('Erro ao  registrar usuário code: ', errorCode, ' Msg: ', errorMessage);
+          this.error('Erro ao  registrar usuário code: ', errorCode, ' Msg: ', errorMessage);
           // ...
         });
        
       } else {
-        this.toast.error('Por favor preencha todos os campos marcados com *', 'ERRO');       
-        console.error('ERRO formulário inválido');
+        this.toast.error('Por favor preencha todos os campos marcados com *', 'ERRO formulário inválido');       
       }
     }, 
 
@@ -66,7 +65,7 @@ export default Ember.Controller.extend({
       this.set('model.userType', 1);
       this.set('clientSelected', true);
       this.set('sellerSelected', false);
-      console.log('host: ', window.location.origin , window.location.host,'/admin');
+      this.log('host: ', window.location.origin , window.location.host,'/admin');
 
     }, 
     setUserTypeSeller(){

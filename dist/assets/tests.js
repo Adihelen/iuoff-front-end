@@ -22,7 +22,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('components/menu-client.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'components/menu-client.js should pass ESLint\n\n14:13 - \'$\' is not defined. (no-undef)\n15:11 - \'$\' is not defined. (no-undef)\n16:26 - \'$\' is not defined. (no-undef)\n26:7 - \'$\' is not defined. (no-undef)');
+    assert.ok(true, 'components/menu-client.js should pass ESLint\n\n');
   });
 
   QUnit.test('controllers/about-us.js', function (assert) {
@@ -37,7 +37,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('controllers/details.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/details.js should pass ESLint\n\n58:17 - Unexpected console statement. (no-console)\n68:17 - Unexpected console statement. (no-console)\n70:17 - Unexpected console statement. (no-console)');
+    assert.ok(true, 'controllers/details.js should pass ESLint\n\n');
   });
 
   QUnit.test('controllers/home.js', function (assert) {
@@ -47,7 +47,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('controllers/login.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/login.js should pass ESLint\n\n41:13 - Unexpected console statement. (no-console)');
+    assert.ok(true, 'controllers/login.js should pass ESLint\n\n');
   });
 
   QUnit.test('controllers/packages.js', function (assert) {
@@ -62,7 +62,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('controllers/register.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/register.js should pass ESLint\n\n47:15 - Unexpected console statement. (no-console)\n55:11 - Unexpected console statement. (no-console)\n61:9 - Unexpected console statement. (no-console)\n69:7 - Unexpected console statement. (no-console)');
+    assert.ok(true, 'controllers/register.js should pass ESLint\n\n');
   });
 
   QUnit.test('helpers/format-money.js', function (assert) {
@@ -157,7 +157,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('routes/login.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/login.js should pass ESLint\n\n4:9 - \'params\' is defined but never used. (no-unused-vars)');
+    assert.ok(true, 'routes/login.js should pass ESLint\n\n');
   });
 
   QUnit.test('routes/packages.js', function (assert) {
