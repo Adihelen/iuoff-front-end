@@ -1,6 +1,4 @@
 import Ember from 'ember';
-import error from '@ember/error';
-// import $ from  'jQuery';
 
 export default Ember.Controller.extend({
     modalPackage: true,
@@ -56,7 +54,7 @@ export default Ember.Controller.extend({
                 });
                 this.set('solicitacao', _solicitacao);
             } else {
-                error('model não encontrada.');
+                this.toast.error('model não encontrada.');
             }
            
         }, 
