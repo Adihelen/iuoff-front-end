@@ -6,14 +6,17 @@ export default Ember.Component.extend({
   menuItemExternal: false,
 
   actions: {
-
+   
     scrollTo(section) {
       Ember.run.schedule("afterRender", () => {
         if (Ember.$(section)) {          
           Ember.$("html,body").animate(
-            { scrollTop: Ember.$(section).offset().top - 50 }, 
+            {
+              scrollTop: Ember.$(section).offset().top - 50
+            }, 
             this.get('scrollDuration'));
         } else {
+          
           return;
         }
       });
@@ -22,6 +25,11 @@ export default Ember.Component.extend({
     toggleNavbar(navbar){
       this.toggleProperty('showNavbar');
       Ember.$(navbar).slideToggle();
+    }
+  },
+  click(event) {
+    if (event.target.tagName.toLowerCase() === 'a') {
+      this.$('#navbarResponsive').hide();
     }
   }
 });

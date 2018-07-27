@@ -528,8 +528,11 @@ define("iuoff-client/components/menu-client", ["exports", "ember"], function (ex
 
         _ember["default"].run.schedule("afterRender", function () {
           if (_ember["default"].$(section)) {
-            _ember["default"].$("html,body").animate({ scrollTop: _ember["default"].$(section).offset().top - 50 }, _this.get('scrollDuration'));
+            _ember["default"].$("html,body").animate({
+              scrollTop: _ember["default"].$(section).offset().top - 50
+            }, _this.get('scrollDuration'));
           } else {
+
             return;
           }
         });
@@ -538,6 +541,11 @@ define("iuoff-client/components/menu-client", ["exports", "ember"], function (ex
       toggleNavbar: function toggleNavbar(navbar) {
         this.toggleProperty('showNavbar');
         _ember["default"].$(navbar).slideToggle();
+      }
+    },
+    click: function click(event) {
+      if (event.target.tagName.toLowerCase() === 'a') {
+        this.$('#navbarResponsive').hide();
       }
     }
   });
@@ -690,12 +698,10 @@ define('iuoff-client/controllers/home', ['exports', 'ember'], function (exports,
   exports['default'] = _ember['default'].Controller.extend({
 
     init: function init() {
-
       _ember['default'].run.later(function () {
         _ember['default'].$('.umiw-launcher-container').click();
       }, 5000);
     }
-
   });
 });
 define("iuoff-client/controllers/login", ["exports", "ember", "firebase"], function (exports, _ember, _firebase) {
@@ -2429,6 +2435,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("iuoff-client/app")["default"].create({"name":"iuoff-client","version":"0.0.0+e116c18d"});
+  require("iuoff-client/app")["default"].create({"name":"iuoff-client","version":"0.0.0+f2ad8800"});
 }
 //# sourceMappingURL=iuoff-client.map
