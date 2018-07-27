@@ -5,18 +5,12 @@ export default Ember.Controller.extend({
   store: Ember.inject.service("store"),
 
   queryParams: [
+    "title",
     "origin",
     "destination",
-    "casal",
-    "economy",
-    "family",
-    "confort",
-    "friends",
-    "xp", 
-    "travelStyle",
-    "numDias", 
-    "title", 
-    "initialAmount"
+    "numDias",
+    "initialAmount",
+    "travelStyle"
   ],
 
   menuItemExternal: true,
@@ -33,7 +27,7 @@ export default Ember.Controller.extend({
     if (this.get("model")) {
       _travelStyles = this.get("store").findAll("style");
     }
-    return _travelStyles;
+    return _travelStyles; 
   }),
 
   hasFilters: Ember.computed('queryParams', function(){
@@ -46,46 +40,40 @@ export default Ember.Controller.extend({
   
 
   filteredPackages: Ember.computed(
+
+    "title",
     "origin",
     "destination",
-    "casal",
-    "economy",
-    "family",
-    "confort",
-    "friends",
-    "xp",
-    "travelStyle",
     "numDias",
-    "title",
-    "initialAmount", 
+    "initialAmount",
+    "travelStyle",
+
     function() {
       let packages = this.get("model");
 
       let title =  this.get('title');
-      let origin = this.get("origin");
-      let destination = this.get("destination");      
+      let origin = this.get('origin');
+      let destination = this.get('destination');      
       let numDias =  parseInt(this.get("numDias"));
       let initialAmount =  this.get('initialAmount');
-      // // estilos de viagem
       let travelStyle =  this.get("travelStyle");        
 
-    
       if(title) {
-        var rxTitle = new RegExp(this.get('title'), 'gi');
+        var rxTitle = new RegExp(title, 'gi');
         return packages.filter((item) => {
           return item.get('title').match(rxTitle)
         });
       }
 
-      if(origin) {
-        var rxOrigin = new RegExp(this.get('origin'), 'gi');
+      if (origin) {
+        var rxOrigin = new RegExp(origin, 'gi');
         return packages.filter((item) => {
           return item.get('origin').match(rxOrigin)
         });
       }
-
+    
       if(destination) {
-        var rxDestination = new RegExp(this.get('destination'), 'gi');
+        var rxDestination = new RegExp(destination);
         return packages.filter((item) => {
           return item.get('destination').match(rxDestination)
         });
@@ -94,25 +82,21 @@ export default Ember.Controller.extend({
       if(numDias) {        
         return packages.filterBy('numDias', numDias);
       }
-      // initialAmount
+
       if(initialAmount) {
         return packages.filterBy('initialAmount', initialAmount);
       }
 
-
-      // travel styles
       if(travelStyle) {
         var rxStyles = new RegExp(this.get('travelStyle'), 'gi');
         return packages.filter((item) => {
           return item.get('styles').map((style) => {
-            // console.log('style to filter:', style, 'rx: ', style.match(rxStyles));
             return style.match(rxStyles); 
           })
         });
       }      
       
       return packages;
-    
     }
   ), 
 

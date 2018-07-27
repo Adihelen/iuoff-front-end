@@ -20,25 +20,20 @@
       {{!-- usar rgx para efeito de 'autocomplete' --}}
       <div class="form-iuoff filtro-principal">
         <label class="filtro-principal-titulo">
-          Encontre seu pacote
           <i class="fa fa-times-circle clear-filter" title="limpar filtros" {{action "clearFilters"}}> </i>
+          Encontre seu pacote
         </label>
 
         <label>Titulo:</label>
         {{input type="text" placeholder="ex: Pacote SP" id="title" value=title}}
         <label>Origem:</label>
-        {{input type="text" placeholder="ex: SP" id="origem" value=origin}}
+        {{input type="text" placeholder="ex: SP" id="origin" value=origin}}
         <label>Destino:</label>
-        {{input type="text" placeholder="ex: RE" id="destino" value=destination}}
+        {{input type="text" placeholder="ex: RE" id="destination" value=destination}}
         <label>Dias:</label>
         {{input type="number" placeholder="ex: 2" id="numDias" value=numDias}}
         <label>R$  a partir de:</label>
         {{input type="number" placeholder="ex: 150" id="initialAmount" value=initialAmount}}
-
-        <!--<label>Data ida</label>-->
-        <!--<input type="date" id="dataIda" disabled>-->
-        <!--<label>Data volta</label>-->
-        <!--<input type="date" id="dataVolta" disabled>-->
       </div>
 
       <!-- filtros adicionais -->
@@ -47,7 +42,8 @@
           Filtros adicionais
           <i class="fa fa-times-circle clear-filter" title="limpar filtros" {{action "clearFilters"}}> </i>
         </div>
-        <div class="mt-15"></div>
+        <div class="mt-15">
+        </div>
         <div class="estilo-viagem-lista">
           {{#each travelStyles as |travelStyle|}}
           <div class="checkbox">
@@ -58,96 +54,91 @@
             </label>
           </div>
           {{/each}}
-
         </div>
       </div>
 
     </div>
     <div class="col-md-8">
-      {{#if model.isPending}}
-      {{!-- TODO criar componente de loading --}}
-      <div class="container">
-        <div class="col-xs-12">
-          <i class="fa fa-spin fa-spinner fx-5"></i> <br>
-          <h3>
-            Carregando....
-          </h3>
-        </div>
-      </div>
-      {{else}}
-      {{#if filteredPackages}}
-      <div class="row">
-        {{#each filteredPackages as |package|}}
-
-        <div class="col-md-6">
-          <div class="card">
-
-            {{#if package.image}}
-            <img class="card-img-top" src={{package.image}} alt="image do pacote">
-            {{else}}
-            <img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg"
-                 alt="iuoff thumb pacotes">
-            {{/if}}
-
-
-            <div class="card-body">
-              <h5 class="card-title b-none" title="ver detalhe">
-                {{#link-to 'details' package.id}}
-
-                {{package.title}}
-                {{/link-to}}
-                
-              </h5>
-			  <div class="card-title-locate" title="ver detalhe">
-          <div class="text-uppercase">
-            De: {{package.origin}} | Para: {{package.destination}}
+        {{#if model.isPending}}
+        {{!-- TODO criar componente de loading --}}
+        <div class="container">
+          <div class="col-xs-12">
+            <i class="fa fa-spin fa-spinner fx-5"></i> <br>
+            <h3>
+              Carregando....
+            </h3>
           </div>
-			  </div>
-            </div>
-            <div class="card-footer">
-              <div class="row">
-                <div class="col-sm-12 col-md-6">
-                  <small>
-                    Número de noites
-                  </small>
-                  <br>
-                  <span class="text-secondary negrito" title="Número de noites">
-                    {{package.numDias}}
-                  </span>
+        </div>
+        {{else}}
+
+        {{#if filteredPackages}}
+        <div class="row">
+          {{#each filteredPackages as |package|}}
+
+          <div class="col-md-6">
+            <div class="card">
+
+              {{#if package.image}}
+              <img class="card-img-top" src={{package.image}} alt="image do pacote">
+              {{else}}
+              <img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg"
+                   alt="iuoff thumb pacotes">
+              {{/if}}
+
+              <div class="card-body">
+                <h5 class="card-title b-none" title="ver detalhe">
+                  {{#link-to 'details' package.id}}
+                  {{package.title}}
+                  {{/link-to}}
+                </h5>
+                <div class="card-title-locate" title="ver detalhe">
+                  <div class="text-uppercase">
+                    De: {{package.origin}} | Para: {{package.destination}}
+                  </div>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                  <small>
-                    A partir de
-                  </small>
-                  <br>
-                  <span class="text-secondary negrito" title="A partir de">
-                    {{!-- {{#if package.initialAmount}} --}}
-                    {{ format-money package.initialAmount}}
-                    {{!-- {{/if}} --}}
-                  </span>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <small>
+                      Número de noites
+                    </small>
+                    <br>
+                    <span class="text-secondary negrito" title="Número de noites">
+                      {{package.numDias}}
+                    </span>
+                  </div>
+                  <div class="col-sm-12 col-md-6">
+                    <small>
+                      A partir de
+                    </small>
+                    <br>
+                    <span class="text-secondary negrito" title="A partir de">
+                      {{!-- {{#if package.initialAmount}} --}}
+                      {{ format-money package.initialAmount}}
+                      {{!-- {{/if}} --}}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          {{/each}}
+        </div>
+        {{else}}
+        <div class="row">
+          <div class="col-xs-12">
+            <h3>
+              <i class="fa fa-2x fa-info-circle blue-color"></i>
+              <br>
+              Não foi encontrado nenhum resultado para sua pesquisa.
+            </h3>
+          </div>
         </div>
 
-        {{/each}}
+        {{/if}}
 
-      </div>
-      {{else}}
-      <div class="row">
-        <div class="col-xs-12">
-          <h3>
-            <i class="fa fa-2x fa-info-circle blue-color"></i>
-            <br>
-            Não foi encontrado nenhum resultado para sua pesquisa.
-          </h3>
-        </div>
-      </div>
-      {{/if}}
-
-      {{/if}}
-
+        {{/if}}
     </div>
   </div>
 </main>
