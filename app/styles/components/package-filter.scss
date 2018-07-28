@@ -1,5 +1,6 @@
 .filtro-principal {
   padding: 15px 15px 40px 15px;
+  box-shadow: 1px 3px 7px 0px #717171;
   background: $secondary;
 }
 
@@ -9,68 +10,109 @@
   margin-top: 10px;
 }
 
-.filtro-principal-titulo {
-  border-bottom: 0.5px solid #fff;
-  color: #fff;
-  padding-bottom: 1em;
-  background: $secondary;
+#title {
+  background: #fff;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding: 10px;
   width: 100%;
 }
 
-/*
-* Filtros adicionais
-*/
-
-.filtro-adicional {
-  padding: 15px 15px 40px 15px;
-  margin-top: 15px;
-  background: #ebebeb;
-}
-
-.filtro-adicional  label {
-  color: #333;
-  font-weight: normal;
-  margin-top: 15px;
-}
-
-.filtro-adicional-titulo { 
-  color: #fff;
-  padding-bottom: 1em;
-  background: #317ba1;
-  width: 92%;
-  position: absolute;
-  padding: 15px;
-  margin:-15px;
-}
-
-.estilo-viagem-lista {
-  margin-top: 40px;
-}
-  
-.estilo-viagem-lista .checkbox input {
-  width:initial;
-  width: 20px;
+#origin {
   background: #fff;
-  border: 1px solid #317ba1;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding: 10px;
+  width: 100%;
 }
 
-.estilo-viagem-lista .checkbox label{
+#destination {
   background: #fff;
-  border:#fff solid 1px;
-  border-radius: 26px;
-  margin-top:10px;
-  padding:10px;
-  width:100%;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding: 10px;
+  width: 100%;
 }
 
-.estilo-viagem-lista .checkbox label:hover{
-  background: #317ba1;
-  color: #fff !important;
-  cursor: pointer;
+#numDias {
+  background: #fff;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding: 10px;
+  width: 100%;
 }
 
-.clear-filter {
-  font-size: 1.5em;
-  float: right;
-  cursor: pointer;
-}
+  #initialAmount {
+    background: #fff;
+    border: #fff solid 1px;
+    border-radius: 10px;
+    margin-top: 2px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .filtro-principal-titulo {
+    border-bottom: 0.5px solid #fff;
+    color: #fff;
+    padding-bottom: 1em;
+    background: $secondary;
+    width: 100%;
+  }
+
+  .filtro-adicional {
+    padding: 15px 15px 40px 15px;
+    margin-top: 15px;
+    background: #ebebeb;
+  }
+
+  .filtro-adicional label {
+    color: #333;
+    font-weight: normal;
+    margin-top: 15px;
+  }
+
+  .filtro-adicional-titulo {
+    color: #fff;
+    padding-bottom: 1em;
+    background: #317ba1;
+    width: 92%;
+    position: absolute;
+    padding: 15px;
+    margin: -15px;
+  }
+
+  .estilo-viagem-lista {
+    margin-top: 40px;
+  }
+
+  .estilo-viagem-lista .checkbox input {
+    width: initial;
+    width: 20px;
+    background: #fff;
+    border: 1px solid #317ba1;
+  }
+
+  .estilo-viagem-lista .checkbox label {
+    background: #fff;
+    border: #fff solid 1px;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .estilo-viagem-lista .checkbox label:hover {
+    background: #317ba1;
+    color: #fff !important;
+    cursor: pointer;
+  }
+
+  .clear-filter {
+    font-size: 1.5em;
+    float: right;
+    cursor: pointer;
+  }

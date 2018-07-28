@@ -489,7 +489,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1340px; } }
+    max-width: 1200px; } }
 
 .container-fluid {
   width: 100%;
@@ -8367,11 +8367,11 @@ body.modal-open {
   padding-left: 1.5em; }
 
 .card-deck {
-  margin-bottom: 30px; }
+  margin-bottom: 20px; }
 
 .card {
+  border-radius: 15px 15px;
   box-shadow: 2px 4px 8px 0px #717171;
-  margin: 15px 0px;
   height: 475px; }
   .card img {
     height: 250px !important; }
@@ -8420,12 +8420,53 @@ body.modal-open {
 
 .filtro-principal {
   padding: 15px 15px 40px 15px;
+  box-shadow: 1px 3px 7px 0px #717171;
   background: #6dbd4a; }
 
 .filtro-principal label {
   color: #fff !important;
   font-weight: normal;
   margin-top: 10px; }
+
+#title {
+  background: #fff;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding: 10px;
+  width: 100%; }
+
+#origin {
+  background: #fff;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding: 10px;
+  width: 100%; }
+
+#destination {
+  background: #fff;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding: 10px;
+  width: 100%; }
+
+#numDias {
+  background: #fff;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding: 10px;
+  width: 100%; }
+
+#initialAmount {
+  background: #fff;
+  border: #fff solid 1px;
+  border-radius: 10px;
+  margin-top: 2px;
+  padding: 10px;
+  width: 100%; }
 
 .filtro-principal-titulo {
   border-bottom: 0.5px solid #fff;
@@ -8434,9 +8475,6 @@ body.modal-open {
   background: #6dbd4a;
   width: 100%; }
 
-/*
-* Filtros adicionais
-*/
 .filtro-adicional {
   padding: 15px 15px 40px 15px;
   margin-top: 15px;
@@ -8468,7 +8506,7 @@ body.modal-open {
 .estilo-viagem-lista .checkbox label {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 26px;
+  border-radius: 5px;
   margin-top: 10px;
   padding: 10px;
   width: 100%; }
@@ -8497,7 +8535,7 @@ body.modal-open {
   position: absolute;
   width: 80%;
   height: 110px;
-  margin-top: -60px;
+  margin-top: -30px;
   left: 10%;
   background: #fff;
   z-index: 1; }
@@ -8553,7 +8591,7 @@ body.modal-open {
 
 .form-iuoff label {
   color: #317ba1;
-  font-weight: 700; }
+  font-weight: 500; }
 
 .form-iuoff button {
   border-radius: 26px;

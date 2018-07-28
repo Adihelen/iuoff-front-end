@@ -78,13 +78,14 @@
           <div class="col-md-6">
             <div class="card">
 
-              {{#if package.image}}
-              <img class="card-img-top" src={{package.image}} alt="image do pacote">
-              {{else}}
-              <img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg"
-                   alt="iuoff thumb pacotes">
-              {{/if}}
+              <div class="card-image">
 
+                {{#if package.image}}
+                <img class="card-img-top" src={{package.image}} alt="image do pacote">
+                {{else}}
+                <img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg" alt="iuoff thumb pacotes">
+                {{/if}}
+              </div>
               <div class="card-body">
                 <h5 class="card-title b-none" title="ver detalhe">
                   {{#link-to 'details' package.id}}
