@@ -24,24 +24,32 @@
           Encontre seu pacote
         </label>
 
-        <label>Titulo:</label>
-        {{input type="text" placeholder="ex: Pacote SP" id="title" value=title}}
-        <label>Origem:</label>
-        {{input type="text" placeholder="ex: SP" id="origin" value=origin}}
-        <label>Destino:</label>
-        {{input type="text" placeholder="ex: RE" id="destination" value=destination}}
-        <label>Dias:</label>
-        {{input type="number" placeholder="ex: 2" id="numDias" value=numDias}}
-        <label>R$  a partir de:</label>
-        {{input type="number" placeholder="ex: 150" id="initialAmount" value=initialAmount}}
+        <label>Titulo</label>
+        {{input type="text" placeholder="Ex: Outubro em Fortaleza" id="title" value=title}}
+        <label>Origem</label>
+        {{input type="text" placeholder="Ex: Rio de Janeiro" id="origin" value=origin}}
+        <label>Destino</label>
+        {{input type="text" placeholder="Ex: Recife" id="destination" value=destination}}
+        <div class="row">
+          <div class="col-md-6">
+            <label>Dias</label>
+            {{input type="text" placeholder="Ex: 2" id="numDias" value=numDias}}
+          </div>
+          <div class="col-md-6">
+            <label>R$ a partir de</label>
+            {{input type="text" placeholder="Ex: 250" id="initialAmount" value=initialAmount}}
+          </div>
+        </div>
+       
       </div>
 
       <!-- filtros adicionais -->
       <div class="form-iuoff filtro-adicional">
         <div class="filtro-adicional-titulo">
           Filtros adicionais
-          <i class="fa fa-times-circle clear-filter" title="limpar filtros" {{action "clearFilters"}}> </i>
+          <!--<i class="fa fa-times-circle clear-filter" title="limpar filtros" {{action "clearFilters"}}> </i>-->
         </div>
+        
         <div class="mt-15">
         </div>
         <div class="estilo-viagem-lista">
@@ -102,16 +110,16 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <small>
-                      Número de noites
+                      <i class="far fa-moon"></i>
                     </small>
                     <br>
                     <span class="text-secondary negrito" title="Número de noites">
-                      {{package.numDias}}
+                      {{package.numDias}} Noites
                     </span>
                   </div>
                   <div class="col-sm-12 col-md-6">
                     <small>
-                      A partir de
+                      a partir de
                     </small>
                     <br>
                     <span class="text-secondary negrito" title="A partir de">

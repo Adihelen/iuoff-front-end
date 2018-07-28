@@ -7812,6 +7812,7 @@ body {
   margin: 0; }
 
 .text-secondary {
+  font-weight: 500;
   color: #6dbd4a !important; }
 
 .mainNav {
@@ -8489,7 +8490,7 @@ body.modal-open {
   color: #fff;
   padding-bottom: 1em;
   background: #317ba1;
-  width: 92%;
+  width: 92.5%;
   position: absolute;
   padding: 15px;
   margin: -15px; }
