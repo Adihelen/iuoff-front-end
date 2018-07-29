@@ -25,9 +25,10 @@
         </label>
 
         <label>Titulo</label>
-        {{input type="text" placeholder="Ex: Outubro em Fortaleza" id="title" value=title}}
+        <!--<input type="text" placeholder="Ex: Outubro em Fortaleza" id="title" />-->
+        {{input type="text" placeholder="Ex: Outubro em Fortaleza" id="title" value=title }}
         <label>Origem</label>
-        {{input type="text" placeholder="Ex: Rio de Janeiro" id="origin" value=origin}}
+        {{input type="text" placeholder="Ex: Rio de Janeiro" id="origin" value=origin }}
         <label>Destino</label>
         {{input type="text" placeholder="Ex: Recife" id="destination" value=destination}}
         <div class="row">
@@ -40,7 +41,7 @@
             {{input type="text" placeholder="Ex: 250" id="initialAmount" value=initialAmount}}
           </div>
         </div>
-       
+
       </div>
 
       <!-- filtros adicionais -->
@@ -56,7 +57,7 @@
           {{#each travelStyles as |travelStyle|}}
           <div class="checkbox">
             <label for="{{travelStyle.name}}" onClick={{action "setTravelStyle" travelStyle.name}}>
-              {{input type="radio" id=travelStyle.name name="travelStyle"}}
+              {{input type="checkbox" id=travelStyle.name name="travelStyle"}}
               <i class="{{travelStyle.icon}}"></i>
               {{travelStyle.name}}
             </label>

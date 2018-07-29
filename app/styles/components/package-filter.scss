@@ -13,7 +13,7 @@
 #title {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 2px;
   padding: 10px;
   width: 100%;
@@ -22,7 +22,7 @@
 #origin {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 2px;
   padding: 10px;
   width: 100%;
@@ -31,7 +31,7 @@
 #destination {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 2px;
   padding: 10px;
   width: 100%;
@@ -40,20 +40,20 @@
 #numDias {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 2px;
   padding: 10px;
   width: 100%;
 }
 
-  #initialAmount {
-    background: #fff;
-    border: #fff solid 1px;
-    border-radius: 10px;
-    margin-top: 2px;
-    padding: 10px;
-    width: 100%;
-  }
+#initialAmount {
+  background: #fff;
+  border: #fff solid 1px;
+  border-radius: 5px;
+  margin-top: 2px;
+  padding: 10px;
+  width: 100%;
+}
 
   .filtro-principal-titulo {
     border-bottom: 0.5px solid #fff;
@@ -92,8 +92,10 @@
   .estilo-viagem-lista .checkbox input {
     width: initial;
     width: 20px;
+    height:15px;
     background: #fff;
     border: 1px solid #317ba1;
+    border-radius: 5px;
   }
 
   .estilo-viagem-lista .checkbox label {

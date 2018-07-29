@@ -8378,7 +8378,10 @@ body.modal-open {
     height: 250px !important; }
 
 .card-title {
-  color: #317ba1; }
+  height: 50px;
+  color: #317ba1;
+  font-family: Roboto,sans-serif;
+  font-weight: 500; }
   .card-title a {
     color: #317ba1 !important; }
 
@@ -8390,14 +8393,13 @@ body.modal-open {
 
 .card-title-locate .sub-title {
   display: block;
-  font-weight: bold;
   color: #333;
   font-size: 12px;
   margin-bottom: 10px; }
 
 .card-title .sub-title {
   display: block;
-  font-weight: bold;
+  font-weight: 500;
   color: #333;
   font-size: 12px;
   margin-bottom: 10px; }
@@ -8432,7 +8434,7 @@ body.modal-open {
 #title {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 2px;
   padding: 10px;
   width: 100%; }
@@ -8440,7 +8442,7 @@ body.modal-open {
 #origin {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 2px;
   padding: 10px;
   width: 100%; }
@@ -8448,7 +8450,7 @@ body.modal-open {
 #destination {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 2px;
   padding: 10px;
   width: 100%; }
@@ -8456,7 +8458,7 @@ body.modal-open {
 #numDias {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 2px;
   padding: 10px;
   width: 100%; }
@@ -8464,7 +8466,7 @@ body.modal-open {
 #initialAmount {
   background: #fff;
   border: #fff solid 1px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 2px;
   padding: 10px;
   width: 100%; }
@@ -8501,8 +8503,10 @@ body.modal-open {
 .estilo-viagem-lista .checkbox input {
   width: initial;
   width: 20px;
+  height: 15px;
   background: #fff;
-  border: 1px solid #317ba1; }
+  border: 1px solid #317ba1;
+  border-radius: 5px; }
 
 .estilo-viagem-lista .checkbox label {
   background: #fff;
