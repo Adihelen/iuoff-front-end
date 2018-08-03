@@ -13,9 +13,9 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link " {{action "scrollTo" "#vantagens"}} href="#vantagens">
-            As vantagens
-          </a>
+          {{#link-to "home" class="nav-link " invokeAction=(action 'scrollTo' "#vantagens")}}
+          As vantagens
+          {{/link-to}}
         </li>
         <li class="nav-item">
           {{#link-to "packages" class="nav-link "}}
@@ -23,12 +23,12 @@
           {{/link-to}}
         </li>
         <li class="nav-item">
-          {{#link-to "about-us" class="nav-link "}}
+          {{#link-to "about-us" class="nav-link " invokeAction=(action 'scrollTo' "#about")}}
           Quem somos
           {{/link-to}}
         </li>
         <li class="nav-item">
-          {{#link-to "partners" class="nav-link "}}
+          {{#link-to "partners" class="nav-link " invokeAction=(action 'scrollTo' "#partner")}}
           Seja um parceiro
           {{/link-to}}
         </li>

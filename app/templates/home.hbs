@@ -86,7 +86,7 @@
       <div class="col-lg-6 col-md-12 text-center">
         <div class="service-box mt-5 mx-auto">
           <a style="font-size: 20px;color: #6ebb52;border-radius: 5px;  border: none; background: #fcfdf2;" class="btn btn-light btn-xl sr-button">
-            {{#link-to "partners" class="btn-link-parceiro"}} Seja Um Parceiro {{/link-to}}
+            {{#link-to "partners" class="btn-link-parceiro" invokeAction=(action 'scrollTo' "#partners")}}Seja Um Parceiro {{/link-to}}
           </a>
           <br />
           <br />
@@ -104,7 +104,7 @@
           </p>
           <a style="margin-bottom: 5%; color: #6ebb52;border-radius: 15px;
             border: 3px solid #6ebb52; background: white;" class="btn btn-light btn-xl sr-button">
-            {{#link-to "partners" class="btn-link-parceiro"}} Saiba mais{{/link-to}}
+            {{#link-to "partners" class="btn-link-parceiro" invokeAction=(action 'scrollTo' "#partners-top")}} Saiba mais{{/link-to}}
           </a>
 
         </div>
