@@ -1,0 +1,40 @@
+<div class="pagination-centered">
+  <ul class="pagination">
+    {{#if canStepBackward}}
+    <li style="color:#317ba1 !important; background-color:transparent; border-color:#6dbd4a;" class="page-item">
+      <a style="color:#317ba1 !important; background-color:transparent; border-color:#6dbd4a;"  class="page-link" href="#" {{action "incrementPage" -1}}>&laquo;</a>
+    </li>
+    {{else}}
+    <li style="color:#317ba1 !important; background-color:transparent; border-color:#6dbd4a;" class="page-item">
+      <a style="color:#317ba1 !important; background-color:transparent;"  class="page-link" href="#" {{action "incrementPage" -1}}>&laquo;</a>
+    </li>
+    {{/if}}
+
+    {{#each pageItems as |item|}}
+    {{#if item.dots}}
+    <li style="color:#317ba1 !important; background-color:transparent;" class="page-item disabled">
+      <span style="color:#317ba1 !important;"></span>
+    </li>
+    {{/if}}
+    {{#if item.current}}
+    <li style="color:#317ba1 !important; background-color:transparent; border-color:#6dbd4a;" class="page-item active">
+      <a style="color:#317ba1 !important; background-color:transparent; border-color:#6dbd4a;" class="page-link">{{item.page}}</a>
+    </li>
+    {{else}}
+    <li style="color:#317ba1 !important;" class="page-item">
+      <a style="color:#317ba1 !important;" class="page-link" href="#" {{action "pageClicked" item.page}}>{{item.page}}</a>
+    </li>
+    {{/if}}
+    {{/each}}
+
+    {{#if canStepForward}}
+    <li style="color:#317ba1 !important; background-color:transparent; border-color:#6dbd4a;" class="page-item active">
+      <a style="color:#317ba1 !important; background-color:transparent; border-color:#6dbd4a;" class="page-link" href="#" {{action "incrementPage" 1}}>&raquo;</a>
+    </li>
+    {{else}}
+    <li style="color:#317ba1 !important; border-color:#6dbd4a;" class="page-item disabled">
+      <a style="color:#317ba1 !important; border-color:#6dbd4a;" class="page-link" href="#" {{action "incrementPage" 1}}>&raquo;</a>
+    </li>
+    {{/if}}
+  </ul>
+</div>

@@ -1,17 +1,26 @@
 import Ember from "ember";
+import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Ember.Controller.extend({
   // filtros
   store: Ember.inject.service("store"),
   
-  queryParams: [
-    "title",
-    "origin",
-    "destination",
-    "numDias",
-    "initialAmount",
-    "travelStyle"
-  ],
+  queryParams: ["page", "perPage"],
+  page: 1,
+  perPage: 10,
+
+  filteredContent: Ember.computed.filterBy('content', 'isCompleted', false),
+  
+  filteredPackages: pagedArray('content',
+    function () {
+      let packages = this.get("model");
+      return packages;
+    }
+  ), 
+  
+  page: Ember.computed.alias("filteredPackages.page"),
+  perPage: Ember.computed.alias("filteredPackages.perPage"),
+  totalPages: Ember.computed.oneWay("filteredPackages.totalPages"),
 
   menuItemExternal: true,
 
@@ -31,26 +40,6 @@ export default Ember.Controller.extend({
     return _hasfilters;
   }),
 
-  filteredPackages: Ember.computed(
-    "title",
-    "origin",
-
-    function() {
-
-      let packages = this.get("model");
-
-      let title = this.get('title');
-
-      if (title) {
-        var rxTitle = new RegExp(title, 'gi');
-        return packages.filter((item) => {
-          return item.get('title').match(rxTitle)
-        });
-      }
-  
-      return packages;
-    }
-  ), 
 
   actions: {
 
