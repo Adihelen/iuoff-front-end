@@ -2493,6 +2493,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("iuoff-client/app")["default"].create({"name":"iuoff-client","version":"0.0.0+07e6781d"});
+  require("iuoff-client/app")["default"].create({"name":"iuoff-client","version":"0.0.0+28d3caf0"});
 }
 //# sourceMappingURL=iuoff-client.map
