@@ -66,7 +66,7 @@ export default Ember.Controller.extend({
           this.toast.success('solicitação criado com sucesso', 'SUCESSO');
           //this.clearFieldsModal();
           this.log("nova solicitação criada com sucesso id: ", solicitacao.id);
-        }).catch((error) => {
+        }).catch(() => {
           //this.error("erro ao salvar solicitação", error);
           //this.toast.error("Erro ao criar solicitação", "ERRO");
         }).finally(() => {

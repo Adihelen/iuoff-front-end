@@ -20,7 +20,7 @@
         <div class="form-iuoff filtro-principal">
 
           <label class="filtro-principal-titulo">
-            <a href="#" data-toggle="collapse" data-target="#filtro-principal"><i class="glyphicon glyphicon-chevron-down" ></i></a>
+            <a href="#" data-toggle="collapse" data-target="#filtro-principal"><i class="glyphicon glyphicon-chevron-down"></i></a>
             <i class="fa fa-times-circle clear-filter" title="limpar filtros" {{action "clearFilters"}}> </i>
             Encontre seu pacote
           </label>
@@ -83,11 +83,13 @@
         {{#each filteredPackages as |package|}}
         <div class="col-md-6">
           <div class="card">
+            {{#link-to 'details' package.id}}
             <div class="card-image">
               {{#if package.image}}<img class="card-img-top" src={{package.image}} alt="image do pacote">
               {{else}}<img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg" alt="iuoff thumb pacotes">
               {{/if}}
             </div>
+            {{/link-to}}
             <div class="card-body">
               <h5 class="card-title b-none" title="ver detalhe">
                 {{#link-to 'details' package.id}} {{package.title}} {{/link-to}}
