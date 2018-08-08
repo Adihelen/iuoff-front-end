@@ -64,11 +64,11 @@ export default Ember.Controller.extend({
         this.set('salvandoSolicitacao', true);
         this.get("solicitacao").save().then((solicitacao) => {
           this.toast.success('solicitação criado com sucesso', 'SUCESSO');
-
+          //this.clearFieldsModal();
           this.log("nova solicitação criada com sucesso id: ", solicitacao.id);
         }).catch((error) => {
-          error("erro ao salvar solicitação", error);
-          this.toast.error("Erro ao criar solicitação", "ERRO");
+          //this.error("erro ao salvar solicitação", error);
+          //this.toast.error("Erro ao criar solicitação", "ERRO");
         }).finally(() => {
           this.set('salvandoSolicitacao', false);
         });
@@ -80,6 +80,16 @@ export default Ember.Controller.extend({
     escolherValorTipo(tipoEscolhido) {
       this.set('solicitacao.valorInicialTipo', tipoEscolhido);
     }
+  },
+
+  clearFieldsModal() {
+    this.set('nome', '');
+    this.set('email', '');
+    this.set('tel', '');
+    this.set('qtdPessoas', '');
+    this.set('qtdCriancas', '');
+    this.set('idadeCriancas', '');
+    this.set('observacoes', '');
   },
 
   _randomString() {

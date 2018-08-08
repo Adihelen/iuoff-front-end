@@ -46,12 +46,12 @@ export default Ember.Controller.extend({
     },
 
     clearFilters() {
-      this.set('origin', null);
-      this.set('destination', null);
-      this.set('travelStyle', null);
-      this.set('numDias', null);
-      this.set('title', null);
-      this.set('initialAmount', null);
+      this.set('origin', '');
+      this.set('destination', '');
+      this.set('travelStyle', '');
+      this.set('numDias', '');
+      this.set('title', '');
+      this.set('initialAmount', '');
     }
   }
 });
