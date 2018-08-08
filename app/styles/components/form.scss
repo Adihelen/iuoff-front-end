@@ -1,7 +1,7 @@
 .form-iuoff  input, .form-iuoff select, .form-iuoff textarea {
   border: 2px solid #ebebeb;
   color: #aaa;
-  border-radius: 26px;
+  border-radius: 5px;
   display: inline-flex;
   width: 100%;
   padding: 8px 12px;
@@ -12,14 +12,20 @@
   font-weight: 500;
 }
 
-.form-iuoff  button {
-  border-radius: 26px;
-  width:80%;
+.form-iuoff button {
+  background: #6ebb51;
+  border-radius: 20px;
+  width: 80%;
   margin: auto;
 }
 
-.from-group-2-itens{
-  width: 48%; 
+.form-iuoff button:hover{
+  background: #6ebb51;
+
+}
+
+.from-group-2-itens {
+  width: 48%;
   display: inline-block;
   margin-left: 1%;
 }

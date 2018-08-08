@@ -1,4 +1,4 @@
-
+<!--Header-->
 <header class="header-packages land-header container">
   <div class="row">
     <!-- header esquerda -->
@@ -9,7 +9,9 @@
       <div class="title">
         {{model.title}} <br>
         <small>
-          Código: {{solicitacao.code}}
+          <strong>Código:</strong>
+          <strong style="color:#6ebb51;">{{model.code}}</strong>
+
         </small>
       </div>
     </div>
@@ -25,6 +27,7 @@
     </div>
   </div>
 </header>
+<!--Container-->
 <main role="main" class="container">
   <div class="row">
     <!-- conteudo esquerda -->
@@ -39,7 +42,6 @@
         <p>
           {{model.description}}
         </p>
-        {{!-- #alterado no modelo , não tem mais essa informaçõa --}}
 
         <div class="row">
           <!-- Button trigger modal -->
@@ -47,13 +49,7 @@
             TENHO INTERESSE
           </button>
         </div>
-        <!--<div class="row">
-            <div class="col-md-12">
-               <div class="text-danger">
-                  Estes detalhes são sujeitos a alteração atá a confirmação da compra.
-               </div>
-            </div>
-         </div>-->
+
       </section>
     </div>
     <!-- conteudo direita-->
@@ -119,9 +115,9 @@
 
     </div>
   </div>
-  <!-- /.row -->
+
 </main>
-<!-- /.container -->
+
 <!-- Modal -->
 <div class="modal fade" id="tenhoInteresseModal" tabindex="-1" role="dialog" aria-labelledby="tenhoInteresseModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -140,7 +136,8 @@
             {{model.title}}
             <br>
             <small>
-              Código: {{model.code}}
+              <strong style="color:#8e9083">Código:</strong>
+              <strong style="color:#6ebb51;">{{model.code}}</strong>
             </small>
           </h5>
         </div>
@@ -148,31 +145,31 @@
           <div class="row">
             <div class="form-group col-sm-6">
               <label><i class="fa fa-user"></i>Nome</label>
-              {{input type="text" class="form-control" value=solicitacao.nome placeholder="ex: João Silva"}}
+              {{input type="text" value=solicitacao.nome placeholder="Ex: João Silva"}}
             </div>
             <div class="form-group col-sm-6">
               <label><i class="fa fa-envelope"></i>E-mail</label>
-              {{input type="email" class="form-control" value=solicitacao.email placeholder="ex: email@email.com"}}
+              {{input type="email" class="form-control" value=solicitacao.email placeholder="Ex: email@iuoff.com"}}
             </div>
           </div>
           <div class="row">
             <div class="form-group col-sm-6">
               <label><i class="fa fa-mobile"></i>Telefone</label>
-              {{input type="tel" class="form-control" value=solicitacao.telefone placeholder="ex: 99999-9999"}}
+              {{input type="tel" class="form-control" value=solicitacao.telefone placeholder="Ex: 99999-9999"}}
             </div>
             <div class="form-group col-sm-6">
               <label><i class="fa fa-users"></i>Qtd. pessoas</label>
-              {{input type="text" class="form-control" value=solicitacao.qtdPessoas placeholder="ex: 2"}}
+              {{input type="text" class="form-control" value=solicitacao.qtdPessoas placeholder="Ex: 2"}}
             </div>
           </div>
           <div class="row">
             <div class="form-group col-sm-6">
               <label><i class="fa fa-users"></i>Qtd. crianças</label>
-              {{input type="text" class="form-control" value=solicitacao.qtdCriancas placeholder="ex: 2"}}
+              {{input type="text" class="form-control" value=solicitacao.qtdCriancas placeholder="Ex: 2"}}
             </div>
             <div class="form-group col-sm-6">
               <label><i class="fa fa-calendar"></i>Idade crianças</label>
-              {{input type="text" class="form-control" value=solicitacao.idadeCriancas placeholder="ex: 2"}}
+              {{input type="text" class="form-control" value=solicitacao.idadeCriancas placeholder="Ex: 2"}}
             </div>
           </div>
           <!--<div class="row">
@@ -195,7 +192,7 @@
                </div>
           </div>-->
           <div class="form-group">
-            <label><i class="fa sticky-note"></i>Observações</label>
+            <label><i class="fa sticky-note"></i>Observação</label>
             {{#textarea name="observacoes" value=solicitacao.detalhesAdicionais id="" cols="30" rows="5" placeholder="Digite aqui alguma obeservação..."}}{{/textarea}}
           </div>
           <div class="text-center">
@@ -208,7 +205,6 @@
             {{else}}
             <button type="submit" {{action "salvarSolicitacao"}} class="btn btn-success bg-verde btn-lg">CONTINUAR</button>
             {{/if}}
-
           </div>
         </form>
       </div>

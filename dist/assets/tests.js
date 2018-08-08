@@ -52,7 +52,7 @@ define('iuoff-client/tests/app.lint-test', ['exports'], function (exports) {
 
   QUnit.test('controllers/packages.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/packages.js should pass ESLint\n\n21:3 - Duplicate key \'page\'. (no-dupe-keys)\n22:3 - Duplicate key \'perPage\'. (no-dupe-keys)');
+    assert.ok(true, 'controllers/packages.js should pass ESLint\n\n');
   });
 
   QUnit.test('controllers/partners.js', function (assert) {

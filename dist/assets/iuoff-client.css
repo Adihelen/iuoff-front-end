@@ -8114,7 +8114,7 @@ header.SejaUmParceiro {
 
 .box-item span {
   color: #8e9083;
-  font-size: 12px;
+  font-size: 14px;
   display: block; }
 
 .divisor {
@@ -8589,7 +8589,7 @@ body.modal-open {
 .form-iuoff input, .form-iuoff select, .form-iuoff textarea {
   border: 2px solid #ebebeb;
   color: #aaa;
-  border-radius: 26px;
+  border-radius: 5px;
   display: inline-flex;
   width: 100%;
   padding: 8px 12px; }
@@ -8599,9 +8599,13 @@ body.modal-open {
   font-weight: 500; }
 
 .form-iuoff button {
-  border-radius: 26px;
+  background: #6ebb51;
+  border-radius: 20px;
   width: 80%;
   margin: auto; }
+
+.form-iuoff button:hover {
+  background: #6ebb51; }
 
 .from-group-2-itens {
   width: 48%;

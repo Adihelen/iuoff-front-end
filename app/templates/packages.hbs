@@ -16,35 +16,34 @@
 <main role="main" class="container page-with-banner">
   <div class="row">
     <div class="col-md-4">
-      <!-- filtro -->
-      {{!-- usar rgx para efeito de 'autocomplete' --}}
-      <div class="form-iuoff filtro-principal">
-        <label class="filtro-principal-titulo">
-          <i class="fa fa-times-circle clear-filter" title="limpar filtros" {{action "clearFilters"}}> </i>
-          Encontre seu pacote
-        </label>
+      <div id="filtro-principal">
+        <div class="form-iuoff filtro-principal">
 
-        <label>Titulo</label>
-        <!--<input type="text" placeholder="Ex: Outubro em Fortaleza" id="title" />-->
-        {{input type="text" placeholder="Ex: Outubro em Fortaleza" id="title" value=title }}
-        <label>Origem</label>
-        {{input type="text" placeholder="Ex: Rio de Janeiro" id="origin" value=origin }}
-        <label>Destino</label>
-        {{input type="text" placeholder="Ex: Recife" id="destination" value=destination}}
-        <div class="row">
-          <div class="col-md-6">
-            <label>Dias</label>
-            {{input type="text" placeholder="Ex: 2" id="numDias" value=numDias}}
-          </div>
-          <div class="col-md-6">
-            <label>R$ a partir de</label>
-            {{input type="text" placeholder="Ex: 250" id="initialAmount" value=initialAmount}}
+          <label class="filtro-principal-titulo">
+            <a href="#" data-toggle="collapse" data-target="#filtro-principal"><i class="glyphicon glyphicon-chevron-down" ></i></a>
+            <i class="fa fa-times-circle clear-filter" title="limpar filtros" {{action "clearFilters"}}> </i>
+            Encontre seu pacote
+          </label>
+
+          <label>Titulo</label>
+          {{input type="text" id="title" value=title key-up=(action 'filterChanged') placeholder="Ex: Outubro em Fortaleza" }}
+          <label>Origem</label>
+          {{input type="text" placeholder="Ex: Rio de Janeiro" id="origin"  value=origin }}
+          <label>Destino</label>
+          {{input type="text" placeholder="Ex: Recife" id="destination" value=destination}}
+          <div class="row">
+            <div class="col-md-6">
+              <label>Dias</label>
+              {{input type="text" placeholder="Ex: 2" id="numDias" value=numDias}}
+            </div>
+            <div class="col-md-6">
+              <label>R$ a partir de</label>
+              {{input type="text" placeholder="Ex: 250" id="initialAmount" value=initialAmount}}
+            </div>
           </div>
         </div>
-
       </div>
 
-      <!-- filtros adicionais -->
       <div class="form-iuoff filtro-adicional">
         <div class="filtro-adicional-titulo">
           Filtros adicionais
@@ -69,7 +68,6 @@
     </div>
     <div class="col-md-8">
       {{#if model.isPending}}
-      {{!-- TODO criar componente de loading --}}
       <div class="container">
         <div class="col-xs-12">
           <i class="fa fa-spin fa-spinner fx-5"></i> <br>
@@ -83,23 +81,16 @@
       {{#if filteredPackages}}
       <div class="row">
         {{#each filteredPackages as |package|}}
-
         <div class="col-md-6">
           <div class="card">
-
             <div class="card-image">
-
-              {{#if package.image}}
-              <img class="card-img-top" src={{package.image}} alt="image do pacote">
-              {{else}}
-              <img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg" alt="iuoff thumb pacotes">
+              {{#if package.image}}<img class="card-img-top" src={{package.image}} alt="image do pacote">
+              {{else}}<img class="card-img-top" src="assets/img/pacotes/iuoff-thumb.jpeg" alt="iuoff thumb pacotes">
               {{/if}}
             </div>
             <div class="card-body">
               <h5 class="card-title b-none" title="ver detalhe">
-                {{#link-to 'details' package.id}}
-                {{package.title}}
-                {{/link-to}}
+                {{#link-to 'details' package.id}} {{package.title}} {{/link-to}}
               </h5>
               <div class="card-title-locate" title="ver detalhe">
                 <div class="text-uppercase">
@@ -110,9 +101,7 @@
             <div class="card-footer">
               <div class="row">
                 <div class="col-sm-12 col-md-6">
-                  <small>
-                    <i class="far fa-moon"></i>
-                  </small>
+                  <small> <i class="far fa-moon"></i> </small>
                   <br>
                   <span class="text-secondary negrito" title="Número de noites">
                     {{package.numDias}} Noites
@@ -135,9 +124,7 @@
         </div>
         {{/each}}
       </div>
-
       {{page-numbers content=filteredPackages showFL=true}}
-
 
       {{else}}
       <div class="row">
@@ -149,11 +136,9 @@
           </h3>
         </div>
       </div>
-
       {{/if}}
 
       {{/if}}
     </div>
   </div>
 </main>
-<!-- /.container -->

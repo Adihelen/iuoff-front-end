@@ -6,7 +6,7 @@
       <div class="col-lg-5 col-md-12" style="float: left; text-align: left;">
         <div style="float: left; width: 100%">
           <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <img style="filter: grayscale(100%);" width="auto" height="160" src="/assets/img/logo.png" class="custom-logo" alt="IUOFF">
+            <img style="filter: grayscale(100%);" height="150" src="/assets/img/logo.png" class="custom-logo" alt="IUOFF">
           </a>
         </div>
         <a href="https://www.facebook.com/iuoff" target="_blank">
@@ -26,9 +26,7 @@
           criada com o objetivo de democratizar o turismo em nosso país e no
           mundo!
         </p>
-        {{#link-to "about-us" class="btn-link-about"}}
-          Saiba mais
-        {{/link-to}}
+        {{#link-to "about-us" class="btn-link-about" invokeAction=(action 'scrollTo' "#about")}}Saiba mais{{/link-to}}
         <br />
         <br />
         <br />
@@ -40,7 +38,6 @@
           <h2 style="color: #0f6492;font-weight: 700;">Atendimento ao cliente</h2>
           <br />
           <br />
-
           <h5>
             <span style="font-size: 30px;padding-right: 2%" class="icon-mail
               icon-medium"></span>
@@ -48,11 +45,9 @@
           </h5>
           <hr style="max-width: 100%; border-color: rgba(0,0,0,.1);" />
           <h5>
-            <span style="font-size: 30px;padding-right: 2%"
-                  class="icon-whatsapp-logo"></span>
-            (31) 996156888
+            <span style="font-size: 30px;padding-right: 2%" class="icon-whatsapp-logo"></span>
+            (31) 99615-6888
           </h5>
-
           <br />
         </div>
       </div>
