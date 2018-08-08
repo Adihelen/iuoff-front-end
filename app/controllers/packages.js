@@ -4,18 +4,16 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 export default Ember.Controller.extend({
 
   store: Ember.inject.service("store"),
-
+  
   filteredContent: Ember.computed.filterBy('content', 'isCompleted', false),
 
-  filteredPackages: pagedArray('content', function() {
+  filteredPackages: pagedArray('content', {perPage: 12}, function() {
       let packages = this.get('model');
       return packages;
     }
   ),
 
-  page: Ember.computed.alias("filteredPackages.page"),
-  perPage: Ember.computed.alias("filteredPackages.perPage"),
-  totalPages: Ember.computed.oneWay("filteredPackages.totalPages"),
+ 
 
   menuItemExternal: true,
 
